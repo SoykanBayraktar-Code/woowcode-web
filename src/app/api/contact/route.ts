@@ -33,6 +33,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check environment variables
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+      console.error("Missing email configuration:", {
+        hasUser: !!process.env.GMAIL_USER,
+        hasPassword: !!process.env.GMAIL_APP_PASSWORD
+      });
+      console.log("Form data received:", { firstName, lastName, email, phone, subject, message: message.substring(0, 50) + "..." });
+      return NextResponse.json(
+        { error: "E-posta yapılandırması eksik. Lütfen yönetici ile iletişime geçin." },
+        { status: 500 }
+      );
+    }
+
     // Create transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -115,8 +128,21 @@ Tarih: ${new Date().toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" })}
     );
   } catch (error) {
     console.error("Email gönderme hatası:", error);
+    
+    // Check if it's an auth error
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    console.error("Error details:", errorMessage);
+    
+    // Return more specific error for debugging
+    if (errorMessage.includes("auth") || errorMessage.includes("credentials")) {
+      return NextResponse.json(
+        { error: "E-posta yapılandırması eksik. Lütfen yönetici ile iletişime geçin." },
+        { status: 500 }
+      );
+    }
+    
     return NextResponse.json(
-      { error: "E-posta gönderilemedi" },
+      { error: "E-posta gönderilemedi. Lütfen daha sonra tekrar deneyin." },
       { status: 500 }
     );
   }
