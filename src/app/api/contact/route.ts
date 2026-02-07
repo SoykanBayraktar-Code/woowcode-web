@@ -45,10 +45,13 @@ export async function POST(request: NextRequest) {
 
     const resend = new Resend(process.env.RESEND_API_KEY);
 
+    // Determine recipient email - use CONTACT_EMAIL env var or default
+    const recipientEmail = process.env.CONTACT_EMAIL || "delivered@resend.dev";
+
     // Send email
     const { data, error } = await resend.emails.send({
       from: "WOOWCODE <onboarding@resend.dev>",
-      to: ["woowcodecom@gmail.com"],
+      to: [recipientEmail],
       replyTo: email,
       subject: `[WOOWCODE İletişim] ${subject} - ${firstName} ${lastName}`,
       html: `
