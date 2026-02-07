@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 interface ContactFormData {
   firstName: string;
@@ -33,12 +33,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check environment variables
-    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-      console.error("Missing email configuration:", {
-        hasUser: !!process.env.GMAIL_USER,
-        hasPassword: !!process.env.GMAIL_APP_PASSWORD
-      });
+    // Check environment variable
+    if (!process.env.RESEND_API_KEY) {
+      console.error("Missing RESEND_API_KEY");
       console.log("Form data received:", { firstName, lastName, email, phone, subject, message: message.substring(0, 50) + "..." });
       return NextResponse.json(
         { error: "E-posta yapılandırması eksik. Lütfen yönetici ile iletişime geçin." },
@@ -46,19 +43,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create transporter
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
-      },
-    });
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    // Email content
-    const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: "woowcodecom@gmail.com",
+    // Send email
+    const { data, error } = await resend.emails.send({
+      from: "WOOWCODE <onboarding@resend.dev>",
+      to: ["woowcodecom@gmail.com"],
       replyTo: email,
       subject: `[WOOWCODE İletişim] ${subject} - ${firstName} ${lastName}`,
       html: `
@@ -117,10 +107,17 @@ ${message}
 Bu e-posta WOOWCODE web sitesi iletişim formu üzerinden gönderilmiştir.
 Tarih: ${new Date().toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" })}
       `,
-    };
+    });
 
-    // Send email
-    await transporter.sendMail(mailOptions);
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json(
+        { error: "E-posta gönderilemedi. Lütfen daha sonra tekrar deneyin." },
+        { status: 500 }
+      );
+    }
+
+    console.log("Email sent successfully:", data);
 
     return NextResponse.json(
       { message: "E-posta başarıyla gönderildi" },
@@ -128,18 +125,8 @@ Tarih: ${new Date().toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" })}
     );
   } catch (error) {
     console.error("Email gönderme hatası:", error);
-    
-    // Check if it's an auth error
     const errorMessage = error instanceof Error ? error.message : "Unknown error";
     console.error("Error details:", errorMessage);
-    
-    // Return more specific error for debugging
-    if (errorMessage.includes("auth") || errorMessage.includes("credentials")) {
-      return NextResponse.json(
-        { error: "E-posta yapılandırması eksik. Lütfen yönetici ile iletişime geçin." },
-        { status: 500 }
-      );
-    }
     
     return NextResponse.json(
       { error: "E-posta gönderilemedi. Lütfen daha sonra tekrar deneyin." },
