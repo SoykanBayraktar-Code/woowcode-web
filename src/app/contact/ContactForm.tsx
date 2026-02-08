@@ -58,17 +58,26 @@ export default function ContactForm() {
     // Sadece rakamları al
     const digits = value.replace(/\D/g, "");
     
+    // Eğer sadece 90 veya 9 kaldıysa, tamamen temizle
+    if (digits === "90" || digits === "9" || digits === "") {
+      return "";
+    }
+    
     // 90 ile başlıyorsa kaldır (kullanıcı +90 yazmış olabilir)
     let cleanDigits = digits;
-    if (digits.startsWith("90") && digits.length > 2) {
+    if (digits.startsWith("90")) {
       cleanDigits = digits.slice(2);
+    }
+    
+    // Eğer temizleme sonrası boşsa
+    if (cleanDigits === "") {
+      return "";
     }
     
     // Max 10 rakam (5XX XXX XX XX)
     const limited = cleanDigits.slice(0, 10);
     
     // Formatlama
-    if (limited.length === 0) return "";
     if (limited.length <= 3) return `+90 ${limited}`;
     if (limited.length <= 6) return `+90 ${limited.slice(0, 3)} ${limited.slice(3)}`;
     if (limited.length <= 8) return `+90 ${limited.slice(0, 3)} ${limited.slice(3, 6)} ${limited.slice(6)}`;
