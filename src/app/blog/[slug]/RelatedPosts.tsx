@@ -10,7 +10,7 @@ interface RelatedPostsProps {
 
 export default function RelatedPosts({ posts }: RelatedPostsProps) {
   return (
-    <section className="py-16 border-t border-[var(--border-color)]">
+    <section className="py-16 border-t border-[var(--electric-violet)]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-[var(--foreground)] mb-8">
           İlgili Yazılar

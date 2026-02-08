@@ -46,7 +46,7 @@ export default function ServicesCTA() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border border-[var(--border-color)] text-[var(--foreground)] font-semibold rounded-xl hover:border-[var(--electric-violet)] hover:text-[var(--electric-violet)] transition-colors text-lg"
+                className="px-8 py-4 border-2 border-[var(--electric-violet)]/50 text-[var(--foreground)] font-semibold rounded-xl hover:border-[var(--electric-violet)] hover:text-[var(--electric-violet)] transition-all text-lg shadow-[0_0_15px_rgba(123,31,162,0.2)] hover:shadow-[0_0_25px_rgba(123,31,162,0.35)]"
               >
                 {t.nav.about}
               </motion.button>
@@ -54,7 +54,7 @@ export default function ServicesCTA() {
           </div>
           
           {/* Stats */}
-          <div className="mt-12 pt-8 border-t border-[var(--border-color)]">
+          <div className="mt-12 pt-8 border-t border-[var(--electric-violet)]/30">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { value: "50+", label: t.servicesPage.cta.stats.projects },

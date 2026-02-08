@@ -27,7 +27,7 @@ export default function BlogFilters({ categories }: BlogFiltersProps) {
           className={`px-4 py-2 text-sm rounded-lg transition-all ${
             activeCategory === "all"
               ? "bg-[var(--neon-blue)] text-[var(--background)]"
-              : "bg-[var(--background-tertiary)] text-[var(--foreground-muted)] border border-[var(--border-color)] hover:border-[var(--neon-blue)] hover:text-[var(--neon-blue)]"
+              : "bg-[var(--background-tertiary)] text-[var(--foreground-muted)] border border-[var(--neon-blue)]/40 hover:border-[var(--neon-blue)] hover:text-[var(--neon-blue)] shadow-[0_0_6px_rgba(13,71,161,0.1)]"
           }`}
         >
           {t.blogPage.filters.all}
@@ -41,7 +41,7 @@ export default function BlogFilters({ categories }: BlogFiltersProps) {
             className={`px-4 py-2 text-sm rounded-lg transition-all ${
               activeCategory === category
                 ? "bg-[var(--neon-blue)] text-[var(--background)]"
-                : "bg-[var(--background-tertiary)] text-[var(--foreground-muted)] border border-[var(--border-color)] hover:border-[var(--neon-blue)] hover:text-[var(--neon-blue)]"
+                : "bg-[var(--background-tertiary)] text-[var(--foreground-muted)] border border-[var(--neon-blue)]/40 hover:border-[var(--neon-blue)] hover:text-[var(--neon-blue)] shadow-[0_0_6px_rgba(13,71,161,0.1)]"
             }`}
           >
             {category}

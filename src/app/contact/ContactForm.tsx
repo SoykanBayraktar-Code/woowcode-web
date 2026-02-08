@@ -174,7 +174,7 @@ export default function ContactForm() {
     `w-full px-4 py-3 rounded-xl bg-[var(--background-secondary)] border ${
       hasError
         ? "border-red-500 focus:border-red-500"
-        : "border-[var(--border-color)] focus:border-[var(--neon-blue)]"
+        : "border-[var(--neon-blue)]/40 focus:border-[var(--neon-blue)] shadow-[0_0_8px_rgba(13,71,161,0.1)]"
     } text-[var(--foreground)] placeholder-[var(--foreground-muted)] focus:outline-none focus:ring-2 ${
       hasError ? "focus:ring-red-500/20" : "focus:ring-[var(--neon-blue)]/20"
     } transition-all duration-300`;

@@ -63,7 +63,7 @@ export default function Header() {
                 onClick={toggleLanguage}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-1 px-3 py-1.5 rounded-lg border border-[var(--border-color)] bg-[var(--background-secondary)] hover:border-[var(--neon-blue)] transition-all duration-300"
+                className="flex items-center space-x-1 px-3 py-1.5 rounded-lg border border-[var(--neon-blue)]/40 bg-[var(--background-secondary)] hover:border-[var(--neon-blue)] transition-all duration-300 shadow-[0_0_8px_rgba(13,71,161,0.1)]"
               >
                 <svg className="w-4 h-4 text-[var(--foreground-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
@@ -82,7 +82,7 @@ export default function Header() {
               <motion.button
                 onClick={toggleLanguage}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center px-2 py-1 rounded-md border border-[var(--border-color)] bg-[var(--background-secondary)]"
+                className="flex items-center px-2 py-1 rounded-md border border-[var(--neon-blue)]/40 bg-[var(--background-secondary)] shadow-[0_0_6px_rgba(13,71,161,0.1)]"
               >
                 <span className="text-xs font-medium">
                   <span className={language === "TR" ? "text-[var(--neon-blue)]" : "text-[var(--foreground-muted)]"}>TR</span>

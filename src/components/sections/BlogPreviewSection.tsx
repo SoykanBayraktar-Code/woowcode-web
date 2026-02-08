@@ -27,7 +27,7 @@ export default function BlogPreviewSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="inline-block px-4 py-1.5 text-sm font-medium rounded-full bg-[var(--electric-violet)]/10 text-[var(--electric-violet)] border border-[var(--electric-violet)]/30 mb-4">
+          <span className="inline-block px-4 py-1.5 text-sm font-medium rounded-full bg-[var(--electric-violet)]/15 text-[var(--electric-violet)] border border-[var(--electric-violet)]/50 mb-4 shadow-[0_0_12px_rgba(123,31,162,0.3)]">
             {t.blog.badge}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">
@@ -64,7 +64,7 @@ export default function BlogPreviewSection() {
         >
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-[var(--neon-blue)] text-[var(--neon-blue)] font-semibold hover:bg-[var(--neon-blue)]/10 transition-all duration-300 group"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-[var(--neon-blue)]/70 text-[var(--neon-blue)] font-semibold hover:bg-[var(--neon-blue)]/15 transition-all duration-300 group shadow-[0_0_20px_rgba(13,71,161,0.25)] hover:shadow-[0_0_30px_rgba(13,71,161,0.4)] hover:border-[var(--neon-blue)]"
           >
             <span>{t.blog.viewAll}</span>
             <svg

@@ -69,7 +69,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
                 {post.tags.slice(0, 3).map((tag) => (
                   <span
                     key={tag}
-                    className="px-2 py-1 text-xs rounded bg-[var(--background-tertiary)] text-[var(--foreground-muted)] border border-[var(--border-color)]"
+                    className="px-2 py-1 text-xs rounded bg-[var(--background-tertiary)] text-[var(--foreground-muted)] border border-[var(--neon-blue)]/40 shadow-[0_0_6px_rgba(13,71,161,0.15)]"
                   >
                     #{tag}
                   </span>

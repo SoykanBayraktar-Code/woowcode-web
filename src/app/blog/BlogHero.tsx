@@ -20,7 +20,7 @@ export default function BlogHero() {
           className="text-center"
         >
           {/* Badge */}
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-[var(--border-color)] bg-[var(--background-secondary)] mb-6">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-[var(--neon-blue)]/50 bg-[var(--background-secondary)] mb-6 shadow-[0_0_10px_rgba(13,71,161,0.2)]">
             <svg
               className="w-4 h-4 text-[var(--neon-blue)]"
               fill="none"
@@ -56,7 +56,7 @@ export default function BlogHero() {
               <input
                 type="text"
                 placeholder={t.blogPage.filters.search}
-                className="w-full px-5 py-3 pl-12 rounded-xl bg-[var(--background-secondary)] border border-[var(--border-color)] text-[var(--foreground)] placeholder:text-[var(--foreground-muted)] focus:outline-none focus:border-[var(--neon-blue)] transition-colors"
+                className="w-full px-5 py-3 pl-12 rounded-xl bg-[var(--background-secondary)] border border-[var(--neon-blue)]/40 text-[var(--foreground)] placeholder:text-[var(--foreground-muted)] focus:outline-none focus:border-[var(--neon-blue)] transition-colors shadow-[0_0_8px_rgba(13,71,161,0.1)]"
               />
               <svg
                 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--foreground-muted)]"

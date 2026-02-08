@@ -174,7 +174,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-[var(--border-color)] bg-[var(--background-secondary)] mb-8"
+            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-[var(--border-color-bright)] bg-[var(--background-secondary)] mb-8 shadow-[0_0_10px_rgba(123,31,162,0.2)]"
           >
             <span className="w-2 h-2 bg-[var(--neon-green)] rounded-full animate-pulse" />
             <span className="text-sm text-[var(--foreground-muted)]">{t.hero.badge}</span>
@@ -209,13 +209,13 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="flex flex-wrap justify-center gap-4 mb-10"
           >
-            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[var(--neon-blue)]/10 to-[var(--electric-violet)]/10 border border-[var(--neon-blue)]/30 text-[var(--neon-blue)] font-semibold text-sm">
+            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[var(--neon-blue)]/15 to-[var(--electric-violet)]/15 border border-[var(--neon-blue)]/50 text-[var(--neon-blue)] font-semibold text-sm shadow-[0_0_12px_rgba(13,71,161,0.25)]">
               {t.hero.badge}
             </span>
-            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[var(--neon-green)]/10 to-[var(--neon-blue)]/10 border border-[var(--neon-green)]/30 text-[var(--neon-green)] font-semibold text-sm">
+            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[var(--neon-green)]/15 to-[var(--neon-blue)]/15 border border-[var(--neon-green)]/50 text-[var(--neon-green)] font-semibold text-sm shadow-[0_0_12px_rgba(123,31,162,0.25)]">
               {t.hero.badgeScalable}
             </span>
-            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[var(--electric-violet)]/10 to-[var(--deep-magenta)]/10 border border-[var(--electric-violet)]/30 text-[var(--electric-violet)] font-semibold text-sm">
+            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[var(--electric-violet)]/15 to-[var(--deep-magenta)]/15 border border-[var(--electric-violet)]/50 text-[var(--electric-violet)] font-semibold text-sm shadow-[0_0_12px_rgba(123,31,162,0.3)]">
               {t.hero.badgeAdvantage}
             </span>
           </motion.div>
@@ -243,7 +243,7 @@ export default function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.05, borderColor: "var(--neon-blue)" }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 rounded-xl font-semibold text-[var(--foreground)] border-2 border-[var(--border-color)] hover:border-[var(--neon-blue)] hover:text-[var(--neon-blue)] transition-all duration-300 flex items-center gap-2 bg-[var(--background-secondary)]/50 backdrop-blur-sm"
+                className="px-8 py-4 rounded-xl font-semibold text-[var(--foreground)] border-2 border-[var(--neon-blue)]/50 hover:border-[var(--neon-blue)] hover:text-[var(--neon-blue)] transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-[var(--neon-blue)]/5 to-[var(--electric-violet)]/5 backdrop-blur-sm shadow-[0_0_15px_rgba(13,71,161,0.2)] hover:shadow-[0_0_25px_rgba(13,71,161,0.35)]"
               >
                 <span>{t.hero.ctaConsultation}</span>
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -295,7 +295,7 @@ export default function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-[var(--border-color)] rounded-full flex items-start justify-center p-2"
+          className="w-6 h-10 border-2 border-[var(--neon-blue)]/40 rounded-full flex items-start justify-center p-2 shadow-[0_0_10px_rgba(13,71,161,0.2)]"
         >
           <div className="w-1 h-2 bg-[var(--neon-blue)] rounded-full" />
         </motion.div>

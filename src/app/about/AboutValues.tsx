@@ -83,7 +83,7 @@ export default function AboutValues() {
               className="group glass-card rounded-2xl p-6 lg:p-8 hover:border-[var(--neon-blue)] transition-all duration-500"
             >
               {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-[var(--background-tertiary)] border border-[var(--border-color)] flex items-center justify-center text-[var(--neon-blue)] mb-5 group-hover:border-[var(--neon-blue)] transition-colors">
+              <div className="w-14 h-14 rounded-xl bg-[var(--background-tertiary)] border border-[var(--neon-blue)]/40 flex items-center justify-center text-[var(--neon-blue)] mb-5 group-hover:border-[var(--neon-blue)] transition-colors shadow-[0_0_8px_rgba(13,71,161,0.15)]">
                 {valueIcons[index]}
               </div>
 

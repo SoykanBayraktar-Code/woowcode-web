@@ -22,7 +22,7 @@ export default function AboutHero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-[var(--border-color)] bg-[var(--background-secondary)] mb-6">
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-[var(--neon-blue)]/50 bg-[var(--background-secondary)] mb-6 shadow-[0_0_10px_rgba(13,71,161,0.2)]">
               <span className="w-2 h-2 bg-[var(--neon-blue)] rounded-full" />
               <span className="text-sm text-[var(--foreground-muted)]">
                 {t.about.hero.badge}
@@ -60,13 +60,13 @@ export default function AboutHero() {
             <div className="relative aspect-square max-w-lg mx-auto">
               {/* Decorative circles */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full rounded-full border border-[var(--border-color)] opacity-20" />
+                <div className="w-full h-full rounded-full border border-[var(--border-color)] opacity-40" />
               </div>
               <div className="absolute inset-8 flex items-center justify-center">
-                <div className="w-full h-full rounded-full border border-[var(--neon-blue)] opacity-30" />
+                <div className="w-full h-full rounded-full border border-[var(--neon-blue)] opacity-50" />
               </div>
               <div className="absolute inset-16 flex items-center justify-center">
-                <div className="w-full h-full rounded-full border border-[var(--neon-green)] opacity-40" />
+                <div className="w-full h-full rounded-full border border-[var(--neon-green)] opacity-60" />
               </div>
               
               {/* Center content */}

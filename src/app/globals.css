@@ -5,11 +5,12 @@
 /* Color Palette: Cyber Cobalt, Electric Violet, Deep Magenta */
 :root {
   /* Base Colors */
-  --background: #0a0a12;
-  --background-secondary: #101018;
-  --background-tertiary: #18182a;
+  --background: #141420;
+  --background-secondary: #1a1a28;
+  --background-tertiary: #242438;
   --foreground: #f5f5f8;
-  --foreground-muted: #9a9ab0;
+  --foreground-muted: #b8b8d0;
+  --foreground-muted-bright: #c8c8e0;
   --text-primary: #263238; /* Cool Slate */
   
   /* Brand Colors - Cyber Cobalt (Deep Blue) */
@@ -33,14 +34,21 @@
   --neon-green-glow: var(--electric-violet-glow);
   
   /* Borders & Cards */
-  --border-color: #2a2a45;
-  --card-bg: rgba(16, 16, 24, 0.85);
-  --card-border: rgba(42, 42, 69, 0.6);
+  --border-color: #3d3d60;
+  --border-color-bright: #4d4d75;
+  --card-bg: rgba(26, 26, 40, 0.85);
+  --card-border: rgba(61, 61, 96, 0.75);
+  
+  /* Enhanced Glow Effects */
+  --button-glow-subtle: 0 0 15px rgba(13, 71, 161, 0.25);
+  --button-glow-medium: 0 0 25px rgba(13, 71, 161, 0.4);
+  --badge-glow: 0 0 10px rgba(123, 31, 162, 0.35);
+  --card-glow-edge: 0 0 1px rgba(123, 31, 162, 0.4);
   
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--cyber-cobalt) 0%, var(--electric-violet) 50%, var(--deep-magenta) 100%);
   --gradient-secondary: linear-gradient(135deg, var(--cyber-cobalt-dark) 0%, var(--electric-violet) 100%);
-  --gradient-dark: linear-gradient(180deg, #0a0a12 0%, #101018 100%);
+  --gradient-dark: linear-gradient(180deg, #141420 0%, #1a1a28 100%);
 }
 
 @theme inline {
@@ -111,4 +119,36 @@ body {
   background: var(--card-bg);
   backdrop-filter: blur(10px);
   border: 1px solid var(--card-border);
+  box-shadow: var(--card-glow-edge);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 0 20px rgba(123, 31, 162, 0.2);
+  border-color: rgba(75, 75, 110, 0.9);
+}
+
+/* Enhanced Outline Button */
+.btn-outline-glow {
+  border: 2px solid rgba(13, 71, 161, 0.6);
+  box-shadow: 0 0 15px rgba(13, 71, 161, 0.2), inset 0 0 10px rgba(13, 71, 161, 0.05);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-glow:hover {
+  border-color: rgba(13, 71, 161, 0.9);
+  box-shadow: 0 0 25px rgba(13, 71, 161, 0.4), inset 0 0 15px rgba(13, 71, 161, 0.1);
+}
+
+/* Badge Glow Effect */
+.badge-enhanced {
+  box-shadow: 0 0 8px rgba(123, 31, 162, 0.25);
+  border: 1px solid rgba(123, 31, 162, 0.5) !important;
+}
+
+/* Feature Tag Enhanced */
+.tag-enhanced {
+  border: 1px solid rgba(123, 31, 162, 0.45) !important;
+  box-shadow: 0 0 6px rgba(123, 31, 162, 0.15);
+  color: var(--foreground-muted-bright) !important;
 }

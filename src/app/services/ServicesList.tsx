@@ -101,7 +101,7 @@ export default function ServicesList() {
                     {service.features.map((feature) => (
                       <span
                         key={feature}
-                        className="px-4 py-2 text-sm rounded-full bg-[var(--background-tertiary)] border border-[var(--border-color)] text-[var(--foreground-muted)]"
+                        className="px-4 py-2 text-sm rounded-full bg-[var(--background-tertiary)] border border-[var(--electric-violet)]/40 text-[var(--foreground-muted)] shadow-[0_0_6px_rgba(123,31,162,0.15)] hover:border-[var(--electric-violet)]/60 transition-all duration-300"
                       >
                         {feature}
                       </span>
@@ -142,7 +142,7 @@ export default function ServicesList() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: capIndex * 0.1 }}
-                        className="p-4 rounded-xl bg-[var(--background-tertiary)] border border-[var(--border-color)] hover:border-[var(--electric-violet)] transition-colors duration-300"
+                        className="p-4 rounded-xl bg-[var(--background-tertiary)] border border-[var(--electric-violet)]/35 hover:border-[var(--electric-violet)] transition-colors duration-300 shadow-[0_0_6px_rgba(123,31,162,0.1)]"
                       >
                         <div className="flex items-start space-x-3">
                           <div className="w-8 h-8 rounded-lg bg-[var(--electric-violet)]/20 flex items-center justify-center flex-shrink-0 mt-1">

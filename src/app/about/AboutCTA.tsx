@@ -55,7 +55,7 @@ export default function AboutCTA() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/#services"
-                className="inline-flex items-center px-8 py-4 border border-[var(--border-color)] text-[var(--foreground)] font-semibold rounded-xl hover:border-[var(--neon-blue)] hover:text-[var(--neon-blue)] transition-colors text-lg"
+                className="inline-flex items-center px-8 py-4 border-2 border-[var(--neon-blue)]/50 text-[var(--foreground)] font-semibold rounded-xl hover:border-[var(--neon-blue)] hover:text-[var(--neon-blue)] transition-all text-lg shadow-[0_0_15px_rgba(13,71,161,0.2)] hover:shadow-[0_0_25px_rgba(13,71,161,0.35)]"
               >
                 {t.nav.services}
               </Link>

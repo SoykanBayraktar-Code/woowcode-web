@@ -25,7 +25,7 @@ export default function ContactHero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-[var(--neon-blue)]/10 border border-[var(--neon-blue)]/30 mb-6"
+            className="inline-flex items-center px-4 py-2 rounded-full bg-[var(--neon-blue)]/15 border border-[var(--neon-blue)]/50 mb-6 shadow-[0_0_12px_rgba(13,71,161,0.25)]"
           >
             <span className="w-2 h-2 rounded-full bg-[var(--neon-green)] mr-2 animate-pulse" />
             <span className="text-[var(--neon-blue)] text-sm font-medium">

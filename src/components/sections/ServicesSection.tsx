@@ -116,7 +116,7 @@ export default function ServicesSection() {
 
               <div className="relative z-10">
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-[var(--background-tertiary)] border border-[var(--border-color)] flex items-center justify-center text-[var(--electric-violet)] mb-6 group-hover:border-[var(--electric-violet)] group-hover:shadow-lg group-hover:shadow-[var(--electric-violet-glow)] transition-all duration-500">
+                <div className="w-14 h-14 rounded-xl bg-[var(--background-tertiary)] border border-[var(--electric-violet)]/40 flex items-center justify-center text-[var(--electric-violet)] mb-6 group-hover:border-[var(--electric-violet)] group-hover:shadow-lg group-hover:shadow-[var(--electric-violet-glow)] transition-all duration-500 shadow-[0_0_8px_rgba(123,31,162,0.15)]">
                   {icons[iconKey]}
                 </div>
 
@@ -135,7 +135,7 @@ export default function ServicesSection() {
                   {service.features.map((feature: string) => (
                     <span
                       key={feature}
-                      className="px-3 py-1 text-xs rounded-full bg-[var(--background-tertiary)] border border-[var(--border-color)] text-[var(--foreground-muted)]"
+                      className="px-3 py-1 text-xs rounded-full bg-[var(--background-tertiary)] border border-[var(--electric-violet)]/35 text-[var(--foreground-muted)] shadow-[0_0_6px_rgba(123,31,162,0.15)] hover:border-[var(--electric-violet)]/60 transition-all duration-300"
                     >
                       {feature}
                     </span>

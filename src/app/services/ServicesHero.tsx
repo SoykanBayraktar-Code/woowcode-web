@@ -21,7 +21,7 @@ export default function ServicesHero() {
           className="text-center max-w-4xl mx-auto"
         >
           {/* Badge */}
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-[var(--border-color)] bg-[var(--background-secondary)] mb-6">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-[var(--electric-violet)]/50 bg-[var(--background-secondary)] mb-6 shadow-[0_0_10px_rgba(123,31,162,0.2)]">
             <span className="w-2 h-2 bg-[var(--electric-violet)] rounded-full animate-pulse" />
             <span className="text-sm text-[var(--foreground-muted)]">
               {t.servicesPage.hero.badge}

@@ -101,7 +101,7 @@ export default function ServicesProcess() {
                   </div>
                   
                   {/* Icon */}
-                  <div className="w-10 h-10 mx-auto mb-4 rounded-lg bg-[var(--background-tertiary)] border border-[var(--border-color)] flex items-center justify-center text-[var(--electric-violet)]">
+                  <div className="w-10 h-10 mx-auto mb-4 rounded-lg bg-[var(--background-tertiary)] border border-[var(--electric-violet)]/40 flex items-center justify-center text-[var(--electric-violet)] shadow-[0_0_8px_rgba(123,31,162,0.15)]">
                     {step.icon}
                   </div>
                   
