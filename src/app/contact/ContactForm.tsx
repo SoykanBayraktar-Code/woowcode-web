@@ -59,12 +59,9 @@ export default function ContactForm() {
     const digits = value.replace(/\D/g, "");
     
     // 90 ile başlıyorsa kaldır (kullanıcı +90 yazmış olabilir)
-    const cleanDigits = digits.startsWith("90") ? digits.slice(2) : digits;
-    
-    // 5 ile başlamıyorsa ve rakam varsa, sadece 5 ile başlayanları kabul et
-    if (cleanDigits.length > 0 && !cleanDigits.startsWith("5")) {
-      // Eğer ilk rakam 5 değilse, mevcut değeri koru
-      return formData.phone;
+    let cleanDigits = digits;
+    if (digits.startsWith("90") && digits.length > 2) {
+      cleanDigits = digits.slice(2);
     }
     
     // Max 10 rakam (5XX XXX XX XX)
@@ -362,17 +359,6 @@ export default function ContactForm() {
               name="phone"
               value={formData.phone}
               onChange={handlePhoneChange}
-              onKeyDown={(e) => {
-                // Backspace, Delete, Tab, Arrow keys izin ver
-                const allowedKeys = ["Backspace", "Delete", "Tab", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
-                if (allowedKeys.includes(e.key)) return;
-                // Ctrl/Cmd kombinasyonlarına izin ver (copy/paste)
-                if (e.ctrlKey || e.metaKey) return;
-                // Sadece rakamları kabul et
-                if (!/^\d$/.test(e.key)) {
-                  e.preventDefault();
-                }
-              }}
               inputMode="numeric"
               placeholder="+90 5XX XXX XX XX"
               className={inputClasses(!!errors.phone)}
