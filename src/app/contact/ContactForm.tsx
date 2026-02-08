@@ -53,6 +53,31 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
+  // Telefon numarası formatlama fonksiyonu
+  const formatPhoneNumber = (value: string): string => {
+    // Sadece rakamları al
+    const digits = value.replace(/\D/g, "");
+    
+    // 90 ile başlıyorsa kaldır (kullanıcı +90 yazmış olabilir)
+    const cleanDigits = digits.startsWith("90") ? digits.slice(2) : digits;
+    
+    // 5 ile başlamıyorsa ve rakam varsa, sadece 5 ile başlayanları kabul et
+    if (cleanDigits.length > 0 && !cleanDigits.startsWith("5")) {
+      // Eğer ilk rakam 5 değilse, mevcut değeri koru
+      return formData.phone;
+    }
+    
+    // Max 10 rakam (5XX XXX XX XX)
+    const limited = cleanDigits.slice(0, 10);
+    
+    // Formatlama
+    if (limited.length === 0) return "";
+    if (limited.length <= 3) return `+90 ${limited}`;
+    if (limited.length <= 6) return `+90 ${limited.slice(0, 3)} ${limited.slice(3)}`;
+    if (limited.length <= 8) return `+90 ${limited.slice(0, 3)} ${limited.slice(3, 6)} ${limited.slice(6)}`;
+    return `+90 ${limited.slice(0, 3)} ${limited.slice(3, 6)} ${limited.slice(6, 8)} ${limited.slice(8)}`;
+  };
+
   // Loading skeleton while mounting
   if (!mounted) {
     return (
@@ -94,7 +119,7 @@ export default function ContactForm() {
 
     if (!formData.phone.trim()) {
       newErrors.phone = t.contact.form.validation.phoneRequired;
-    } else if (!/^[\d\s\+\-\(\)]{10,}$/.test(formData.phone)) {
+    } else if (!/^\+90 5\d{2} \d{3} \d{2} \d{2}$/.test(formData.phone)) {
       newErrors.phone = t.contact.form.validation.phoneInvalid;
     }
 
@@ -120,6 +145,16 @@ export default function ContactForm() {
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+  };
+
+  // Telefon için özel handler - sadece rakam kabul eder ve formatlar
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    setFormData((prev) => ({ ...prev, phone: formatted }));
+    // Clear error when user starts typing
+    if (errors.phone) {
+      setErrors((prev) => ({ ...prev, phone: undefined }));
     }
   };
 
@@ -326,7 +361,19 @@ export default function ContactForm() {
               id="phone"
               name="phone"
               value={formData.phone}
-              onChange={handleChange}
+              onChange={handlePhoneChange}
+              onKeyDown={(e) => {
+                // Backspace, Delete, Tab, Arrow keys izin ver
+                const allowedKeys = ["Backspace", "Delete", "Tab", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
+                if (allowedKeys.includes(e.key)) return;
+                // Ctrl/Cmd kombinasyonlarına izin ver (copy/paste)
+                if (e.ctrlKey || e.metaKey) return;
+                // Sadece rakamları kabul et
+                if (!/^\d$/.test(e.key)) {
+                  e.preventDefault();
+                }
+              }}
+              inputMode="numeric"
               placeholder="+90 5XX XXX XX XX"
               className={inputClasses(!!errors.phone)}
             />
