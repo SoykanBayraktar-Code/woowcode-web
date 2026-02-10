@@ -70,6 +70,11 @@ export const translations = {
           description: "Makineleriniz artık birbiriyle konuşsun. Sensörlerden buluta, uçtan uca çözümler.",
           features: ["Sensör entegrasyonu", "Edge computing", "SCADA sistemleri"],
         },
+        "mobile-web-apps": {
+          title: "Mobil & Web Uygulama",
+          description: "iOS, Android ve web platformları için modern, kullanıcı odaklı uygulamalar geliştiriyoruz.",
+          features: ["Cross-platform", "Responsive tasarım", "API entegrasyonu"],
+        },
       },
     },
     
@@ -330,6 +335,19 @@ export const translations = {
           ],
           useCases: ["Akıllı fabrikalar", "Enerji yönetimi", "Çevre izleme", "Akıllı binalar"],
         },
+        "mobile-web-apps": {
+          title: "Mobil & Web Uygulama Geliştirme",
+          shortDescription: "Fikrinizi tüm platformlarda hayata geçirin.",
+          longDescription: "iOS, Android ve web platformları için modern, performanslı ve kullanıcı deneyimi odaklı uygulamalar geliştiriyoruz. Tek kod tabanıyla tüm cihazlara ulaşın.",
+          features: ["Cross-platform", "Responsive", "PWA"],
+          capabilities: [
+            { title: "Native Performans", description: "iOS ve Android'de yerel uygulama hızında çalışır" },
+            { title: "Responsive Tasarım", description: "Her ekran boyutuna uyumlu arayüzler" },
+            { title: "Offline Destek", description: "Internet bağlantısı olmadan da çalışan uygulamalar" },
+            { title: "Push Bildirimler", description: "Kullanıcıları anlık olarak bilgilendirin" },
+          ],
+          useCases: ["Kurumsal mobil uygulamalar", "E-ticaret platformları", "Müşteri sadakat uygulamaları", "Saha ekibi yönetimi"],
+        },
       },
     },
     
@@ -518,6 +536,11 @@ export const translations = {
           title: "IoT & Industrial Automation",
           description: "Let your machines communicate with each other. End-to-end solutions from sensors to cloud.",
           features: ["Sensor integration", "Edge computing", "SCADA systems"],
+        },
+        "mobile-web-apps": {
+          title: "Mobile & Web Apps",
+          description: "We develop modern, user-centric applications for iOS, Android, and web platforms.",
+          features: ["Cross-platform", "Responsive design", "API integration"],
         },
       },
     },
@@ -778,6 +801,19 @@ export const translations = {
             { title: "Automation", description: "Systems that automatically respond to conditions" },
           ],
           useCases: ["Smart factories", "Energy management", "Environmental monitoring", "Smart buildings"],
+        },
+        "mobile-web-apps": {
+          title: "Mobile & Web App Development",
+          shortDescription: "Bring your idea to life on all platforms.",
+          longDescription: "We develop modern, high-performance, user experience-focused applications for iOS, Android, and web platforms. Reach all devices with a single codebase.",
+          features: ["Cross-platform", "Responsive", "PWA"],
+          capabilities: [
+            { title: "Native Performance", description: "Runs at native app speed on iOS and Android" },
+            { title: "Responsive Design", description: "Interfaces that adapt to every screen size" },
+            { title: "Offline Support", description: "Apps that work without internet connection" },
+            { title: "Push Notifications", description: "Keep users informed instantly" },
+          ],
+          useCases: ["Enterprise mobile apps", "E-commerce platforms", "Customer loyalty apps", "Field team management"],
         },
       },
     },
