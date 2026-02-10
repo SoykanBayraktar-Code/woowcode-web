@@ -743,7 +743,6 @@ export const translations = {
           { step: "04", title: "Deployment & Integration", description: "We seamlessly integrate the solution into your existing systems and complete user training." },
           { step: "05", title: "Support & Optimization", description: "We provide 24/7 technical support, monitor performance, and make continuous improvements." },
         ],
-        },
       },
       getQuote: "Get Quote",
       useCases: "Use Cases",
