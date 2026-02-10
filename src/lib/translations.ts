@@ -7,6 +7,7 @@ export const translations = {
       home: "Ana Sayfa",
       about: "Hakkımızda",
       services: "Hizmetler",
+      projects: "Projelerimiz",
       blog: "Blog",
       contact: "İletişim",
     },
@@ -332,6 +333,103 @@ export const translations = {
       },
     },
     
+    // Projects Page
+    projectsPage: {
+      hero: {
+        badge: "Ar-Ge Projelerimiz",
+        title: "Projelerimiz &",
+        titleHighlight: "Vaka Analizleri",
+        description: "Ar-Ge aşamasındaki projelerimiz ile müşterilerimizin karmaşık problemlerine nasıl yenilikçi çözümler geliştirdiğimizi keşfedin.",
+        stats: {
+          activeProjects: "Aktif Proje",
+          successRate: "Ar-Ge Aşamasında",
+          technology: "İleri Teknoloji",
+        },
+      },
+      list: {
+        title: "Vaka",
+        titleHighlight: "Analizlerimiz",
+        description: "Her proje, benzersiz zorlukları ve yenilikçi çözüm yaklaşımları ile Ar-Ge sürecimizin bir parçasıdır.",
+      },
+      labels: {
+        technologies: "Kullanılan Teknolojiler",
+        challenge: "Problem & Zorluk",
+        features: "Temel Özellikler",
+      },
+      projects: {
+        "cattle-feed-vision": {
+          title: "Cattle Feed Vision",
+          category: "Görüntü İşleme & Yapay Zeka",
+          description: "Hayvancılık sektöründe beslenme süreçlerini devrim niteliğinde dönüştüren yapay görme platformu. Yem türü tanıma, hassas miktar oranlama ve günlük rasyon kontrolü ile verimlilik ve hayvan sağlığını optimize eder.",
+          challenge: "Hayvancılık işletmelerinde farklı yem türlerinin doğru tanımlanması, hassas oranlarda karıştırılması ve günlük beslenme rasyonlarının doğru hazırlanıp hazırlanmadığının kontrolü uzman bağımlı ve hata payı yüksek bir süreçti.",
+          technologies: ["Python", "OpenCV", "TensorFlow", "Keras", "Edge AI"],
+          features: [
+            "Otomatik yem türü tanıma ve sınıflandırma",
+            "Hassas yem miktarı oranlama ve ölçüm",
+            "Gerçek zamanlı stok takibi ve uyarı sistemi",
+            "Günlük beslenme rasyonu doğrulama",
+            "Kalite analizi ve taze/bayat tespiti",
+            "Mobil uygulama ve bulut entegrasyonu",
+          ],
+        },
+        "smart-waste-container": {
+          title: "Akıllı Çöp Konteynırı",
+          category: "IoT & Akıllı Şehir",
+          description: "Belediyelerin çöp toplama operasyonlarını akıllandıran IoT tabanlı çözüm. Kamu bütçelerinde tasarruf sağlarken, çöp araçlarının gereksiz trafik yoğunluğu yaratmasını önler ve %35'e kadar yakıt-zaman tasarrufu sağlar.",
+          challenge: "Belediye çöp toplama araçları sabit rotalarla çalışarak boş konteynırlara gereksiz seferler düzenliyor, bu da hem yakıt israfına hem de şehir trafiğine ek yük oluşturuyordu.",
+          technologies: ["LoRaWAN", "Özel RF Protokol", "Node.js", "PostgreSQL", "React"],
+          features: [
+            "Ultrasonik doluluk sensörleri",
+            "Düşük güç tüketimli uzun menzilli haberleşme",
+            "Dinamik rota optimizasyonu ile yakıt tasarrufu",
+            "Gerçek zamanlı doluluk takip paneli",
+            "Trafik yoğunluğunu azaltan akıllı planlama",
+            "Belediye sistemleri ile tam entegrasyon",
+          ],
+        },
+        "guilty-detect-vision": {
+          title: "Guilty Detect Vision",
+          category: "AI & Güvenlik",
+          description: "Derin öğrenme tabanlı görüntü işleme modeli ile güvenlik kamerası görüntülerinden şüpheli kişileri ve anormal davranışları tespit eden gelişmiş güvenlik sistemi.",
+          challenge: "Güvenlik personelinin tüm kameraları eş zamanlı izlemesi imkansızdı. Şüpheli davranışlar çoğu zaman fark edilmeden geçiyor ve olaylar sonradan tespit ediliyordu.",
+          technologies: ["PyTorch", "YOLO", "OpenCV", "CUDA", "FastAPI"],
+          features: [
+            "Gerçek zamanlı davranış analizi",
+            "Yüz tanıma ve takip",
+            "Anormal hareket tespiti",
+            "Çoklu kamera desteği",
+            "Anlık alarm ve bildirim sistemi",
+          ],
+        },
+        "roomstyle-ai": {
+          title: "RoomStyle AI",
+          category: "SaaS Girişimi",
+          description: "Boş oda fotoğraflarını yapay zeka ile dönüştüren SaaS platformu. Kullanıcının seçtiği iç mimari tarza göre odaya uygun mobilya yerleşimi ve dekorasyon önerileri sunar.",
+          challenge: "Emlak sektöründe boş daireler potansiyel alıcılara cazip görünmüyor. Fiziksel home staging maliyetli ve zaman alıcı. Müşteriler boş mekanda yaşam alanını hayal etmekte zorlanıyor.",
+          technologies: ["Generative AI", "Stable Diffusion", "ControlNet", "Deep Learning", "Computer Vision"],
+          features: [
+            "Tek tıkla boş oda dönüştürme",
+            "10+ farklı iç mimari stil seçeneği",
+            "Oda tipine özel mobilya yerleşimi",
+            "Yüksek çözünürlüklü gerçekçi görseller",
+            "Emlakçı ve inşaat firmaları için API",
+            "Toplu görsel işleme desteği",
+          ],
+        },
+      },
+      cta: {
+        title: "Sizin Projeniz",
+        titleHighlight: "Bir Sonraki Başarı Hikayemiz Olabilir",
+        description: "Karmaşık problemlerinize yenilikçi çözümler üretmek için sabırsızlanıyoruz. İhtiyaçlarınızı paylaşın, birlikte harika işler başaralım.",
+        button: "Projenizi Konuşalım",
+        features: {
+          consultation: "Ücretsiz Danışmanlık",
+          customSolution: "Özel Çözüm Tasarımı",
+          support: "7/24 Teknik Destek",
+        },
+      },
+    },
+
     // Blog Page
     blogPage: {
       hero: {
@@ -358,6 +456,7 @@ export const translations = {
       home: "Home",
       about: "About",
       services: "Services",
+      projects: "Projects",
       blog: "Blog",
       contact: "Contact",
     },
@@ -683,6 +782,103 @@ export const translations = {
       },
     },
     
+    // Projects Page
+    projectsPage: {
+      hero: {
+        badge: "R&D Projects",
+        title: "Our Projects &",
+        titleHighlight: "Case Studies",
+        description: "Discover how we develop innovative solutions for our clients' complex problems through our R&D stage projects.",
+        stats: {
+          activeProjects: "Active Projects",
+          successRate: "In R&D Stage",
+          technology: "Advanced Tech",
+        },
+      },
+      list: {
+        title: "Case",
+        titleHighlight: "Studies",
+        description: "Each project is part of our R&D process with unique challenges and innovative solution approaches.",
+      },
+      labels: {
+        technologies: "Technologies Used",
+        challenge: "Problem & Challenge",
+        features: "Key Features",
+      },
+      projects: {
+        "cattle-feed-vision": {
+          title: "Cattle Feed Vision",
+          category: "Computer Vision & AI",
+          description: "A revolutionary AI vision platform transforming feeding processes in the livestock industry. Optimizes efficiency and animal health through feed type recognition, precise quantity measurement, and daily ration verification.",
+          challenge: "In livestock operations, accurately identifying different feed types, mixing them in precise proportions, and verifying that daily feeding rations were prepared correctly was an expert-dependent process with high error margins.",
+          technologies: ["Python", "OpenCV", "TensorFlow", "Keras", "Edge AI"],
+          features: [
+            "Automatic feed type recognition and classification",
+            "Precise feed quantity measurement and proportioning",
+            "Real-time stock tracking and alert system",
+            "Daily feeding ration verification",
+            "Quality analysis and freshness detection",
+            "Mobile app and cloud integration",
+          ],
+        },
+        "smart-waste-container": {
+          title: "Smart Waste Container",
+          category: "IoT & Smart City",
+          description: "An IoT-based solution that makes municipal waste collection operations smarter. Saves on public budgets while preventing garbage trucks from creating unnecessary traffic congestion, achieving up to 35% fuel and time savings.",
+          challenge: "Municipal garbage trucks operated on fixed routes, making unnecessary trips to empty containers, resulting in both fuel waste and additional burden on city traffic.",
+          technologies: ["LoRaWAN", "Custom RF Protocol", "Node.js", "PostgreSQL", "React"],
+          features: [
+            "Ultrasonic fill level sensors",
+            "Long-range low power communication",
+            "Dynamic route optimization for fuel savings",
+            "Real-time fill level monitoring dashboard",
+            "Smart scheduling to reduce traffic congestion",
+            "Full integration with municipal systems",
+          ],
+        },
+        "guilty-detect-vision": {
+          title: "Guilty Detect Vision",
+          category: "AI & Security",
+          description: "An advanced security system that detects suspicious individuals and abnormal behaviors from security camera footage using deep learning-based image processing.",
+          challenge: "It was impossible for security personnel to monitor all cameras simultaneously. Suspicious behaviors often went unnoticed and incidents were detected after the fact.",
+          technologies: ["PyTorch", "YOLO", "OpenCV", "CUDA", "FastAPI"],
+          features: [
+            "Real-time behavior analysis",
+            "Face recognition and tracking",
+            "Abnormal movement detection",
+            "Multi-camera support",
+            "Instant alarm and notification system",
+          ],
+        },
+        "roomstyle-ai": {
+          title: "RoomStyle AI",
+          category: "SaaS Startup",
+          description: "A SaaS platform that transforms empty room photos using AI. Provides furniture placement and decoration suggestions tailored to the user's selected interior design style.",
+          challenge: "In the real estate sector, empty apartments don't appeal to potential buyers. Physical home staging is costly and time-consuming. Customers struggle to visualize living spaces in empty rooms.",
+          technologies: ["Generative AI", "Stable Diffusion", "ControlNet", "Deep Learning", "Computer Vision"],
+          features: [
+            "One-click empty room transformation",
+            "10+ different interior design style options",
+            "Room type-specific furniture placement",
+            "High-resolution realistic visuals",
+            "API for realtors and construction companies",
+            "Batch image processing support",
+          ],
+        },
+      },
+      cta: {
+        title: "Your Project Could Be",
+        titleHighlight: "Our Next Success Story",
+        description: "We're eager to create innovative solutions for your complex problems. Share your needs with us, and let's achieve great things together.",
+        button: "Let's Discuss Your Project",
+        features: {
+          consultation: "Free Consultation",
+          customSolution: "Custom Solution Design",
+          support: "24/7 Technical Support",
+        },
+      },
+    },
+
     // Blog Page
     blogPage: {
       hero: {
