@@ -52,27 +52,6 @@ export default function ServicesCTA() {
               </motion.button>
             </Link>
           </div>
-          
-          {/* Stats */}
-          <div className="mt-12 pt-8 border-t border-[var(--electric-violet)]/30">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { value: "50+", label: t.servicesPage.cta.stats.projects },
-                { value: "6", label: t.servicesPage.cta.stats.expertise },
-                { value: "99.9%", label: t.servicesPage.cta.stats.satisfaction },
-                { value: "7/24", label: t.servicesPage.cta.stats.support },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-2xl lg:text-3xl font-bold neon-text mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-[var(--foreground-muted)]">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>
