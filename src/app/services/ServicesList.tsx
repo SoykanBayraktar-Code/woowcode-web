@@ -11,7 +11,7 @@ const serviceIds = [
   "digital-twin",
   "saas-development",
   "mobile-web-apps",
-  "iot-sensors",
+  "iot-automation",
 ] as const;
 
 const iconMap: Record<string, string> = {
@@ -21,7 +21,7 @@ const iconMap: Record<string, string> = {
   "digital-twin": "twin",
   "saas-development": "cloud",
   "mobile-web-apps": "mobile",
-  "iot-sensors": "sensor",
+  "iot-automation": "sensor",
 };
 
 // Icon Components

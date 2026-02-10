@@ -334,7 +334,7 @@ export const translations = {
           ],
           useCases: ["B2B platformları", "E-ticaret çözümleri", "CRM sistemleri", "Proje yönetim araçları"],
         },
-        "iot-sensors": {
+        "iot-automation": {
           title: "IoT & Sensör Teknolojileri",
           shortDescription: "Nesnelerinize hayat verin.",
           longDescription: "Fiziksel dünyayı dijital dünya ile buluşturun. Sensörler aracılığıyla çevrenizi izleyin, anlayın ve akıllı kararlar alan sistemler oluşturun.",
@@ -813,7 +813,7 @@ export const translations = {
           ],
           useCases: ["B2B platforms", "E-commerce solutions", "CRM systems", "Project management tools"],
         },
-        "iot-sensors": {
+        "iot-automation": {
           title: "IoT & Sensor Technologies",
           shortDescription: "Bring your objects to life.",
           longDescription: "Connect the physical world with the digital world. Monitor, understand, and create systems that make smart decisions through sensors.",

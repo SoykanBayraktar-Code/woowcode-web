@@ -31,6 +31,11 @@ const icons: Record<string, React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
     </svg>
   ),
+  mobile: (
+    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+    </svg>
+  ),
   sensor: (
     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
@@ -62,7 +67,7 @@ const itemVariants = {
 export default function ServicesSection() {
   const { t } = useLanguage();
 
-  const serviceIds = ["autonomous-drones", "industrial-ai", "data-engineering", "digital-twin", "saas-development", "iot-automation"] as const;
+  const serviceIds = ["autonomous-drones", "industrial-ai", "data-engineering", "digital-twin", "saas-development", "mobile-web-apps", "iot-automation"] as const;
 
   return (
     <section id="services" className="py-20 lg:py-32 relative">
@@ -102,7 +107,8 @@ export default function ServicesSection() {
                            serviceId === "industrial-ai" ? "brain" :
                            serviceId === "data-engineering" ? "database" :
                            serviceId === "digital-twin" ? "twin" :
-                           serviceId === "saas-development" ? "cloud" : "sensor";
+                           serviceId === "saas-development" ? "cloud" :
+                           serviceId === "mobile-web-apps" ? "mobile" : "sensor";
             return (
             <motion.div
               key={serviceId}
