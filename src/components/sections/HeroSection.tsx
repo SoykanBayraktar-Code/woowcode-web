@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring, useTransform, useInView } from "fram
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { waLink } from "@/lib/site";
 
 // Counter animation component
 function AnimatedCounter({ value, suffix = "", duration = 2 }: { value: number; suffix?: string; duration?: number }) {
@@ -239,6 +240,18 @@ export default function HeroSection() {
                 </svg>
               </motion.button>
             </Link>
+            <a href={waLink(language)} target="_blank" rel="noopener noreferrer">
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(37,211,102,0.45)" }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-4 rounded-xl font-semibold text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all duration-300 shadow-[0_0_20px_rgba(37,211,102,0.35)] flex items-center gap-2"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.886 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.142 1.595 5.945L0 24l6.305-1.654a11.96 11.96 0 005.71 1.454h.005c6.581 0 11.94-5.335 11.943-11.894 0-3.18-1.26-6.165-3.55-8.41" />
+                </svg>
+                <span>{t.hero.ctaWhatsApp}</span>
+              </motion.button>
+            </a>
             <Link href={`/contact?subject=${encodeURIComponent(t.contact.form.subjects.consultation)}`}>
               <motion.button
                 whileHover={{ scale: 1.05, borderColor: "var(--neon-blue)" }}
@@ -247,7 +260,7 @@ export default function HeroSection() {
               >
                 <span>{t.hero.ctaConsultation}</span>
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206" />
                 </svg>
               </motion.button>
             </Link>
@@ -261,10 +274,10 @@ export default function HeroSection() {
             className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {[
-              { value: 50, suffix: "+", label: t.hero.stats.projects },
-              { value: 15, suffix: "+", label: t.hero.stats.clients },
-              { value: 99.9, suffix: "%", label: t.hero.stats.uptime, isDecimal: true },
-              { value: 7, suffix: "/24", label: t.hero.stats.support },
+              { value: 0, suffix: "", label: t.hero.stats.founded, static: "2024" },
+              { value: 7, suffix: "+", label: t.hero.stats.expertise, static: "" },
+              { value: 0, suffix: "", label: t.hero.stats.support, static: "7/24" },
+              { value: 0, suffix: "", label: t.hero.stats.response, static: language === "EN" ? "24h" : "24s" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -273,8 +286,8 @@ export default function HeroSection() {
                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                 className="text-center"
               >
-                {stat.isDecimal ? (
-                  <div className="text-3xl sm:text-4xl font-bold neon-text mb-2">99.9%</div>
+                {stat.static ? (
+                  <div className="text-3xl sm:text-4xl font-bold neon-text mb-2">{stat.static}</div>
                 ) : (
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 )}

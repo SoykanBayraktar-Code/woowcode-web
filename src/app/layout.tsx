@@ -46,21 +46,14 @@ export const metadata: Metadata = {
     title: "WOOWCODE | Kurumsal Yapay Zeka ve Dijital Dönüşüm Çözümleri",
     description:
       "Endüstriyel yapay zeka, otonom sistemler ve stratejik veri mühendisliği ile işletmelerin dijital dönüşümünü hızlandırıyoruz.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "WOOWCODE - Kurumsal Teknoloji Çözümleri",
-      },
-    ],
+    // og:image otomatik olarak src/app/opengraph-image.tsx'ten gelir.
   },
   twitter: {
     card: "summary_large_image",
     title: "WOOWCODE | Kurumsal Yapay Zeka ve Dijital Dönüşüm Çözümleri",
     description:
       "Endüstriyel yapay zeka, otonom sistemler ve veri mühendisliği ile dijital dönüşümünüzü hızlandırın.",
-    images: ["/og-image.jpg"],
+    // twitter:image otomatik olarak src/app/twitter-image.tsx'ten gelir.
   },
   robots: {
     index: true,
@@ -101,7 +94,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "WOOWCODE",
               url: process.env.NEXT_PUBLIC_SITE_URL || "https://woowcode.com",
-              logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://woowcode.com"}/logo.png`,
+              logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://woowcode.com"}/WOOWCODELOGO.png`,
               description:
                 "Endüstriyel yapay zeka, otonom sistemler ve stratejik veri mühendisliği ile işletmelerin dijital dönüşümünü hızlandıran kurumsal teknoloji çözüm ortağı.",
               sameAs: [

@@ -23,12 +23,13 @@ export const translations = {
       description: "Endüstriyel yapay zeka, otonom sistemler ve stratejik veri mühendisliği ile işletmenizin dijital dönüşümünü hızlandırıyoruz. Karmaşık problemlere zarif çözümler.",
       ctaServices: "Hizmetlerimizi İncele",
       ctaConsultation: "Ücretsiz Danışmanlık",
+      ctaWhatsApp: "30 dk Ücretsiz Görüşme",
       scrollText: "Daha Fazlasını Keşfet",
       stats: {
-        projects: "Tamamlanan Proje",
-        clients: "Kurumsal Müşteri",
-        uptime: "Uptime Garantisi",
+        founded: "Kuruluş",
+        expertise: "Uzmanlık Alanı",
         support: "Teknik Destek",
+        response: "Yanıt Süresi",
       },
     },
     
@@ -98,7 +99,7 @@ export const translations = {
       companyInfo: {
         title: "WOOWCODE YAZILIM ve TİCARET A.Ş.",
         taxNo: "Vergi No",
-        address: "Şirinyalı Mah. İsmet Gökşen Cad.\nÖzdilek AVM, E Blok, K:9, D:37\nMuratpaşa / Antalya",
+        address: "Şirinyalı Mah. 1533. Sokak No:49/2\nMuratpaşa / Antalya",
       },
     },
     
@@ -151,6 +152,9 @@ export const translations = {
         companyTitle: "Şirket Ünvanı",
         companyName: "WOOWCODE YAZILIM ve TİCARET A.Ş.",
         taxNo: "Vergi Numarası",
+        phone: "Telefon",
+        email: "E-posta",
+        whatsapp: "WhatsApp",
         address: "Adres",
         addressLine: "Şirinyalı Mah. 1533. Sokak No:49/2\nMuratpaşa/Antalya\nTürkiye",
         quickResponse: "Hızlı Yanıt",
@@ -478,8 +482,15 @@ export const translations = {
       backToBlog: "Blog'a Dön",
       share: "Paylaş",
     },
+
+    // Floating Contact Widget
+    widget: {
+      whatsapp: "WhatsApp'tan Yazın",
+      call: "Hemen Arayın",
+      label: "İletişim",
+    },
   },
-  
+
   EN: {
     // Navigation
     nav: {
@@ -502,12 +513,13 @@ export const translations = {
       description: "We accelerate your digital transformation with industrial AI, autonomous systems, and strategic data engineering. Elegant solutions for complex problems.",
       ctaServices: "Explore Our Services",
       ctaConsultation: "Free Consultation",
+      ctaWhatsApp: "Free 30-min Call",
       scrollText: "Discover More",
       stats: {
-        projects: "Completed Projects",
-        clients: "Enterprise Clients",
-        uptime: "Uptime Guarantee",
+        founded: "Founded",
+        expertise: "Areas of Expertise",
         support: "Technical Support",
+        response: "Response Time",
       },
     },
     
@@ -577,7 +589,7 @@ export const translations = {
       companyInfo: {
         title: "WOOWCODE SOFTWARE and TRADE Inc.",
         taxNo: "Tax No",
-        address: "Şirinyalı Mah. İsmet Gökşen Cad.\nÖzdilek Mall, Block E, Floor 9, No:37\nMuratpaşa / Antalya, Turkey",
+        address: "Şirinyalı Mah. 1533. Sokak No:49/2\nMuratpaşa / Antalya, Turkey",
       },
     },
     
@@ -630,6 +642,9 @@ export const translations = {
         companyTitle: "Company Name",
         companyName: "WOOWCODE SOFTWARE and TRADE Inc.",
         taxNo: "Tax Number",
+        phone: "Phone",
+        email: "Email",
+        whatsapp: "WhatsApp",
         address: "Address",
         addressLine: "Şirinyalı Mah. 1533. Sokak No:49/2\nMuratpaşa/Antalya\nTurkey",
         quickResponse: "Quick Response",
@@ -956,6 +971,13 @@ export const translations = {
       relatedPosts: "Related Posts",
       backToBlog: "Back to Blog",
       share: "Share",
+    },
+
+    // Floating Contact Widget
+    widget: {
+      whatsapp: "Message on WhatsApp",
+      call: "Call Now",
+      label: "Contact",
     },
   },
 };
