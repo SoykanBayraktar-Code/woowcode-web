@@ -124,9 +124,60 @@ export const translations = {
         { q: "Bir proje ne kadar sürede teslim edilir?", a: "Süre projenin kapsamına göre değişir. Küçük kapsamlı işler genellikle birkaç hafta, MVP düzeyindeki ürünler tipik olarak 8-12 hafta içinde teslim edilir. Net takvimi keşif aşamasında birlikte belirleriz." },
         { q: "Geliştirilen kodun sahibi kim olur?", a: "Proje tamamlandığında tüm kaynak kodun mülkiyeti tamamen size aittir. Hiçbir teknolojik kilitlenme (vendor lock-in) uygulamayız." },
         { q: "Teslimattan sonra bakım ve destek sağlıyor musunuz?", a: "Evet. Teslim sonrası temel bakım ve desteği genellikle ücretsiz sunuyoruz; daha kapsamlı destek ihtiyaçlarının çerçevesini ise projeye göre birlikte belirliyoruz." },
-        { q: "Verilerimiz ve gizliliğimiz güvende mi?", a: "Projelerinizde gizliliğe ve KVKK ilkelerine önem veriyoruz. Talep etmeniz hâlinde bir gizlilik sözleşmesi (NDA) imzalamaktan memnuniyet duyarız." },
+        { q: "Verilerimiz ve gizliliğimiz güvende mi?", a: "Projelerinizde gizliliğe ve KVKK ilkelerine önem veriyor, verilerinizi üçüncü taraflarla paylaşmıyoruz. Gizlilik konusundaki ihtiyaçlarınızı proje başında birlikte netleştiririz." },
         { q: "Uzaktan mı yoksa yerinde mi çalışıyorsunuz?", a: "İkisi de mümkün. Antalya merkezliyiz; Türkiye genelinde uzaktan, bölgemizde gerektiğinde yüz yüze çalışıyoruz." },
         { q: "Sürece nasıl başlıyoruz?", a: "WhatsApp veya iletişim formundan bize ulaşın; ücretsiz bir keşif görüşmesiyle ihtiyacınızı netleştirelim ve size özel kapsam ile teklifi hazırlayalım." },
+      ],
+    },
+
+    // Packages Section
+    packages: {
+      badge: "Çalışma Paketleri",
+      title: "Size Uygun",
+      titleHighlight: "Paketi Seçin",
+      description: "Her ölçeğe uygun, şeffaf kapsamlı çalışma modelleri. Fiyat projenize göre belirlenir; net teklifi ücretsiz keşif görüşmesinden sonra alırsınız.",
+      popular: "En Popüler",
+      cta: "Teklif Al",
+      tiers: [
+        {
+          name: "Başlangıç",
+          tagline: "Fikrinizi hızlıca hayata geçirin",
+          forWho: "Yeni başlayanlar & MVP",
+          features: [
+            "Ücretsiz keşif görüşmesi",
+            "Tek platform (web ya da mobil)",
+            "UI/UX tasarım + geliştirme",
+            "Temel API entegrasyonu",
+            "Yayına alma desteği",
+            "1 ay ücretsiz hata desteği",
+          ],
+        },
+        {
+          name: "İşletme",
+          tagline: "Büyüyen işiniz için tam çözüm",
+          forWho: "KOBİ & ölçeklenen ürünler",
+          features: [
+            "Başlangıç paketindeki her şey",
+            "Web + mobil birlikte",
+            "Yönetim paneli / dashboard",
+            "Çoklu API & ödeme entegrasyonu",
+            "Yapay zekâ / otomasyon modülü",
+            "Genişletilmiş bakım & destek",
+          ],
+        },
+        {
+          name: "Kurumsal",
+          tagline: "Uçtan uca dijital dönüşüm",
+          forWho: "Kurumlar & özel sistemler",
+          features: [
+            "İşletme paketindeki her şey",
+            "Özel AI / veri / IoT çözümü",
+            "Ölçeklenebilir bulut mimarisi",
+            "Mevcut sistemlerle entegrasyon",
+            "Öncelikli destek & SLA",
+            "Sürekli geliştirme & bakım",
+          ],
+        },
       ],
     },
 
@@ -655,9 +706,60 @@ export const translations = {
         { q: "How long does a project take to deliver?", a: "Timelines depend on the project scope. Small-scope work is usually delivered within a few weeks, while MVP-level products typically take 8-12 weeks. We define the exact timeline together during discovery." },
         { q: "Who owns the developed code?", a: "When the project is complete, full ownership of the source code is entirely yours. We never apply any vendor lock-in." },
         { q: "Do you provide maintenance and support after delivery?", a: "Yes. We usually provide basic post-delivery maintenance and support free of charge; the scope of more extensive support needs is defined together based on the project." },
-        { q: "Is our data and privacy safe?", a: "We prioritize confidentiality and data protection (KVKK/GDPR) principles in your projects. We're happy to sign a non-disclosure agreement (NDA) upon request." },
+        { q: "Is our data and privacy safe?", a: "We prioritize confidentiality and data protection (KVKK/GDPR) principles in your projects and never share your data with third parties. We clarify your confidentiality needs together at the start of the project." },
         { q: "Do you work remotely or on-site?", a: "Both are possible. We're based in Antalya; we work remotely across Turkey and meet in person within our region when needed." },
         { q: "How do we get started?", a: "Reach out via WhatsApp or the contact form; let's clarify your needs in a free discovery call and prepare a tailored scope and quote for you." },
+      ],
+    },
+
+    // Packages Section
+    packages: {
+      badge: "Engagement Packages",
+      title: "Choose the Package",
+      titleHighlight: "That Fits You",
+      description: "Transparent, scope-based engagement models for every scale. Pricing is set per project; you get a clear quote after a free discovery call.",
+      popular: "Most Popular",
+      cta: "Get a Quote",
+      tiers: [
+        {
+          name: "Starter",
+          tagline: "Bring your idea to life quickly",
+          forWho: "Early stage & MVP",
+          features: [
+            "Free discovery call",
+            "Single platform (web or mobile)",
+            "UI/UX design + development",
+            "Basic API integration",
+            "Deployment support",
+            "1 month free bug support",
+          ],
+        },
+        {
+          name: "Business",
+          tagline: "A complete solution for your growing business",
+          forWho: "SMBs & scaling products",
+          features: [
+            "Everything in Starter",
+            "Web + mobile together",
+            "Admin panel / dashboard",
+            "Multiple API & payment integration",
+            "AI / automation module",
+            "Extended maintenance & support",
+          ],
+        },
+        {
+          name: "Enterprise",
+          tagline: "End-to-end digital transformation",
+          forWho: "Enterprises & custom systems",
+          features: [
+            "Everything in Business",
+            "Custom AI / data / IoT solution",
+            "Scalable cloud architecture",
+            "Integration with existing systems",
+            "Priority support & SLA",
+            "Continuous development & maintenance",
+          ],
+        },
       ],
     },
 

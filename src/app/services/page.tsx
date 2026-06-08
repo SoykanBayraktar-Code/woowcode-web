@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import ServicesHero from "./ServicesHero";
 import ServicesList from "./ServicesList";
 import ServicesProcess from "./ServicesProcess";
+import ServicesPackages from "./ServicesPackages";
 import ServicesCTA from "./ServicesCTA";
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export default function ServicesPage() {
       <ServicesHero />
       <ServicesList />
       <ServicesProcess />
+      <ServicesPackages />
       <ServicesCTA />
     </main>
   );

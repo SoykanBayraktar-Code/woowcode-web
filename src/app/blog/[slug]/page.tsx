@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: Props) {
       name: "WOOWCODE",
       logo: {
         "@type": "ImageObject",
-        url: "/logo.png",
+        url: "/WOOWCODELOGO.png",
       },
     },
   };

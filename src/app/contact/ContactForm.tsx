@@ -12,6 +12,7 @@ interface FormData {
   phone: string;
   subject: string;
   message: string;
+  company: string; // honeypot — kullanıcıya görünmez
 }
 
 interface FormErrors {
@@ -37,6 +38,7 @@ export default function ContactForm() {
     phone: "",
     subject: subjectFromUrl || "",
     message: "",
+    company: "",
   });
 
   useEffect(() => {
@@ -190,6 +192,7 @@ export default function ContactForm() {
           phone: "",
           subject: "",
           message: "",
+          company: "",
         });
       } else {
         setSubmitStatus("error");
@@ -287,6 +290,20 @@ export default function ContactForm() {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Honeypot — ekran dışı, kullanıcı görmez; botlar doldurur */}
+        <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "auto", width: 1, height: 1, overflow: "hidden" }}>
+          <label htmlFor="company">Company</label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            value={formData.company}
+            onChange={handleChange}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
         {/* Name Fields - Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
