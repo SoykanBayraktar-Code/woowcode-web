@@ -5,13 +5,14 @@ import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
 
 export const metadata: Metadata = {
-  title: "İletişim | WOOWCODE",
+  title: "İletişim | Projeniz İçin Ücretsiz Görüşme",
   description:
-    "WOOWCODE ile iletişime geçin. Projeleriniz, sorularınız veya iş birliği teklifleriniz için bizimle iletişime geçebilirsiniz.",
+    "Web, mobil, SaaS veya yapay zekâ projeniz için WOOWCODE ile iletişime geçin. WhatsApp veya formdan ulaşın, ücretsiz keşif görüşmesi planlayalım.",
+  alternates: { canonical: "/contact" },
   openGraph: {
     title: "İletişim | WOOWCODE",
     description:
-      "WOOWCODE ile iletişime geçin. Projeleriniz, sorularınız veya iş birliği teklifleriniz için bizimle iletişime geçebilirsiniz.",
+      "Web, mobil, SaaS veya yapay zekâ projeniz için WOOWCODE ile iletişime geçin. Ücretsiz keşif görüşmesi planlayalım.",
     type: "website",
     url: "/contact",
   },

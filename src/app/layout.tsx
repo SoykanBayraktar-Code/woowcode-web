@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import ClientLayout from "@/components/layout/ClientLayout";
+import { organizationLd, localBusinessLd, ldJson } from "@/lib/jsonld";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,44 +16,47 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://woowcode.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.woowcode.com"),
   title: {
-    default: "WOOWCODE | Kurumsal Yapay Zeka ve Dijital Dönüşüm Çözümleri",
+    default: "WOOWCODE | Antalya Yazılım Ajansı — Web, Mobil & Yapay Zekâ",
     template: "%s | WOOWCODE",
   },
   description:
-    "Endüstriyel yapay zeka, otonom sistemler, dijital ikiz teknolojisi ve stratejik veri mühendisliği ile işletmelerin dijital dönüşümünü hızlandırıyoruz. Türkiye'nin lider teknoloji çözüm ortağı.",
+    "Antalya merkezli yazılım ajansı. Web ve mobil uygulama geliştirme, SaaS, yapay zekâ ve veri çözümleri ile fikrinizi uçtan uca hayata geçiriyoruz. Projeniz için ücretsiz keşif görüşmesi.",
   keywords: [
-    "yapay zeka çözümleri",
-    "dijital dönüşüm danışmanlığı",
-    "endüstriyel otomasyon",
-    "otonom drone sistemleri",
-    "dijital ikiz teknolojisi",
-    "veri mühendisliği",
-    "makine öğrenmesi",
-    "IoT çözümleri",
+    "yazılım ajansı",
+    "Antalya yazılım firması",
+    "web uygulama geliştirme",
+    "mobil uygulama geliştirme",
+    "web sitesi yaptırma",
     "SaaS geliştirme",
-    "kurumsal yazılım",
-    "bilgisayarlı görü",
-    "edge computing",
+    "yapay zeka çözümleri",
+    "proje bazlı yazılım geliştirme",
+    "özel yazılım geliştirme",
+    "veri mühendisliği",
+    "IoT ve otomasyon",
+    "dijital dönüşüm",
   ],
   authors: [{ name: "WOOWCODE" }],
   creator: "WOOWCODE",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: process.env.NEXT_PUBLIC_SITE_URL,
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.woowcode.com",
     siteName: "WOOWCODE",
-    title: "WOOWCODE | Kurumsal Yapay Zeka ve Dijital Dönüşüm Çözümleri",
+    title: "WOOWCODE | Antalya Yazılım Ajansı — Web, Mobil & Yapay Zekâ",
     description:
-      "Endüstriyel yapay zeka, otonom sistemler ve stratejik veri mühendisliği ile işletmelerin dijital dönüşümünü hızlandırıyoruz.",
+      "Web ve mobil uygulama geliştirme, SaaS ve yapay zekâ çözümleri. Fikrinizi uçtan uca hayata geçiren Antalya merkezli yazılım ekibi.",
     // og:image otomatik olarak src/app/opengraph-image.tsx'ten gelir.
   },
   twitter: {
     card: "summary_large_image",
-    title: "WOOWCODE | Kurumsal Yapay Zeka ve Dijital Dönüşüm Çözümleri",
+    title: "WOOWCODE | Antalya Yazılım Ajansı — Web, Mobil & Yapay Zekâ",
     description:
-      "Endüstriyel yapay zeka, otonom sistemler ve veri mühendisliği ile dijital dönüşümünüzü hızlandırın.",
+      "Web & mobil uygulama, SaaS ve yapay zekâ çözümleri. Projenizi uçtan uca hayata geçiriyoruz.",
     // twitter:image otomatik olarak src/app/twitter-image.tsx'ten gelir.
   },
   robots: {
@@ -85,29 +89,15 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
-        {/* JSON-LD Schema */}
+        {/* JSON-LD: Şirket kimliği */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "WOOWCODE",
-              url: process.env.NEXT_PUBLIC_SITE_URL || "https://woowcode.com",
-              logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://woowcode.com"}/WOOWCODELOGO.png`,
-              description:
-                "Endüstriyel yapay zeka, otonom sistemler ve stratejik veri mühendisliği ile işletmelerin dijital dönüşümünü hızlandıran kurumsal teknoloji çözüm ortağı.",
-              sameAs: [
-                "https://linkedin.com/company/woowcode",
-                "https://github.com/woowcode",
-              ],
-              contactPoint: {
-                "@type": "ContactPoint",
-                email: "info@woowcode.com",
-                contactType: "customer service",
-              },
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: ldJson(organizationLd()) }}
+        />
+        {/* JSON-LD: Yerel işletme (Antalya yerel SEO) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: ldJson(localBusinessLd()) }}
         />
       </head>
       <body

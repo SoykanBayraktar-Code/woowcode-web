@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Blog | Teknoloji ve İnovasyon Yazıları",
   description:
     "Otonom sistemler, yapay zeka, dijital ikiz, veri mühendisliği ve SaaS geliştirme hakkında güncel yazılar ve rehberler.",
+  alternates: { canonical: "/blog" },
   openGraph: {
     title: "WOOWCODE Blog | Teknoloji ve İnovasyon Yazıları",
     description:

@@ -6,8 +6,9 @@ import ServicesPackages from "./ServicesPackages";
 import ServicesCTA from "./ServicesCTA";
 
 export const metadata: Metadata = {
-  title: "Hizmetlerimiz | WOOWCODE",
-  description: "Otonom drone sistemleri, endüstriyel AI, veri mühendisliği, dijital ikiz, SaaS geliştirme ve IoT çözümleri ile dijital dönüşümünüzü hızlandırın.",
+  title: "Hizmetlerimiz | Web, Mobil, SaaS & Yapay Zekâ Geliştirme",
+  description: "Web ve mobil uygulama geliştirme, SaaS ürün geliştirme, yapay zekâ, veri mühendisliği ve IoT çözümleri. Projenize uygun şeffaf paketlerle uçtan uca hizmet.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
