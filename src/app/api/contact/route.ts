@@ -8,6 +8,8 @@ interface ContactFormData {
   phone: string;
   subject: string;
   message: string;
+  /** Honeypot — gerçek kullanıcılar boş bırakır; botlar doldurur */
+  company?: string;
 }
 
 export async function POST(request: NextRequest) {
@@ -15,7 +17,12 @@ export async function POST(request: NextRequest) {
     const body: ContactFormData = await request.json();
 
     // Validate required fields
-    const { firstName, lastName, email, phone, subject, message } = body;
+    const { firstName, lastName, email, phone, subject, message, company } = body;
+
+    // Honeypot: dolu geldiyse bot kabul et, sessizce başarılı dön (e-posta gönderme)
+    if (company && company.trim() !== "") {
+      return NextResponse.json({ message: "ok" }, { status: 200 });
+    }
 
     if (!firstName || !lastName || !email || !phone || !subject || !message) {
       return NextResponse.json(
@@ -48,9 +55,12 @@ export async function POST(request: NextRequest) {
     // Determine recipient email - use CONTACT_EMAIL env var or default
     const recipientEmail = process.env.CONTACT_EMAIL || "delivered@resend.dev";
 
+    // Gönderici — domain doğrulandıktan sonra CONTACT_FROM ile "WOOWCODE <info@woowcode.com>" yapın
+    const fromAddress = process.env.CONTACT_FROM || "WOOWCODE <onboarding@resend.dev>";
+
     // Send email
     const { data, error } = await resend.emails.send({
-      from: "WOOWCODE <onboarding@resend.dev>",
+      from: fromAddress,
       to: [recipientEmail],
       replyTo: email,
       subject: `[WOOWCODE İletişim] ${subject} - ${firstName} ${lastName}`,

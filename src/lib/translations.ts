@@ -23,12 +23,13 @@ export const translations = {
       description: "Endüstriyel yapay zeka, otonom sistemler ve stratejik veri mühendisliği ile işletmenizin dijital dönüşümünü hızlandırıyoruz. Karmaşık problemlere zarif çözümler.",
       ctaServices: "Hizmetlerimizi İncele",
       ctaConsultation: "Ücretsiz Danışmanlık",
+      ctaWhatsApp: "30 dk Ücretsiz Görüşme",
       scrollText: "Daha Fazlasını Keşfet",
       stats: {
-        projects: "Tamamlanan Proje",
-        clients: "Kurumsal Müşteri",
-        uptime: "Uptime Garantisi",
+        founded: "Kuruluş",
+        expertise: "Uzmanlık Alanı",
         support: "Teknik Destek",
+        response: "Yanıt Süresi",
       },
     },
     
@@ -87,7 +88,99 @@ export const translations = {
       viewAll: "Tüm Yazıları Gör",
       readTime: "okuma",
     },
-    
+
+    // Why Us Section
+    whyUs: {
+      badge: "Neden WOOWCODE?",
+      title: "Neden",
+      titleHighlight: "Bizimle Çalışmalısınız?",
+      description: "Sadece kod yazmıyoruz; işinizi büyütecek çözümler üretiyor ve yanınızda kalıyoruz.",
+      items: [
+        { title: "Uçtan Uca Çözüm", description: "Fikirden teslimat ve sonrasına; tasarım, geliştirme, devreye alma ve bakımı tek elden yönetiriz." },
+        { title: "Yerinde & Türkçe Destek", description: "Antalya merkezli ekibimizle aynı dili konuşur, ihtiyaçlarınıza hızlı ve net dönüş yaparız." },
+        { title: "24 Saat İçinde Yanıt", description: "Mesajınıza en geç bir iş günü içinde dönüş yapar, süreci asla belirsiz bırakmayız." },
+        { title: "Modern & Kanıtlı Teknoloji", description: "Yapay zekâ, bilgisayarlı görü, IoT ve modern web; ürettiğimiz çözümlerde test edilmiş bir teknoloji yığını." },
+        { title: "Şeffaf Kapsam & Fiyat", description: "Proje öncesi net kapsam ve sabit ya da saatlik şeffaf teklif; süreçte sürpriz maliyet çıkmaz." },
+        { title: "Kod Tamamen Sizin", description: "Proje sonunda tüm kaynak kodun mülkiyeti size geçer; hiçbir teknolojik kilitlenme yaşamazsınız." },
+      ],
+    },
+
+    // Testimonials Section
+    testimonials: {
+      badge: "Referanslar",
+      title: "Müşterilerimiz",
+      titleHighlight: "Ne Diyor?",
+      description: "Birlikte çalıştığımız ekiplerin deneyimleri.",
+    },
+
+    // FAQ Section
+    faq: {
+      badge: "SSS",
+      title: "Sıkça Sorulan",
+      titleHighlight: "Sorular",
+      description: "Aklınıza takılanları yanıtladık. Daha fazlası için bize ulaşmaktan çekinmeyin.",
+      items: [
+        { q: "Fiyatlandırma nasıl çalışıyor?", a: "Proje kapsamına göre sabit teklif veya saatlik olarak çalışıyoruz. Ücretsiz keşif görüşmesinin ardından net ve şeffaf bir teklif sunarız; süreçte sürpriz maliyet çıkmaz." },
+        { q: "Bir proje ne kadar sürede teslim edilir?", a: "Süre projenin kapsamına göre değişir. Küçük kapsamlı işler genellikle birkaç hafta, MVP düzeyindeki ürünler tipik olarak 8-12 hafta içinde teslim edilir. Net takvimi keşif aşamasında birlikte belirleriz." },
+        { q: "Geliştirilen kodun sahibi kim olur?", a: "Proje tamamlandığında tüm kaynak kodun mülkiyeti tamamen size aittir. Hiçbir teknolojik kilitlenme (vendor lock-in) uygulamayız." },
+        { q: "Teslimattan sonra bakım ve destek sağlıyor musunuz?", a: "Evet. Teslim sonrası temel bakım ve desteği genellikle ücretsiz sunuyoruz; daha kapsamlı destek ihtiyaçlarının çerçevesini ise projeye göre birlikte belirliyoruz." },
+        { q: "Verilerimiz ve gizliliğimiz güvende mi?", a: "Projelerinizde gizliliğe ve KVKK ilkelerine önem veriyor, verilerinizi üçüncü taraflarla paylaşmıyoruz. Gizlilik konusundaki ihtiyaçlarınızı proje başında birlikte netleştiririz." },
+        { q: "Uzaktan mı yoksa yerinde mi çalışıyorsunuz?", a: "İkisi de mümkün. Antalya merkezliyiz; Türkiye genelinde uzaktan, bölgemizde gerektiğinde yüz yüze çalışıyoruz." },
+        { q: "Sürece nasıl başlıyoruz?", a: "WhatsApp veya iletişim formundan bize ulaşın; ücretsiz bir keşif görüşmesiyle ihtiyacınızı netleştirelim ve size özel kapsam ile teklifi hazırlayalım." },
+      ],
+    },
+
+    // Packages Section
+    packages: {
+      badge: "Çalışma Paketleri",
+      title: "Size Uygun",
+      titleHighlight: "Paketi Seçin",
+      description: "Her ölçeğe uygun, şeffaf kapsamlı çalışma modelleri. Fiyat projenize göre belirlenir; net teklifi ücretsiz keşif görüşmesinden sonra alırsınız.",
+      popular: "En Popüler",
+      cta: "Teklif Al",
+      tiers: [
+        {
+          name: "Başlangıç",
+          tagline: "Fikrinizi hızlıca hayata geçirin",
+          forWho: "Yeni başlayanlar & MVP",
+          features: [
+            "Ücretsiz keşif görüşmesi",
+            "Tek platform (web ya da mobil)",
+            "UI/UX tasarım + geliştirme",
+            "Temel API entegrasyonu",
+            "Yayına alma desteği",
+            "1 ay ücretsiz hata desteği",
+          ],
+        },
+        {
+          name: "İşletme",
+          tagline: "Büyüyen işiniz için tam çözüm",
+          forWho: "KOBİ & ölçeklenen ürünler",
+          features: [
+            "Başlangıç paketindeki her şey",
+            "Web + mobil birlikte",
+            "Yönetim paneli / dashboard",
+            "Çoklu API & ödeme entegrasyonu",
+            "Yapay zekâ / otomasyon modülü",
+            "Genişletilmiş bakım & destek",
+          ],
+        },
+        {
+          name: "Kurumsal",
+          tagline: "Uçtan uca dijital dönüşüm",
+          forWho: "Kurumlar & özel sistemler",
+          features: [
+            "İşletme paketindeki her şey",
+            "Özel AI / veri / IoT çözümü",
+            "Ölçeklenebilir bulut mimarisi",
+            "Mevcut sistemlerle entegrasyon",
+            "Öncelikli destek & SLA",
+            "Sürekli geliştirme & bakım",
+          ],
+        },
+      ],
+    },
+
     // Footer
     footer: {
       description: "Veriyi zekaya, teknolojiyi değere dönüştürüyoruz. Endüstriyel yapay zeka ve dijital dönüşüm çözümleri.",
@@ -98,7 +191,7 @@ export const translations = {
       companyInfo: {
         title: "WOOWCODE YAZILIM ve TİCARET A.Ş.",
         taxNo: "Vergi No",
-        address: "Şirinyalı Mah. İsmet Gökşen Cad.\nÖzdilek AVM, E Blok, K:9, D:37\nMuratpaşa / Antalya",
+        address: "Şirinyalı Mah. 1533. Sokak No:49/2\nMuratpaşa / Antalya",
       },
     },
     
@@ -151,6 +244,9 @@ export const translations = {
         companyTitle: "Şirket Ünvanı",
         companyName: "WOOWCODE YAZILIM ve TİCARET A.Ş.",
         taxNo: "Vergi Numarası",
+        phone: "Telefon",
+        email: "E-posta",
+        whatsapp: "WhatsApp",
         address: "Adres",
         addressLine: "Şirinyalı Mah. 1533. Sokak No:49/2\nMuratpaşa/Antalya\nTürkiye",
         quickResponse: "Hızlı Yanıt",
@@ -366,10 +462,10 @@ export const translations = {
     // Projects Page
     projectsPage: {
       hero: {
-        badge: "Ar-Ge Projelerimiz",
+        badge: "Geliştirdiğimiz Çözümler",
         title: "Projelerimiz &",
         titleHighlight: "Vaka Analizleri",
-        description: "Ar-Ge aşamasındaki projelerimiz ile müşterilerimizin karmaşık problemlerine nasıl yenilikçi çözümler geliştirdiğimizi keşfedin.",
+        description: "Karmaşık problemlere geliştirdiğimiz yenilikçi çözümleri ve bunları nasıl hayata geçirdiğimizi keşfedin.",
         stats: {
           activeProjects: "Aktif Proje",
           successRate: "Ar-Ge Aşamasında",
@@ -379,7 +475,7 @@ export const translations = {
       list: {
         title: "Vaka",
         titleHighlight: "Analizlerimiz",
-        description: "Her proje, benzersiz zorlukları ve yenilikçi çözüm yaklaşımları ile Ar-Ge sürecimizin bir parçasıdır.",
+        description: "Her proje, benzersiz zorlukları ve yenilikçi çözüm yaklaşımlarıyla yetkinliğimizin bir kanıtıdır.",
       },
       labels: {
         technologies: "Kullanılan Teknolojiler",
@@ -478,8 +574,15 @@ export const translations = {
       backToBlog: "Blog'a Dön",
       share: "Paylaş",
     },
+
+    // Floating Contact Widget
+    widget: {
+      whatsapp: "WhatsApp'tan Yazın",
+      call: "Hemen Arayın",
+      label: "İletişim",
+    },
   },
-  
+
   EN: {
     // Navigation
     nav: {
@@ -502,12 +605,13 @@ export const translations = {
       description: "We accelerate your digital transformation with industrial AI, autonomous systems, and strategic data engineering. Elegant solutions for complex problems.",
       ctaServices: "Explore Our Services",
       ctaConsultation: "Free Consultation",
+      ctaWhatsApp: "Free 30-min Call",
       scrollText: "Discover More",
       stats: {
-        projects: "Completed Projects",
-        clients: "Enterprise Clients",
-        uptime: "Uptime Guarantee",
+        founded: "Founded",
+        expertise: "Areas of Expertise",
         support: "Technical Support",
+        response: "Response Time",
       },
     },
     
@@ -566,7 +670,99 @@ export const translations = {
       viewAll: "View All Articles",
       readTime: "read",
     },
-    
+
+    // Why Us Section
+    whyUs: {
+      badge: "Why WOOWCODE?",
+      title: "Why",
+      titleHighlight: "Work With Us?",
+      description: "We don't just write code; we build solutions that grow your business and stay by your side.",
+      items: [
+        { title: "End-to-End Solution", description: "From idea to delivery and beyond; we manage design, development, deployment, and maintenance under one roof." },
+        { title: "On-Site & Local Support", description: "With our Antalya-based team, we speak your language and respond to your needs quickly and clearly." },
+        { title: "Response Within 24 Hours", description: "We reply to your message within one business day at most and never leave the process uncertain." },
+        { title: "Modern & Proven Technology", description: "AI, computer vision, IoT, and modern web — a technology stack proven in the solutions we build." },
+        { title: "Transparent Scope & Pricing", description: "Clear scope upfront and a transparent fixed or hourly quote; no surprise costs during the process." },
+        { title: "The Code Is Fully Yours", description: "At the end of the project, full ownership of the source code is transferred to you; no vendor lock-in." },
+      ],
+    },
+
+    // Testimonials Section
+    testimonials: {
+      badge: "References",
+      title: "What Our",
+      titleHighlight: "Clients Say",
+      description: "Experiences of the teams we've worked with.",
+    },
+
+    // FAQ Section
+    faq: {
+      badge: "FAQ",
+      title: "Frequently Asked",
+      titleHighlight: "Questions",
+      description: "We've answered the common questions. Feel free to reach out for anything else.",
+      items: [
+        { q: "How does pricing work?", a: "We work with a fixed quote or hourly, depending on the project scope. After a free discovery call, we provide a clear and transparent quote with no surprise costs along the way." },
+        { q: "How long does a project take to deliver?", a: "Timelines depend on the project scope. Small-scope work is usually delivered within a few weeks, while MVP-level products typically take 8-12 weeks. We define the exact timeline together during discovery." },
+        { q: "Who owns the developed code?", a: "When the project is complete, full ownership of the source code is entirely yours. We never apply any vendor lock-in." },
+        { q: "Do you provide maintenance and support after delivery?", a: "Yes. We usually provide basic post-delivery maintenance and support free of charge; the scope of more extensive support needs is defined together based on the project." },
+        { q: "Is our data and privacy safe?", a: "We prioritize confidentiality and data protection (KVKK/GDPR) principles in your projects and never share your data with third parties. We clarify your confidentiality needs together at the start of the project." },
+        { q: "Do you work remotely or on-site?", a: "Both are possible. We're based in Antalya; we work remotely across Turkey and meet in person within our region when needed." },
+        { q: "How do we get started?", a: "Reach out via WhatsApp or the contact form; let's clarify your needs in a free discovery call and prepare a tailored scope and quote for you." },
+      ],
+    },
+
+    // Packages Section
+    packages: {
+      badge: "Engagement Packages",
+      title: "Choose the Package",
+      titleHighlight: "That Fits You",
+      description: "Transparent, scope-based engagement models for every scale. Pricing is set per project; you get a clear quote after a free discovery call.",
+      popular: "Most Popular",
+      cta: "Get a Quote",
+      tiers: [
+        {
+          name: "Starter",
+          tagline: "Bring your idea to life quickly",
+          forWho: "Early stage & MVP",
+          features: [
+            "Free discovery call",
+            "Single platform (web or mobile)",
+            "UI/UX design + development",
+            "Basic API integration",
+            "Deployment support",
+            "1 month free bug support",
+          ],
+        },
+        {
+          name: "Business",
+          tagline: "A complete solution for your growing business",
+          forWho: "SMBs & scaling products",
+          features: [
+            "Everything in Starter",
+            "Web + mobile together",
+            "Admin panel / dashboard",
+            "Multiple API & payment integration",
+            "AI / automation module",
+            "Extended maintenance & support",
+          ],
+        },
+        {
+          name: "Enterprise",
+          tagline: "End-to-end digital transformation",
+          forWho: "Enterprises & custom systems",
+          features: [
+            "Everything in Business",
+            "Custom AI / data / IoT solution",
+            "Scalable cloud architecture",
+            "Integration with existing systems",
+            "Priority support & SLA",
+            "Continuous development & maintenance",
+          ],
+        },
+      ],
+    },
+
     // Footer
     footer: {
       description: "Transforming data into intelligence, technology into value. Industrial AI and digital transformation solutions.",
@@ -577,7 +773,7 @@ export const translations = {
       companyInfo: {
         title: "WOOWCODE SOFTWARE and TRADE Inc.",
         taxNo: "Tax No",
-        address: "Şirinyalı Mah. İsmet Gökşen Cad.\nÖzdilek Mall, Block E, Floor 9, No:37\nMuratpaşa / Antalya, Turkey",
+        address: "Şirinyalı Mah. 1533. Sokak No:49/2\nMuratpaşa / Antalya, Turkey",
       },
     },
     
@@ -630,6 +826,9 @@ export const translations = {
         companyTitle: "Company Name",
         companyName: "WOOWCODE SOFTWARE and TRADE Inc.",
         taxNo: "Tax Number",
+        phone: "Phone",
+        email: "Email",
+        whatsapp: "WhatsApp",
         address: "Address",
         addressLine: "Şirinyalı Mah. 1533. Sokak No:49/2\nMuratpaşa/Antalya\nTurkey",
         quickResponse: "Quick Response",
@@ -845,10 +1044,10 @@ export const translations = {
     // Projects Page
     projectsPage: {
       hero: {
-        badge: "R&D Projects",
+        badge: "Solutions We've Built",
         title: "Our Projects &",
         titleHighlight: "Case Studies",
-        description: "Discover how we develop innovative solutions for our clients' complex problems through our R&D stage projects.",
+        description: "Discover the innovative solutions we've built for complex problems — and how we bring them to life.",
         stats: {
           activeProjects: "Active Projects",
           successRate: "In R&D Stage",
@@ -858,7 +1057,7 @@ export const translations = {
       list: {
         title: "Case",
         titleHighlight: "Studies",
-        description: "Each project is part of our R&D process with unique challenges and innovative solution approaches.",
+        description: "Each project, with its unique challenges and innovative approaches, is proof of our capability.",
       },
       labels: {
         technologies: "Technologies Used",
@@ -956,6 +1155,13 @@ export const translations = {
       relatedPosts: "Related Posts",
       backToBlog: "Back to Blog",
       share: "Share",
+    },
+
+    // Floating Contact Widget
+    widget: {
+      whatsapp: "Message on WhatsApp",
+      call: "Call Now",
+      label: "Contact",
     },
   },
 };
