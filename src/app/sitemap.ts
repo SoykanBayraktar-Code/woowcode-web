@@ -13,6 +13,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.8 },
     { url: `${base}/about`, lastModified: now, changeFrequency: "yearly", priority: 0.7 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${base}/starlit`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${base}/starlit/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${base}/starlit/gizlilik`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
   ];
 
   const blogPages: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
