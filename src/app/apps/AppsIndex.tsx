@@ -26,15 +26,15 @@ export default function AppsIndex() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl"
         >
-          <span className="eyebrow">{en ? "Live on the App Store" : "App Store'da yayında"}</span>
+          <span className="eyebrow">{en ? "Our apps" : "Uygulamalarımız"}</span>
           <h1 className="heading-xl mt-5 text-5xl sm:text-6xl lg:text-7xl text-[var(--foreground)]">
             {en ? "Apps we build, ship " : "Kendi yaptığımız, yayınladığımız "}
             <span className="text-gradient">{en ? "and care for." : "ve yaşattığımız uygulamalar."}</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--foreground-muted)]">
             {en
-              ? "Every app here was designed, coded and released by our team — from the first sketch to App Store review. The same process we run for our clients."
-              : "Buradaki her uygulamayı ilk eskizden App Store incelemesine kadar kendi ekibimiz tasarladı, kodladı ve yayınladı. Müşterilerimiz için işlettiğimiz sürecin aynısı."}
+              ? "Our team designs, codes and ships every app here — from the first sketch to the App Store. The same process we run for our clients."
+              : "Buradaki her uygulamayı ilk eskizden App Store'a kadar kendi ekibimiz tasarlıyor, kodluyor ve yayınlıyor. Müşterilerimiz için işlettiğimiz sürecin aynısı."}
           </p>
         </motion.div>
 

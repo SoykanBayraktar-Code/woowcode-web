@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ProjectsView from "./ProjectsView";
 
 const description =
-  "App Store'da yayındaki kendi uygulamalarımız (Starlit, DocuVault) ve yapay zekâ, görüntü işleme ve IoT alanlarında geliştirdiğimiz projeler.";
+  "Kendi uygulamalarımız (App Store'da DocuVault, yakında Starlit) ve yapay zekâ, görüntü işleme ve IoT alanlarında geliştirdiğimiz projeler.";
 
 export const metadata: Metadata = {
   title: "Projeler | Uygulamalarımız & Vaka Çalışmaları",

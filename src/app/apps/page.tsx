@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import AppsIndex from "./AppsIndex";
 
 export const metadata: Metadata = {
-  title: "Uygulamalarımız — App Store'da yayındaki iOS uygulamaları",
+  title: "Uygulamalarımız — WOOWCODE'un iOS uygulamaları",
   description:
-    "WOOWCODE'un tasarlayıp geliştirdiği ve App Store'da yayınladığı iPhone uygulamaları: Starlit, DocuVault ve daha fazlası.",
+    "WOOWCODE'un tasarlayıp geliştirdiği iPhone uygulamaları: App Store'da DocuVault, yakında Starlit ve daha fazlası.",
   alternates: { canonical: "/apps" },
 };
 

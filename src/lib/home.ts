@@ -29,12 +29,12 @@ export const mobileStack = [
 ];
 
 export const appsShelf = {
-  eyebrow: { TR: "App Store'da yayında", EN: "Live on the App Store" } as L10n,
+  eyebrow: { TR: "Kendi uygulamalarımız", EN: "Our own apps" } as L10n,
   title: { TR: "Önce kendi uygulamalarımızı", EN: "We ship our own apps" } as L10n,
   highlight: { TR: "yayınladık.", EN: "first." } as L10n,
   description: {
-    TR: "Starlit ve DocuVault'u ilk eskizden App Store incelemesine kadar biz yaptık. Sizin uygulamanızda da aynı ekip, aynı süreç.",
-    EN: "We took Starlit and DocuVault from the first sketch through App Store review. Your app gets the same team and the same process.",
+    TR: "DocuVault'u ilk eskizden App Store'a kadar biz götürdük; Starlit de aynı yolda, yakında App Store'da. Sizin uygulamanızda da aynı ekip, aynı süreç.",
+    EN: "We took DocuVault from the first sketch to the App Store, and Starlit is on the same path, coming soon. Your app gets the same team and the same process.",
   } as L10n,
   all: { TR: "Tüm uygulamalar", EN: "All apps" } as L10n,
 };

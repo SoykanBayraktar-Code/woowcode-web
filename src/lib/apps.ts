@@ -98,7 +98,7 @@ export const apps: AppEntry[] = [
     // Kural (App Store): tedavi/iyileşme vaadi yok; "terapist", "kanıta dayalı", "bilimsel" geçmez.
     slug: "starlit",
     name: "Starlit",
-    status: "live",
+    status: "coming-soon",
     tagline: {
       TR: "Sen bir yıldızsın.",
       EN: "You are a star.",
