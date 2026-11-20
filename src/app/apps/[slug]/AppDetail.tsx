@@ -88,9 +88,18 @@ export default function AppDetail({ slug }: { slug: string }) {
               className="mt-9 flex flex-wrap items-center gap-3"
             >
               <AppStoreButton app={app} size="lg" />
-              <a href="#support" className="btn-ghost !h-14">
-                {en ? "Support" : "Destek"}
-              </a>
+              {app.links?.website ? (
+                <a href={app.links.website} target="_blank" rel="noopener noreferrer" className="btn-ghost !h-14">
+                  {en ? "Website" : "Web sitesi"}
+                  <svg className="h-4 w-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M9 7h8v8" />
+                  </svg>
+                </a>
+              ) : (
+                <a href="#support" className="btn-ghost !h-14">
+                  {en ? "Support" : "Destek"}
+                </a>
+              )}
             </motion.div>
 
             <div className="mt-8 flex flex-wrap gap-2 font-mono text-xs text-[var(--foreground-muted)]">
@@ -233,6 +242,13 @@ export default function AppDetail({ slug }: { slug: string }) {
                   </Link>
                 </div>
               )}
+              {!app.hasPolicy && app.links?.privacy && (
+                <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                  <a href={app.links.privacy} target="_blank" rel="noopener noreferrer" className="text-[var(--azure-soft)] hover:underline underline-offset-4">
+                    {en ? "Privacy Policy" : "Gizlilik Politikası"}
+                  </a>
+                </div>
+              )}
             </div>
           )}
 
@@ -242,7 +258,9 @@ export default function AppDetail({ slug }: { slug: string }) {
             </h2>
             <p className="mt-4 leading-relaxed text-[var(--foreground-muted)]">
               {en ? "Questions or a problem with the app? Write to " : "Uygulamayla ilgili bir sorunuz ya da sorununuz mu var? "}
-              <a href={mailLink} className="text-[var(--azure-soft)] hover:underline underline-offset-4">{site.email}</a>
+              <a href={app.links?.supportEmail ? `mailto:${app.links.supportEmail}` : mailLink} className="text-[var(--azure-soft)] hover:underline underline-offset-4">
+                {app.links?.supportEmail ?? site.email}
+              </a>
               {en ? ". We usually reply within one business day." : " adresine yazın. Genellikle bir iş günü içinde yanıt veririz."}
             </p>
             <p className="mt-6 text-sm leading-relaxed text-[var(--foreground-muted)]">
@@ -253,9 +271,15 @@ export default function AppDetail({ slug }: { slug: string }) {
               {site.phone.display}
             </p>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              <a href={APPLE_EULA_URL} rel="noopener" className="text-[var(--azure-soft)] hover:underline underline-offset-4">
-                {en ? "Terms of Use (Apple standard EULA)" : "Kullanım Koşulları (Apple standart sözleşmesi)"}
-              </a>
+              {app.links?.terms ? (
+                <a href={app.links.terms} target="_blank" rel="noopener noreferrer" className="text-[var(--azure-soft)] hover:underline underline-offset-4">
+                  {en ? "Terms of Use" : "Kullanım Koşulları"}
+                </a>
+              ) : (
+                <a href={APPLE_EULA_URL} rel="noopener" className="text-[var(--azure-soft)] hover:underline underline-offset-4">
+                  {en ? "Terms of Use (Apple standard EULA)" : "Kullanım Koşulları (Apple standart sözleşmesi)"}
+                </a>
+              )}
             </div>
             {app.notice && (
               <p className="mt-6 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-sm leading-relaxed text-[var(--foreground-muted)]">
