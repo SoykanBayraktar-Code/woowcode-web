@@ -10,6 +10,7 @@ import AppStoreButton from "@/components/apps/AppStoreButton";
 import DeviceFrame from "@/components/apps/DeviceFrame";
 import FeatureIcon from "@/components/apps/FeatureIcon";
 import AppSpotlightCard from "@/components/apps/AppSpotlightCard";
+import { Manifesto, Showcases, Milestones, ExtrasAndPlans } from "./AppStory";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -134,6 +135,10 @@ export default function AppDetail({ slug }: { slug: string }) {
         </div>
       </section>
 
+      <Manifesto app={app} />
+      <Showcases app={app} />
+      <Milestones app={app} />
+
       {/* ---------- SCREENSHOTS ---------- */}
       {shots.length > 2 && (
         <section className="border-t border-[var(--border-color)] py-24 lg:py-32">
@@ -192,6 +197,8 @@ export default function AppDetail({ slug }: { slug: string }) {
           </div>
         </section>
       )}
+
+      <ExtrasAndPlans app={app} />
 
       {/* ---------- PRIVACY LABEL + SUPPORT ---------- */}
       <section id="support" className="scroll-mt-24 border-t border-[var(--border-color)] py-24 lg:py-32">
