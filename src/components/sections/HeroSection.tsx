@@ -1,319 +1,288 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform, useInView } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { waLink } from "@/lib/site";
+import { liveApps, screenshotSrcs, type AppEntry } from "@/lib/apps";
+import { homeHero, mobileStack } from "@/lib/home";
+import DeviceFrame from "@/components/apps/DeviceFrame";
+import AppIcon from "@/components/apps/AppIcon";
 
-// Counter animation component
-function AnimatedCounter({ value, suffix = "", duration = 2 }: { value: number; suffix?: string; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
-  useEffect(() => {
-    if (!isInView) return;
-    
-    let startTime: number;
-    let animationFrame: number;
-    
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-      
-      // Easing function for smooth animation
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      setCount(Math.floor(easeOutQuart * value));
-      
-      if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate);
-      } else {
-        setCount(value);
-      }
-    };
-    
-    animationFrame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [isInView, value, duration]);
-  
-  return (
-    <div ref={ref} className="text-3xl sm:text-4xl font-bold neon-text mb-2">
-      {count}{suffix}
-    </div>
-  );
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 18, filter: "blur(6px)" },
+  animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+  transition: { duration: 0.8, delay, ease },
+});
+
+type Slide = { app: AppEntry; src?: string };
+
+/** Every screenshot of every live app; apps without screenshots get one branded placeholder slide. */
+function buildSlides(): Slide[] {
+  return liveApps().flatMap((app) => {
+    const shots = screenshotSrcs(app);
+    return shots.length ? shots.map((src) => ({ app, src })) : [{ app }];
+  });
 }
 
-// Floating particle component
-function FloatingParticle({ delay, duration, x, y, size }: { delay: number; duration: number; x: number; y: number; size: number }) {
+function FloatingIcon({
+  children,
+  className,
+  delay = 0,
+  reduce,
+}: {
+  children: React.ReactNode;
+  className: string;
+  delay?: number;
+  reduce: boolean | null;
+}) {
   return (
     <motion.div
-      className="absolute rounded-full bg-[var(--neon-blue)]"
-      style={{
-        width: size,
-        height: size,
-        left: `${x}%`,
-        top: `${y}%`,
-        opacity: 0.3,
-      }}
-      animate={{
-        y: [0, -30, 0],
-        opacity: [0.1, 0.4, 0.1],
-        scale: [1, 1.2, 1],
-      }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    />
+      initial={{ opacity: 0, scale: 0.6 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, delay: 0.6 + delay, ease }}
+      className={`absolute z-20 ${className}`}
+    >
+      <motion.div
+        animate={reduce ? undefined : { y: [0, -12, 0], rotate: [0, 3, 0] }}
+        transition={{ duration: 5 + delay * 2, repeat: Infinity, ease: "easeInOut", delay }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
   );
 }
 
 export default function HeroSection() {
   const { t, language } = useLanguage();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  
-  // Mouse tracking for parallax
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  
-  const springConfig = { damping: 25, stiffness: 150 };
-  const springX = useSpring(mouseX, springConfig);
-  const springY = useSpring(mouseY, springConfig);
-  
-  // Parallax transforms for different layers
-  const gridX = useTransform(springX, [-500, 500], [10, -10]);
-  const gridY = useTransform(springY, [-500, 500], [10, -10]);
-  const orb1X = useTransform(springX, [-500, 500], [30, -30]);
-  const orb1Y = useTransform(springY, [-500, 500], [30, -30]);
-  const orb2X = useTransform(springX, [-500, 500], [-20, 20]);
-  const orb2Y = useTransform(springY, [-500, 500], [-20, 20]);
+  const reduce = useReducedMotion();
+  const en = language === "EN";
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const slides = buildSlides();
+  const apps = liveApps();
+  const [index, setIndex] = useState(0);
+  const current = slides[index % slides.length];
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      mouseX.set(e.clientX - centerX);
-      mouseY.set(e.clientY - centerY);
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+    if (reduce || slides.length < 2) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 3200);
+    return () => clearInterval(id);
+  }, [reduce, slides.length]);
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  // Generate random particles
-  const particles = Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 4 + 2,
-    delay: Math.random() * 2,
-    duration: Math.random() * 3 + 3,
-  }));
+  // Scroll-linked 3D tilt of the phone
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+  const p = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
+  const rotateX = useTransform(p, [0, 1], [0, 22]);
+  const rotateY = useTransform(p, [0, 1], [-8, -24]);
+  const y = useTransform(p, [0, 1], [0, 140]);
+  const scale = useTransform(p, [0, 1], [1, 0.86]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background Grid Pattern with Parallax */}
-      <motion.div 
-        className="absolute inset-0 bg-[linear-gradient(rgba(0,212,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"
-        style={{ x: gridX, y: gridY }}
-      />
-      
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {particles.map((particle) => (
-          <FloatingParticle
-            key={particle.id}
-            x={particle.x}
-            y={particle.y}
-            size={particle.size}
-            delay={particle.delay}
-            duration={particle.duration}
-          />
-        ))}
-      </div>
-      
-      {/* Gradient Orbs with Parallax */}
-      <motion.div 
-        className="absolute top-1/4 -left-32 w-96 h-96 bg-[var(--neon-blue)] rounded-full mix-blend-multiply filter blur-[128px] opacity-20"
-        style={{ x: orb1X, y: orb1Y }}
-        animate={{ 
-          scale: [1, 1.1, 1],
-          opacity: [0.15, 0.25, 0.15] 
-        }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute bottom-1/4 -right-32 w-96 h-96 bg-[var(--neon-green)] rounded-full mix-blend-multiply filter blur-[128px] opacity-20"
-        style={{ x: orb2X, y: orb2Y }}
-        animate={{ 
-          scale: [1.1, 1, 1.1],
-          opacity: [0.2, 0.15, 0.2] 
-        }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      />
-      
-      {/* Additional floating orb */}
-      <motion.div 
-        className="absolute top-1/2 left-1/2 w-64 h-64 bg-[var(--electric-violet)] rounded-full mix-blend-multiply filter blur-[100px] opacity-10"
-        animate={{ 
-          x: [0, 50, -50, 0],
-          y: [0, -30, 30, 0],
-          scale: [1, 1.2, 0.9, 1],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+    <section ref={sectionRef} className="relative overflow-hidden noise pt-32 sm:pt-36 lg:pt-40">
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-grid" aria-hidden="true" />
+      <div
+        className="absolute right-[-10%] top-[-10%] h-[44rem] w-[44rem] rounded-full opacity-60 blur-[120px]"
+        style={{ background: "radial-gradient(closest-side, rgba(10,132,255,0.6), rgba(94,92,230,0.25) 60%, transparent)" }}
+        aria-hidden="true"
       />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div className="text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-[var(--border-color-bright)] bg-[var(--background-secondary)] mb-8 shadow-[0_0_10px_rgba(123,31,162,0.2)]"
-          >
-            <span className="w-2 h-2 bg-[var(--neon-green)] rounded-full animate-pulse" />
-            <span className="text-sm text-[var(--foreground-muted)]">{t.hero.badge}</span>
-          </motion.div>
+      <div className="relative container-x grid items-center gap-16 lg:grid-cols-[1.1fr_1fr] lg:gap-8">
+        {/* ---------- Copy ---------- */}
+        <div className="text-center lg:text-left">
+          {apps[0] && (
+            <motion.div {...fadeUp(0)} className="flex justify-center lg:justify-start">
+              <Link
+                href={`/apps/${apps[0].slug}`}
+                className="group inline-flex items-center gap-2.5 rounded-full border border-[var(--border-color-bright)] bg-white/[0.03] py-1 pl-1 pr-3.5 text-sm text-[var(--foreground-muted-bright)] backdrop-blur transition-colors hover:border-white/25"
+              >
+                <AppIcon app={apps[0]} size={26} className="!shadow-none" />
+                <span>
+                  <span className="text-[var(--foreground)] font-medium">{apps[0].name}</span>{" "}
+                  {en ? "is live on the App Store" : "App Store'da yayında"}
+                </span>
+                <svg className="h-3.5 w-3.5 opacity-60 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </motion.div>
+          )}
 
-          {/* Main Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+            {...fadeUp(0.08)}
+            className="heading-xl mt-8 text-[3.4rem] sm:text-7xl lg:text-[6.5rem] xl:text-[7.25rem] text-[var(--foreground)]"
           >
-            <span className="text-[var(--foreground)]">{t.hero.title} </span>
-            <span className="neon-text">{t.hero.titleHighlight}</span>
-            {t.hero.titleEnd && <><br /><span className="text-[var(--foreground)]">{t.hero.titleEnd}</span></>}
+            {homeHero.title[language]}
+            <br />
+            <span className="text-gradient">{homeHero.highlight[language]}</span>
           </motion.h1>
 
-          {/* Subheading with enhanced typography */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl text-[var(--foreground-muted)] max-w-3xl mx-auto mb-10 leading-relaxed"
+            {...fadeUp(0.16)}
+            className="mx-auto lg:mx-0 mt-7 max-w-xl text-[17px] sm:text-lg leading-[1.6] text-[var(--foreground-muted)]"
           >
-            {t.hero.description}
+            {homeHero.description[language]}
           </motion.p>
-          
-          {/* Key benefits - enhanced typography */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="flex flex-wrap justify-center gap-4 mb-10"
-          >
-            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[var(--neon-blue)]/15 to-[var(--electric-violet)]/15 border border-[var(--neon-blue)]/50 text-[var(--neon-blue)] font-semibold text-sm shadow-[0_0_12px_rgba(13,71,161,0.25)]">
-              {t.hero.badge}
-            </span>
-            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[var(--neon-green)]/15 to-[var(--neon-blue)]/15 border border-[var(--neon-green)]/50 text-[var(--neon-green)] font-semibold text-sm shadow-[0_0_12px_rgba(123,31,162,0.25)]">
-              {t.hero.badgeScalable}
-            </span>
-            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[var(--electric-violet)]/15 to-[var(--deep-magenta)]/15 border border-[var(--electric-violet)]/50 text-[var(--electric-violet)] font-semibold text-sm shadow-[0_0_12px_rgba(123,31,162,0.3)]">
-              {t.hero.badgeAdvantage}
-            </span>
-          </motion.div>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-          >
-            <Link href="/services">
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(0,212,255,0.4)" }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 rounded-xl font-semibold text-[var(--background)] bg-gradient-to-r from-[var(--neon-blue)] to-[var(--electric-violet)] hover:from-[var(--electric-violet)] hover:to-[var(--deep-magenta)] transition-all duration-300 shadow-[0_0_20px_rgba(0,212,255,0.3)] flex items-center gap-2"
-              >
-                <span>{t.hero.ctaServices}</span>
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </motion.button>
+          <motion.div {...fadeUp(0.24)} className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+            <Link
+              href={`/contact?subject=${encodeURIComponent(t.contact.form.subjects.consultation)}`}
+              className="btn-primary w-full sm:w-auto"
+            >
+              {en ? "Let's talk about your app" : "Uygulamanızı konuşalım"}
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </Link>
-            <a href={waLink(language)} target="_blank" rel="noopener noreferrer">
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(37,211,102,0.45)" }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 rounded-xl font-semibold text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all duration-300 shadow-[0_0_20px_rgba(37,211,102,0.35)] flex items-center gap-2"
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.886 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.142 1.595 5.945L0 24l6.305-1.654a11.96 11.96 0 005.71 1.454h.005c6.581 0 11.94-5.335 11.943-11.894 0-3.18-1.26-6.165-3.55-8.41" />
-                </svg>
-                <span>{t.hero.ctaWhatsApp}</span>
-              </motion.button>
-            </a>
-            <Link href={`/contact?subject=${encodeURIComponent(t.contact.form.subjects.consultation)}`}>
-              <motion.button
-                whileHover={{ scale: 1.05, borderColor: "var(--neon-blue)" }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 rounded-xl font-semibold text-[var(--foreground)] border-2 border-[var(--neon-blue)]/50 hover:border-[var(--neon-blue)] hover:text-[var(--neon-blue)] transition-all duration-300 flex items-center gap-2 bg-gradient-to-r from-[var(--neon-blue)]/5 to-[var(--electric-violet)]/5 backdrop-blur-sm shadow-[0_0_15px_rgba(13,71,161,0.2)] hover:shadow-[0_0_25px_rgba(13,71,161,0.35)]"
-              >
-                <span>{t.hero.ctaConsultation}</span>
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206" />
-                </svg>
-              </motion.button>
+            <Link href="/apps" className="btn-ghost w-full sm:w-auto">
+              {homeHero.ctaApps[language]}
             </Link>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-8"
+          <motion.a
+            {...fadeUp(0.3)}
+            href={waLink(language)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-2 text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors"
           >
-            {[
-              { value: 0, suffix: "", label: t.hero.stats.founded, static: "2024" },
-              { value: 7, suffix: "+", label: t.hero.stats.expertise, static: "" },
-              { value: 0, suffix: "", label: t.hero.stats.support, static: "7/24" },
-              { value: 0, suffix: "", label: t.hero.stats.response, static: language === "EN" ? "24h" : "24s" },
-            ].map((stat, index) => (
+            <span className="h-2 w-2 rounded-full bg-[#30D158] shadow-[0_0_10px_#30D158]" />
+            {t.hero.ctaWhatsApp} · WhatsApp
+          </motion.a>
+        </div>
+
+        {/* ---------- Phone ---------- */}
+        <div className="relative mx-auto w-full max-w-[460px] [perspective:1400px]">
+          {/* orbit rings */}
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" aria-hidden="true">
+            {[300, 440, 580].map((d, i) => (
               <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                className="text-center"
+                key={d}
+                className="absolute left-1/2 top-1/2 rounded-full border border-white/[0.07]"
+                style={{ width: d, height: d, marginLeft: -d / 2, marginTop: -d / 2 }}
+                animate={reduce ? undefined : { rotate: 360 }}
+                transition={{ duration: 60 + i * 30, repeat: Infinity, ease: "linear" }}
               >
-                {stat.static ? (
-                  <div className="text-3xl sm:text-4xl font-bold neon-text mb-2">{stat.static}</div>
-                ) : (
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                )}
-                <div className="text-sm text-[var(--foreground-muted)]">{stat.label}</div>
+                <span className="absolute -top-1 left-1/2 h-2 w-2 rounded-full bg-[var(--mint)] shadow-[0_0_14px_var(--mint)]" />
               </motion.div>
             ))}
+          </div>
+
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 80, rotateX: 25 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            transition={{ duration: 1.2, delay: 0.25, ease }}
+            className="relative mx-auto w-[64%] max-w-[290px]"
+          >
+            <motion.div style={reduce ? undefined : { rotateX, rotateY, y, scale, transformStyle: "preserve-3d" }}>
+              <div style={{ filter: `drop-shadow(0 40px 80px ${current.app.accent.glow})` }} className="transition-[filter] duration-1000">
+                <DeviceFrame app={current.app} priority>
+                  <AnimatePresence mode="popLayout" initial={false}>
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 1.06 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.97 }}
+                      transition={{ duration: 0.7, ease }}
+                      className="absolute inset-0"
+                    >
+                      {current.src ? (
+                        <Image
+                          src={current.src}
+                          alt={`${current.app.name} ${en ? "screenshot" : "ekran görüntüsü"}`}
+                          fill
+                          sizes="290px"
+                          className="object-cover"
+                          priority={index === 0}
+                        />
+                      ) : (
+                        <div
+                          className="flex h-full w-full flex-col items-center justify-center gap-4"
+                          style={{ background: `radial-gradient(120% 70% at 50% 0%, ${current.app.accent.from}, #05060a 75%)` }}
+                        >
+                          <AppIcon app={current.app} size={84} />
+                          <span className="text-lg font-semibold tracking-[-0.02em] text-white">{current.app.name}</span>
+                          <span className="px-8 text-center text-xs text-white/60">{current.app.tagline[language]}</span>
+                        </div>
+                      )}
+                    </motion.div>
+                  </AnimatePresence>
+                </DeviceFrame>
+              </div>
+            </motion.div>
           </motion.div>
+
+          {/* floating app icons */}
+          {apps.map((app, i) => (
+            <FloatingIcon
+              key={app.slug}
+              reduce={reduce}
+              delay={i * 0.4}
+              className={i % 2 === 0 ? "left-[2%] top-[14%]" : "right-[0%] bottom-[22%]"}
+            >
+              <Link href={`/apps/${app.slug}`} aria-label={app.name} className="block transition-transform hover:scale-110">
+                <AppIcon app={app} size={i % 2 === 0 ? 68 : 60} />
+              </Link>
+            </FloatingIcon>
+          ))}
+          <FloatingIcon reduce={reduce} delay={0.8} className="right-[4%] top-[8%]">
+            <Link
+              href="/contact"
+              aria-label={en ? "Your app" : "Sizin uygulamanız"}
+              className="grid h-[52px] w-[52px] place-items-center rounded-[12px] border border-dashed border-white/25 bg-white/[0.03] text-xl text-[var(--foreground-muted)] backdrop-blur transition-colors hover:border-white/50 hover:text-white"
+            >
+              +
+            </Link>
+          </FloatingIcon>
+
+          {/* now-showing pill */}
+          <div className="relative mt-8 flex justify-center" aria-live="polite">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current.app.slug}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.4 }}
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] py-1.5 pl-1.5 pr-3.5 text-sm backdrop-blur"
+              >
+                <AppIcon app={current.app} size={22} className="!shadow-none" />
+                <span className="font-medium text-[var(--foreground)]">{current.app.name}</span>
+                <span className="text-[var(--foreground-muted)]">· {en ? "built by WOOWCODE" : "WOOWCODE yapımı"}</span>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
+      {/* Stats */}
+      <motion.dl
+        {...fadeUp(0.5)}
+        className="relative mx-4 sm:mx-auto mt-20 grid max-w-4xl grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[var(--border-color)] bg-[var(--border-color)]"
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-[var(--neon-blue)]/40 rounded-full flex items-start justify-center p-2 shadow-[0_0_10px_rgba(13,71,161,0.2)]"
-        >
-          <div className="w-1 h-2 bg-[var(--neon-blue)] rounded-full" />
-        </motion.div>
-        <span className="text-[10px] text-[var(--foreground-muted)] tracking-wider uppercase">{t.hero.scrollText}</span>
-      </motion.div>
+        {homeHero.stats.map((s) => (
+          <div key={s.label.EN} className="flex flex-col-reverse bg-[var(--background)] px-6 py-6 text-center">
+            <dt className="mt-1 text-sm text-[var(--foreground-muted)]">{s.label[language]}</dt>
+            <dd className="heading-lg text-3xl text-[var(--foreground)]">{en && s.valueEN ? s.valueEN : s.value}</dd>
+          </div>
+        ))}
+      </motion.dl>
+
+      {/* Tech marquee */}
+      <div className="relative mt-20 border-y border-[var(--border-color)] py-6 [mask-image:linear-gradient(90deg,transparent,#000_15%,#000_85%,transparent)]">
+        <div className="flex w-max animate-marquee gap-12 pr-12">
+          {[...mobileStack, ...mobileStack].map((s, i) => (
+            <span key={i} className="font-mono text-sm tracking-[0.08em] text-[var(--foreground-muted)]/70 whitespace-nowrap" aria-hidden={i >= mobileStack.length}>
+              {s}
+            </span>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

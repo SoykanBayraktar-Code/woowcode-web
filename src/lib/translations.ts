@@ -5,6 +5,7 @@ export const translations = {
     // Navigation
     nav: {
       home: "Ana Sayfa",
+      apps: "Uygulamalar",
       about: "Hakkımızda",
       services: "Hizmetler",
       projects: "Projelerimiz",
@@ -587,6 +588,7 @@ export const translations = {
     // Navigation
     nav: {
       home: "Home",
+      apps: "Apps",
       about: "About",
       services: "Services",
       projects: "Projects",

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 // Dinamik OG görseli — paylaşılan linklerde (WhatsApp, LinkedIn, X) önizleme.
 // Ekstra paket/asset gerekmez; marka renkleriyle kod-üretimi.
-export const alt = "WOOWCODE — Yapay Zekâ ve Dijital Dönüşüm Çözümleri";
+export const alt = "WOOWCODE — iOS & Mobil Uygulama Stüdyosu";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -18,7 +18,7 @@ export default function OpengraphImage() {
           alignItems: "center",
           justifyContent: "center",
           background:
-            "linear-gradient(135deg, #0D47A1 0%, #7B1FA2 50%, #C2185B 100%)",
+            "radial-gradient(ellipse 80% 70% at 50% 0%, #1b3a7a 0%, #07090d 70%)",
           position: "relative",
         }}
       >
@@ -30,7 +30,7 @@ export default function OpengraphImage() {
             left: 0,
             right: 0,
             height: 10,
-            background: "rgba(255,255,255,0.85)",
+            background: "linear-gradient(90deg, #0A84FF, #A5A3FF)",
           }}
         />
 
@@ -56,7 +56,7 @@ export default function OpengraphImage() {
             maxWidth: 900,
           }}
         >
-          Veriyi Zekâya, Teknolojiyi Değere Dönüştürüyoruz
+          {"Fikirden App Store'a · iOS & Mobil Uygulama Stüdyosu"}
         </div>
 
         <div

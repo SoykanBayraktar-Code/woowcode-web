@@ -1,52 +1,94 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
-import { site, telLink, mailLink, activeSocials } from "@/lib/site";
+import { site, telLink, mailLink, waLink, activeSocials } from "@/lib/site";
+import Logo, { TAGLINE } from "@/components/brand/Logo";
+import { mobileServices } from "@/lib/home";
 
 export default function Footer() {
   const { t, language } = useLanguage();
   const currentYear = new Date().getFullYear();
   const socials = activeSocials();
+  const cta = t.servicesPage.cta;
 
   const navigation = [
     { name: t.nav.home, href: "/" },
+    { name: t.nav.apps, href: "/apps" },
     { name: t.nav.about, href: "/about" },
     { name: t.nav.services, href: "/services" },
+    { name: t.nav.projects, href: "/projects" },
     { name: t.nav.blog, href: "/blog" },
     { name: t.nav.contact, href: "/contact" },
   ];
 
+  const footerServices = mobileServices.items.slice(0, 6);
+
+  const linkCls = "text-sm text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors";
+
   return (
-    <footer className="bg-[var(--background-secondary)] border-t border-[var(--border-color)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-4">
-              <Image
-                src="/logo.svg"
-                alt="WOOWCODE - Innovate. Create. Code."
-                width={160}
-                height={50}
-                className="h-12 w-auto"
-              />
+    <footer className="relative overflow-hidden border-t border-[var(--border-color)] bg-[var(--background)]">
+      {/* CTA band */}
+      <div className="container-x pt-20 lg:pt-28">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="relative overflow-hidden rounded-3xl border border-[var(--border-color)] bg-[#0b0e14] px-6 py-14 sm:px-12 lg:px-16 lg:py-20"
+        >
+          <div className="absolute inset-0 bg-grid opacity-60" aria-hidden="true" />
+          <div
+            className="absolute -top-40 left-1/2 h-80 w-[42rem] -translate-x-1/2 rounded-full blur-[100px] opacity-50"
+            style={{ background: "radial-gradient(closest-side, #0A84FF, transparent)" }}
+            aria-hidden="true"
+          />
+          <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
+            <div className="max-w-2xl">
+              <span className="eyebrow mb-5">{t.hero.ctaWhatsApp}</span>
+              <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl mt-5 text-[var(--foreground)]">
+                {cta.title} <span className="text-gradient">{cta.titleHighlight}</span>
+              </h2>
+              <p className="mt-5 text-[var(--foreground-muted)] text-base lg:text-lg leading-relaxed">
+                {cta.description}
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <Link href="/contact" className="btn-primary">
+                {cta.button}
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+              <a href={waLink(language)} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+                <span className="h-2 w-2 rounded-full bg-[#25D366] shadow-[0_0_10px_#25D366]" />
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Columns */}
+      <div className="container-x pt-16 pb-10">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-10">
+          <div className="col-span-2 md:col-span-5">
+            <Link href="/" aria-label="WOOWCODE" className="inline-block">
+              <Logo tagline={TAGLINE[language]} />
             </Link>
-            <p className="text-[var(--foreground-muted)] text-sm leading-relaxed mb-4">
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-[var(--foreground-muted)]">
               {t.footer.description}
             </p>
-            <p className="text-[var(--foreground-muted)] text-xs leading-relaxed">
-              <strong className="text-[var(--foreground)]">{t.footer.companyInfo.title}</strong>
+            <p className="mt-5 text-xs leading-relaxed text-[var(--foreground-muted)]/80">
+              {t.footer.companyInfo.title}
               <br />
               {site.address.line1}
               <br />
               {site.address.line2} / {site.address.country[language]}
             </p>
-
-            {/* Social Links — yalnızca dolu olanlar görünür */}
             {socials.length > 0 && (
-              <div className="flex items-center gap-3 mt-4">
+              <div className="mt-6 flex items-center gap-2">
                 {socials.map(({ key, url }) => (
                   <a
                     key={key}
@@ -54,7 +96,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={key}
-                    className="w-9 h-9 rounded-lg border border-[var(--border-color)] flex items-center justify-center text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] hover:border-[var(--neon-blue)] transition-colors"
+                    className="grid h-9 w-9 place-items-center rounded-full border border-[var(--border-color)] text-[var(--foreground-muted)] hover:text-[var(--foreground)] hover:border-[var(--border-color-bright)] transition-colors"
                   >
                     <SocialIcon name={key} />
                   </a>
@@ -63,130 +105,64 @@ export default function Footer() {
             )}
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-[var(--foreground)] font-semibold mb-4">{t.footer.quickLinks}</h3>
-            <ul className="space-y-2">
+          <div className="md:col-span-2">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--foreground-muted)]/70 mb-4">
+              {t.footer.quickLinks}
+            </h3>
+            <ul className="space-y-2.5">
               {navigation.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] transition-colors text-sm"
-                  >
-                    {item.name}
-                  </Link>
+                <li key={item.href}>
+                  <Link href={item.href} className={linkCls}>{item.name}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-[var(--foreground)] font-semibold mb-4">{t.footer.services}</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/services" className="text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] transition-colors text-sm">
-                  {t.services.items["autonomous-drones"].title}
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] transition-colors text-sm">
-                  {t.services.items["industrial-ai"].title}
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] transition-colors text-sm">
-                  {t.services.items["data-engineering"].title}
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] transition-colors text-sm">
-                  {t.services.items["digital-twin"].title}
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] transition-colors text-sm">
-                  {t.services.items["saas-development"].title}
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] transition-colors text-sm">
-                  {t.services.items["iot-automation"].title}
-                </Link>
-              </li>
+          <div className="md:col-span-3">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--foreground-muted)]/70 mb-4">
+              {t.footer.services}
+            </h3>
+            <ul className="space-y-2.5">
+              {footerServices.map((item) => (
+                <li key={item.title.EN}>
+                  <Link href="/services" className={linkCls}>{item.title[language]}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="text-[var(--foreground)] font-semibold mb-4">{t.footer.contact}</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link 
-                  href="/contact"
-                  className="flex items-center space-x-2 text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] transition-colors text-sm"
-                >
-                  <svg className="w-4 h-4 text-[var(--neon-blue)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span>Bize Ulaşın</span>
-                </Link>
-              </li>
-              <li>
-                <a
-                  href={telLink}
-                  className="flex items-center space-x-2 text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] transition-colors text-sm"
-                >
-                  <svg className="w-4 h-4 text-[var(--neon-blue)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <span>{site.phone.display}</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={mailLink}
-                  className="flex items-center space-x-2 text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] transition-colors text-sm"
-                >
-                  <svg className="w-4 h-4 text-[var(--neon-blue)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span>{site.email}</span>
-                </a>
-              </li>
-              <li className="flex items-start space-x-2 text-[var(--foreground-muted)] text-sm">
-                <svg className="w-4 h-4 text-[var(--neon-blue)] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span>Muratpaşa, Antalya</span>
-              </li>
-              <li className="flex items-center space-x-2 text-[var(--foreground-muted)] text-sm">
-                <svg className="w-4 h-4 text-[var(--neon-blue)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>Pzt-Cum: 09:00 - 18:00</span>
+          <div className="col-span-2 md:col-span-2">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--foreground-muted)]/70 mb-4">
+              {t.footer.contact}
+            </h3>
+            <ul className="space-y-2.5">
+              <li><a href={mailLink} className={linkCls}>{site.email}</a></li>
+              <li><a href={telLink} className={linkCls}>{site.phone.display}</a></li>
+              <li className="text-sm text-[var(--foreground-muted)]">Muratpaşa, Antalya</li>
+              <li className="text-sm text-[var(--foreground-muted)]">
+                {language === "EN" ? "Mon–Fri 09:00–18:00" : "Pzt–Cum 09:00–18:00"}
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-[var(--border-color)]">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-[var(--foreground-muted)] text-sm">
-              © {currentYear} WOOWCODE YAZILIM ve TİCARET A.Ş. {t.footer.allRightsReserved}
-            </p>
-            <div className="flex space-x-6">
-              <Link href="/contact" className="text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] text-sm transition-colors">
-                {t.nav.contact}
-              </Link>
-              <Link href="/about" className="text-[var(--foreground-muted)] hover:text-[var(--neon-blue)] text-sm transition-colors">
-                {t.nav.about}
-              </Link>
-            </div>
+        <div className="mt-14 flex flex-col-reverse gap-4 border-t border-[var(--border-color)] pt-6 md:flex-row md:items-center md:justify-between">
+          <p className="text-xs text-[var(--foreground-muted)]">
+            © {currentYear} {site.legalName}. {t.footer.allRightsReserved}
+          </p>
+          <div className="flex items-center gap-2 text-xs text-[var(--foreground-muted)]">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--mint)] opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--mint)]" />
+            </span>
+            {language === "EN" ? "Accepting new projects" : "Yeni projelere açığız"}
           </div>
         </div>
+      </div>
+
+      {/* Oversized wordmark */}
+      <div aria-hidden="true" className="pointer-events-none select-none -mb-[0.22em] text-center font-semibold leading-none tracking-[-0.06em] text-[22vw]">
+        <span className="bg-gradient-to-b from-white/[0.07] to-transparent bg-clip-text text-transparent">woowcode</span>
       </div>
     </footer>
   );

@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      // Eski Starlit adresleri App Store kaydında (destek / gizlilik URL'si) kullanılıyor olabilir:
+      // kalıcı yönlendirme ile çalışmaya devam ederler.
+      { source: "/starlit", destination: "/apps/starlit", permanent: true },
+      { source: "/starlit/privacy", destination: "/apps/starlit/privacy", permanent: true },
+      { source: "/starlit/gizlilik", destination: "/apps/starlit/gizlilik", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

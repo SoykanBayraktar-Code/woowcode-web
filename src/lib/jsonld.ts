@@ -5,6 +5,8 @@
 // ============================================================================
 
 import { site, activeSocials } from "@/lib/site";
+import type { AppEntry } from "@/lib/apps";
+import { appStoreUrl } from "@/lib/apps";
 
 const sameAs = activeSocials().map((s) => s.url);
 
@@ -16,7 +18,7 @@ export function organizationLd() {
     name: site.name,
     legalName: site.legalName,
     url: site.url,
-    logo: `${site.url}/WOOWCODELOGO.png`,
+    logo: `${site.url}/logo.png`,
     image: `${site.url}/opengraph-image`,
     email: site.email,
     telephone: `+${site.phone.e164}`,
@@ -35,7 +37,7 @@ export function localBusinessLd() {
     name: site.name,
     legalName: site.legalName,
     url: site.url,
-    logo: `${site.url}/WOOWCODELOGO.png`,
+    logo: `${site.url}/logo.png`,
     image: `${site.url}/opengraph-image`,
     email: site.email,
     telephone: `+${site.phone.e164}`,
@@ -97,6 +99,22 @@ export function servicesLd(services: { name: string; description: string }[]) {
 }
 
 /** Yardımcı: JSON-LD'yi <script> için string'e çevirir */
+/** Yayındaki bir iOS uygulaması */
+export function softwareApplicationLd(app: AppEntry) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    name: app.name,
+    description: app.description.EN,
+    operatingSystem: "iOS",
+    applicationCategory: app.category.EN,
+    url: `${site.url}/apps/${app.slug}`,
+    ...(app.hasIcon ? { image: `${site.url}/apps/${app.slug}/icon.png` } : {}),
+    ...(appStoreUrl(app) ? { installUrl: appStoreUrl(app), downloadUrl: appStoreUrl(app) } : {}),
+    publisher: { "@type": "Organization", name: site.legalName, url: site.url },
+  };
+}
+
 export function ldJson(obj: unknown): string {
   return JSON.stringify(obj);
 }

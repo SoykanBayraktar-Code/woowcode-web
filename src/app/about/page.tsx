@@ -1,33 +1,18 @@
 import { Metadata } from "next";
-import AboutHero from "./AboutHero";
-import AboutMission from "./AboutMission";
-import AboutValues from "./AboutValues";
-import AboutTeam from "./AboutTeam";
-import AboutCTA from "./AboutCTA";
+import AboutView from "./AboutView";
 
 export const metadata: Metadata = {
-  title: "Hakkımızda | Kurumsal Teknoloji Çözüm Ortağınız",
+  title: "Hakkımızda | Antalya'dan App Store'a",
   description:
-    "WOOWCODE, endüstriyel yapay zeka, otonom sistemler ve dijital dönüşüm alanında Türkiye'nin öncü teknoloji şirketidir. Misyonumuz, vizyonumuz ve değerlerimizi keşfedin.",
+    "WOOWCODE, 2024'te Antalya'da kurulmuş bir iOS ve mobil uygulama stüdyosu. Kendi uygulamalarımızı App Store'da yayınlıyor, aynı özeni müşterilerimizin ürünlerine taşıyoruz.",
   openGraph: {
-    title: "Hakkımızda | WOOWCODE - Kurumsal Teknoloji Çözüm Ortağınız",
-    description:
-      "Endüstriyel yapay zeka ve dijital dönüşüm alanında öncü çözümler sunan WOOWCODE'u yakından tanıyın.",
+    title: "Hakkımızda | WOOWCODE",
+    description: "Antalya merkezli iOS ve mobil uygulama stüdyosu. Kendi uygulamalarımız App Store'da.",
     type: "website",
   },
-  alternates: {
-    canonical: "/about",
-  },
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
-  return (
-    <div className="min-h-screen pt-20">
-      <AboutHero />
-      <AboutMission />
-      <AboutValues />
-      <AboutTeam />
-      <AboutCTA />
-    </div>
-  );
+  return <AboutView />;
 }

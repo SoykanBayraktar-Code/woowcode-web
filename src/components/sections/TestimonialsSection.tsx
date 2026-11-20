@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { testimonials } from "@/lib/testimonials";
+import SectionHeader from "@/components/sections/SectionHeader";
 
 export default function TestimonialsSection() {
   const { t, language } = useLanguage();
@@ -19,59 +20,43 @@ export default function TestimonialsSection() {
       .toUpperCase();
 
   return (
-    <section className="py-20 lg:py-28 relative bg-[var(--background-secondary)]">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-[var(--neon-blue)]/50 bg-[var(--background)] mb-6 badge-enhanced">
-            <span className="w-2 h-2 bg-[var(--neon-blue)] rounded-full animate-pulse" />
-            <span className="text-sm text-[var(--foreground-muted)]">{t.testimonials.badge}</span>
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            <span className="text-[var(--foreground)]">{t.testimonials.title} </span>
-            <span className="neon-text">{t.testimonials.titleHighlight}</span>
-          </h2>
-          <p className="text-[var(--foreground-muted)] max-w-2xl mx-auto">{t.testimonials.description}</p>
-        </motion.div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section className="relative py-24 lg:py-36 border-t border-[var(--border-color)]">
+      <div className="container-x">
+        <SectionHeader
+          eyebrow={t.testimonials.badge}
+          title={t.testimonials.title}
+          highlight={t.testimonials.titleHighlight}
+          description={t.testimonials.description}
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {testimonials.map((item, index) => (
-            <motion.div
+            <motion.figure
               key={item.name + index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="glass-card rounded-2xl p-6 lg:p-8 flex flex-col"
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="card-line p-7 lg:p-8 flex flex-col"
             >
-              {/* Quote mark */}
-              <svg className="w-8 h-8 text-[var(--electric-violet)]/60 mb-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
-              </svg>
-              <p className="text-[var(--foreground-muted)] leading-relaxed mb-6 flex-1">
+              <blockquote className="flex-1 text-[var(--foreground-muted-bright)] leading-relaxed">
+                <span className="text-gradient text-3xl leading-none font-serif">&ldquo;</span>
                 {language === "EN" && item.quoteEN ? item.quoteEN : item.quoteTR}
-              </p>
-              <div className="flex items-center gap-3">
+              </blockquote>
+              <figcaption className="mt-8 flex items-center gap-3 border-t border-[var(--border-color)] pt-5">
                 {item.avatar ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={item.avatar} alt={item.name} className="w-11 h-11 rounded-full object-cover" />
+                  <img src={item.avatar} alt={item.name} className="w-10 h-10 rounded-full object-cover" />
                 ) : (
-                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[var(--cyber-cobalt)] to-[var(--electric-violet)] flex items-center justify-center text-white font-semibold text-sm">
+                  <div className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.04] font-mono text-xs text-[var(--foreground)]">
                     {initials(item.name)}
                   </div>
                 )}
                 <div>
-                  <div className="text-[var(--foreground)] font-semibold text-sm">{item.name}</div>
-                  <div className="text-[var(--foreground-muted)] text-xs">{item.role}</div>
+                  <div className="text-sm font-medium text-[var(--foreground)]">{item.name}</div>
+                  <div className="text-xs text-[var(--foreground-muted)]">{item.role}</div>
                 </div>
-              </div>
-            </motion.div>
+              </figcaption>
+            </motion.figure>
           ))}
         </div>
       </div>

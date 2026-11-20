@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { BlogPost } from "@/lib/blog";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -11,156 +11,66 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, featured = false }: BlogCardProps) {
-  const formattedDate = new Date(post.date).toLocaleDateString("tr-TR", {
+  const { language } = useLanguage();
+  const date = new Date(post.date).toLocaleDateString(language === "EN" ? "en-GB" : "tr-TR", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 
+  const meta = (
+    <div className="flex items-center gap-3 font-mono text-[11px] text-[var(--foreground-muted)]">
+      <span className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[var(--foreground-muted-bright)]">{post.category}</span>
+      <span>{date}</span>
+      <span aria-hidden="true">·</span>
+      <span>{post.readTime}</span>
+    </div>
+  );
+
   if (featured) {
     return (
-      <motion.article
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="group relative glass-card rounded-2xl overflow-hidden hover:border-[var(--neon-blue)] transition-all duration-500"
-      >
-        <Link href={`/blog/${post.slug}`} className="block">
-          <div className="grid md:grid-cols-2 gap-0">
-            {/* Image */}
-            <div className="relative h-64 md:h-full min-h-[300px] bg-[var(--background-tertiary)] overflow-hidden">
-              <Image
-                src={post.coverImage}
-                alt={post.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[var(--background)]/60 to-transparent" />
-              {/* Category Badge */}
-              <div className="absolute top-4 left-4">
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-[var(--neon-blue)] text-[var(--background)]">
-                  {post.category}
-                </span>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="p-6 md:p-8 flex flex-col justify-center">
-              {/* Meta */}
-              <div className="flex items-center space-x-4 text-sm text-[var(--foreground-muted)] mb-4">
-                <span>{formattedDate}</span>
-                <span>•</span>
-                <span>{post.readTime} okuma</span>
-              </div>
-
-              {/* Title */}
-              <h2 className="text-2xl md:text-3xl font-bold text-[var(--foreground)] mb-4 group-hover:text-[var(--neon-blue)] transition-colors">
-                {post.title}
-              </h2>
-
-              {/* Excerpt */}
-              <p className="text-[var(--foreground-muted)] mb-6 leading-relaxed line-clamp-3">
-                {post.excerpt}
-              </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {post.tags.slice(0, 3).map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 text-xs rounded bg-[var(--background-tertiary)] text-[var(--foreground-muted)] border border-[var(--neon-blue)]/40 shadow-[0_0_6px_rgba(13,71,161,0.15)]"
-                  >
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Author */}
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--neon-blue)] to-[var(--neon-green)] flex items-center justify-center text-[var(--background)] font-semibold text-sm">
-                  {post.author.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-[var(--foreground)]">
-                    {post.author.name}
-                  </p>
-                  <p className="text-xs text-[var(--foreground-muted)]">
-                    {post.author.role}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Link>
-      </motion.article>
-    );
-  }
-
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="group glass-card rounded-2xl overflow-hidden hover:border-[var(--neon-blue)] transition-all duration-500"
-    >
-      <Link href={`/blog/${post.slug}`} className="block">
-        {/* Image */}
-        <div className="relative h-48 bg-[var(--background-tertiary)] overflow-hidden">
+      <Link href={`/blog/${post.slug}`} className="group card-line grid overflow-hidden md:grid-cols-2">
+        <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[360px] overflow-hidden">
           <Image
             src={post.coverImage}
             alt={post.title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)]/40 to-transparent" />
-          {/* Category Badge */}
-          <div className="absolute top-4 left-4">
-            <span className="px-3 py-1 text-xs font-medium rounded-full bg-[var(--neon-blue)]/90 text-[var(--background)]">
-              {post.category}
-            </span>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07090d]/60 to-transparent md:bg-gradient-to-r" />
         </div>
-
-        {/* Content */}
-        <div className="p-6">
-          {/* Meta */}
-          <div className="flex items-center space-x-3 text-xs text-[var(--foreground-muted)] mb-3">
-            <span>{formattedDate}</span>
-            <span>•</span>
-            <span>{post.readTime} okuma</span>
-          </div>
-
-          {/* Title */}
-          <h3 className="text-lg font-semibold text-[var(--foreground)] mb-3 group-hover:text-[var(--neon-blue)] transition-colors line-clamp-2">
-            {post.title}
-          </h3>
-
-          {/* Excerpt */}
-          <p className="text-sm text-[var(--foreground-muted)] mb-4 leading-relaxed line-clamp-2">
-            {post.excerpt}
-          </p>
-
-          {/* Read More */}
-          <div className="flex items-center text-[var(--neon-blue)] text-sm font-medium group-hover:translate-x-1 transition-transform">
-            <span>Devamını Oku</span>
-            <svg
-              className="w-4 h-4 ml-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
+        <div className="flex flex-col justify-center p-7 sm:p-10">
+          {meta}
+          <h3 className="heading-lg mt-6 text-2xl sm:text-3xl lg:text-4xl text-[var(--foreground)]">{post.title}</h3>
+          <p className="mt-4 line-clamp-3 text-[17px] leading-relaxed text-[var(--foreground-muted)]">{post.excerpt}</p>
+          <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-[var(--foreground)]">
+            {language === "EN" ? "Read" : "Oku"}
+            <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
-          </div>
+          </span>
         </div>
       </Link>
-    </motion.article>
+    );
+  }
+
+  return (
+    <Link href={`/blog/${post.slug}`} className="group card-line flex h-full flex-col overflow-hidden">
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <Image
+          src={post.coverImage}
+          alt={post.title}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+        />
+      </div>
+      <div className="flex flex-1 flex-col p-6">
+        {meta}
+        <h3 className="mt-5 line-clamp-2 text-lg font-semibold leading-snug tracking-[-0.01em] text-[var(--foreground)]">{post.title}</h3>
+        <p className="mt-3 line-clamp-2 text-[15px] leading-relaxed text-[var(--foreground-muted)]">{post.excerpt}</p>
+      </div>
+    </Link>
   );
 }

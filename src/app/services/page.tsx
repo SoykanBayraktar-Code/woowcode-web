@@ -1,24 +1,13 @@
 import { Metadata } from "next";
-import ServicesHero from "./ServicesHero";
-import ServicesList from "./ServicesList";
-import ServicesProcess from "./ServicesProcess";
-import ServicesPackages from "./ServicesPackages";
-import ServicesCTA from "./ServicesCTA";
+import ServicesView from "./ServicesView";
 
 export const metadata: Metadata = {
-  title: "Hizmetlerimiz | Web, Mobil, SaaS & Yapay Zekâ Geliştirme",
-  description: "Web ve mobil uygulama geliştirme, SaaS ürün geliştirme, yapay zekâ, veri mühendisliği ve IoT çözümleri. Projenize uygun şeffaf paketlerle uçtan uca hizmet.",
+  title: "Hizmetler | iOS & Mobil Uygulama Geliştirme",
+  description:
+    "Native iOS (SwiftUI) uygulama geliştirme, widget ve Live Activities, Android/cross-platform, UI/UX tasarım, backend, yapay zekâ entegrasyonu ve App Store yayını. Şeffaf paketler.",
   alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
-  return (
-    <main className="min-h-screen pt-20">
-      <ServicesHero />
-      <ServicesList />
-      <ServicesProcess />
-      <ServicesPackages />
-      <ServicesCTA />
-    </main>
-  );
+  return <ServicesView />;
 }

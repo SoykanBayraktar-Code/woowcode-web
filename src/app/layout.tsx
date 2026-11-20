@@ -18,12 +18,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.woowcode.com"),
   title: {
-    default: "WOOWCODE | Antalya Yazılım Ajansı — Web, Mobil & Yapay Zekâ",
+    default: "WOOWCODE | iOS & Mobil Uygulama Stüdyosu — Fikirden App Store'a",
     template: "%s | WOOWCODE",
   },
   description:
-    "Antalya merkezli yazılım ajansı. Web ve mobil uygulama geliştirme, SaaS, yapay zekâ ve veri çözümleri ile fikrinizi uçtan uca hayata geçiriyoruz. Projeniz için ücretsiz keşif görüşmesi.",
+    "Antalya merkezli iOS ve mobil uygulama stüdyosu. iPhone uygulamalarını tasarlıyor, SwiftUI ile geliştiriyor ve App Store'da yayınlıyoruz; kendi uygulamalarımız da App Store'da. Ücretsiz keşif görüşmesi.",
   keywords: [
+    "iOS uygulama geliştirme",
+    "iPhone uygulama yaptırma",
+    "mobil uygulama geliştirme",
+    "SwiftUI",
+    "App Store yayınlama",
     "yazılım ajansı",
     "Antalya yazılım firması",
     "web uygulama geliştirme",
@@ -47,16 +52,16 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.woowcode.com",
     siteName: "WOOWCODE",
-    title: "WOOWCODE | Antalya Yazılım Ajansı — Web, Mobil & Yapay Zekâ",
+    title: "WOOWCODE | iOS & Mobil Uygulama Stüdyosu — Fikirden App Store'a",
     description:
-      "Web ve mobil uygulama geliştirme, SaaS ve yapay zekâ çözümleri. Fikrinizi uçtan uca hayata geçiren Antalya merkezli yazılım ekibi.",
+      "iPhone ve mobil uygulamaları tasarlıyor, geliştiriyor ve App Store'da yayınlıyoruz. Kendi uygulamalarımız da App Store'da.",
     // og:image otomatik olarak src/app/opengraph-image.tsx'ten gelir.
   },
   twitter: {
     card: "summary_large_image",
-    title: "WOOWCODE | Antalya Yazılım Ajansı — Web, Mobil & Yapay Zekâ",
+    title: "WOOWCODE | iOS & Mobil Uygulama Stüdyosu — Fikirden App Store'a",
     description:
-      "Web & mobil uygulama, SaaS ve yapay zekâ çözümleri. Projenizi uçtan uca hayata geçiriyoruz.",
+      "iPhone ve mobil uygulamaları tasarlıyor, geliştiriyor ve App Store'da yayınlıyoruz.",
     // twitter:image otomatik olarak src/app/twitter-image.tsx'ten gelir.
   },
   robots: {
@@ -75,7 +80,6 @@ export const metadata: Metadata = {
       { url: "/favicon.ico", sizes: "any" },
       { url: "/icon.svg", type: "image/svg+xml" },
     ],
-    apple: "/icon.svg",
   },
 };
 

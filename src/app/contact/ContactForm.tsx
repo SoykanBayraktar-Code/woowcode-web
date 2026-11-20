@@ -89,7 +89,7 @@ export default function ContactForm() {
   // Loading skeleton while mounting
   if (!mounted) {
     return (
-      <div className="glass-card rounded-2xl p-8 animate-pulse">
+      <div className="card-line p-7 sm:p-9 animate-pulse">
         <div className="h-8 bg-[var(--background-secondary)] rounded w-1/3 mb-6" />
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -215,13 +215,13 @@ export default function ContactForm() {
   ];
 
   const inputClasses = (hasError: boolean) =>
-    `w-full px-4 py-3 rounded-xl bg-[var(--background-secondary)] border ${
+    `w-full px-4 py-3.5 rounded-xl bg-white/[0.03] border ${
       hasError
         ? "border-red-500 focus:border-red-500"
-        : "border-[var(--neon-blue)]/40 focus:border-[var(--neon-blue)] shadow-[0_0_8px_rgba(13,71,161,0.1)]"
-    } text-[var(--foreground)] placeholder-[var(--foreground-muted)] focus:outline-none focus:ring-2 ${
-      hasError ? "focus:ring-red-500/20" : "focus:ring-[var(--neon-blue)]/20"
-    } transition-all duration-300`;
+        : "border-[var(--border-color-bright)] hover:border-white/20 focus:border-[var(--azure)]"
+    } text-[17px] text-[var(--foreground)] placeholder-[var(--foreground-muted)]/70 focus:outline-none focus:ring-4 ${
+      hasError ? "focus:ring-red-500/15" : "focus:ring-[#0A84FF]/15"
+    } transition-colors duration-200`;
 
   return (
     <motion.div
@@ -229,9 +229,9 @@ export default function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="glass-card rounded-2xl p-8"
+      className="card-line p-7 sm:p-9"
     >
-      <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">
+      <h2 className="text-2xl font-semibold tracking-[-0.02em] text-[var(--foreground)] mb-6">
         {t.contact.form.title}
       </h2>
 
@@ -239,11 +239,11 @@ export default function ContactForm() {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="mb-6 p-4 rounded-xl bg-[var(--neon-green)]/10 border border-[var(--neon-green)]/30"
+          className="mb-6 p-4 rounded-xl bg-[#30D158]/10 border border-[#30D158]/30"
         >
           <div className="flex items-center">
             <svg
-              className="w-5 h-5 text-[var(--neon-green)] mr-3"
+              className="w-5 h-5 text-[#30D158] mr-3"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -255,7 +255,7 @@ export default function ContactForm() {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            <p className="text-[var(--neon-green)]">
+            <p className="text-[#30D158]">
               {t.contact.form.success}
             </p>
           </div>
@@ -450,7 +450,7 @@ export default function ContactForm() {
           disabled={isSubmitting}
           whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
           whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-          className={`w-full py-4 px-6 rounded-xl font-semibold text-[var(--background)] bg-gradient-to-r from-[var(--neon-blue)] to-[var(--electric-violet)] hover:shadow-[0_0_30px_rgba(0,212,255,0.4)] transition-all duration-300 ${
+          className={`btn-primary !h-14 w-full ${
             isSubmitting ? "opacity-70 cursor-not-allowed" : ""
           }`}
         >

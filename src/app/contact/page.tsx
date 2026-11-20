@@ -5,14 +5,14 @@ import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
 
 export const metadata: Metadata = {
-  title: "İletişim | Projeniz İçin Ücretsiz Görüşme",
+  title: "İletişim | Uygulamanızı Konuşalım",
   description:
-    "Web, mobil, SaaS veya yapay zekâ projeniz için WOOWCODE ile iletişime geçin. WhatsApp veya formdan ulaşın, ücretsiz keşif görüşmesi planlayalım.",
+    "iPhone veya mobil uygulama fikriniz için WOOWCODE ile iletişime geçin. WhatsApp veya formdan ulaşın, ücretsiz keşif görüşmesi planlayalım.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "İletişim | WOOWCODE",
     description:
-      "Web, mobil, SaaS veya yapay zekâ projeniz için WOOWCODE ile iletişime geçin. Ücretsiz keşif görüşmesi planlayalım.",
+      "iPhone veya mobil uygulama fikriniz için WOOWCODE ile iletişime geçin. Ücretsiz keşif görüşmesi planlayalım.",
     type: "website",
     url: "/contact",
   },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 function ContactFormFallback() {
   return (
-    <div className="glass-card rounded-2xl p-8 animate-pulse">
+    <div className="card-line p-8 animate-pulse">
       <div className="h-8 bg-[var(--background-secondary)] rounded w-1/3 mb-6" />
       <div className="space-y-4">
         <div className="h-12 bg-[var(--background-secondary)] rounded" />
@@ -39,9 +39,9 @@ export default function ContactPage() {
       <ContactHero />
 
       {/* Contact Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="border-t border-[var(--border-color)] py-16 lg:py-24">
+        <div className="container-x">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.2fr_1fr] lg:gap-8">
             {/* Contact Form */}
             <Suspense fallback={<ContactFormFallback />}>
               <ContactForm />

@@ -16,8 +16,8 @@ export default function ContactInfo() {
       className="space-y-8"
     >
       {/* Company Info Card */}
-      <div className="glass-card rounded-2xl p-8">
-        <h2 className="text-2xl font-bold text-[var(--foreground)] mb-6">
+      <div className="card-line p-7 sm:p-9">
+        <h2 className="text-2xl font-semibold tracking-[-0.02em] text-[var(--foreground)] mb-6">
           {t.contact.info.title}
         </h2>
 
@@ -148,7 +148,7 @@ export default function ContactInfo() {
       {/* Quick Info Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Response Time */}
-        <div className="glass-card rounded-xl p-6 text-center">
+        <div className="card-line p-6 text-center">
           <div className="w-14 h-14 rounded-full bg-[var(--neon-blue)]/10 flex items-center justify-center mx-auto mb-4">
             <svg
               className="w-7 h-7 text-[var(--neon-blue)]"
@@ -173,7 +173,7 @@ export default function ContactInfo() {
         </div>
 
         {/* Working Hours */}
-        <div className="glass-card rounded-xl p-6 text-center">
+        <div className="card-line p-6 text-center">
           <div className="w-14 h-14 rounded-full bg-[var(--electric-violet)]/10 flex items-center justify-center mx-auto mb-4">
             <svg
               className="w-7 h-7 text-[var(--electric-violet)]"

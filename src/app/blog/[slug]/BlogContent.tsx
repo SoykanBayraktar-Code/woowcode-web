@@ -12,22 +12,22 @@ export default function BlogContent({ content }: BlogContentProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+      className="max-w-3xl mx-auto px-4 sm:px-6 py-14"
     >
       <div
         className="prose prose-invert prose-lg max-w-none
-          prose-headings:text-[var(--foreground)] prose-headings:font-bold
+          prose-headings:text-[var(--foreground)] prose-headings:font-semibold prose-headings:tracking-[-0.02em]
           prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-[var(--border-color)] prose-h2:pb-2
           prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-          prose-p:text-[var(--foreground-muted)] prose-p:leading-relaxed prose-p:mb-4
+          prose-p:text-[var(--foreground-muted-bright)] prose-p:leading-[1.75] prose-p:mb-5
           prose-strong:text-[var(--foreground)] prose-strong:font-semibold
-          prose-a:text-[var(--neon-blue)] prose-a:no-underline hover:prose-a:underline
-          prose-ul:text-[var(--foreground-muted)] prose-ul:my-4
-          prose-ol:text-[var(--foreground-muted)] prose-ol:my-4
+          prose-a:text-[var(--azure-soft)] prose-a:no-underline hover:prose-a:underline
+          prose-ul:text-[var(--foreground-muted-bright)] prose-ul:my-4
+          prose-ol:text-[var(--foreground-muted-bright)] prose-ol:my-4
           prose-li:my-1
-          prose-code:text-[var(--neon-blue)] prose-code:bg-[var(--background-secondary)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+          prose-code:text-[var(--azure-soft)] prose-code:bg-[var(--background-secondary)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
           prose-pre:bg-[var(--background-secondary)] prose-pre:border prose-pre:border-[var(--border-color)] prose-pre:rounded-xl
-          prose-blockquote:border-l-[var(--neon-blue)] prose-blockquote:bg-[var(--background-secondary)] prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-xl prose-blockquote:not-italic
+          prose-blockquote:border-l-[var(--azure)] prose-blockquote:bg-[var(--background-secondary)] prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-xl prose-blockquote:not-italic
           prose-table:border prose-table:border-[var(--border-color)]
           prose-th:bg-[var(--background-secondary)] prose-th:p-3 prose-th:text-left prose-th:text-[var(--foreground)]
           prose-td:p-3 prose-td:border-t prose-td:border-[var(--border-color)] prose-td:text-[var(--foreground-muted)]
