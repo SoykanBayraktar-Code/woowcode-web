@@ -75,12 +75,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-  },
+  // Sekme ikonları Next.js dosya kuralıyla gelir: src/app/favicon.ico, src/app/icon.svg,
+  // src/app/apple-icon.tsx. Adreslere içerik hash'i eklendiği için logo değişince
+  // tarayıcı önbelleği eski ikonu göstermez.
 };
 
 export default function RootLayout({
