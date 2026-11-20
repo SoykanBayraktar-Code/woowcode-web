@@ -198,11 +198,11 @@ export const apps: AppEntry[] = [
         id: "guide-ai",
         variant: "ai",
         eyebrow: { TR: "Yol Gösterici", EN: "Guide" },
-        badge: { TR: "Yeni · Cihaz üstü yapay zekâ", EN: "New · On-device AI" },
+        badge: { TR: "Yakında · Cihaz üstü yapay zekâ", EN: "Coming soon · On-device AI" },
         title: { TR: "Cebinde, seni dinleyen bir rehber.", EN: "A guide in your pocket that listens." },
         body: {
-          TR: "Starlit'in rehberi artık Core AI ile telefonunda çalışan güçlü bir dil modeliyle (Qwen) düşünüyor. Bilişsel davranışçı terapi tekniklerinden esinlenen sorularla düşünceni farklı açılardan görmene yardım eder ve o an sana uyabilecek küçük adımlar önerir.",
-          EN: "Starlit's guide now thinks with a capable language model (Qwen) running on your phone through Core AI. With questions inspired by cognitive behavioural therapy techniques, it helps you see a thought from different angles and suggests small steps that might fit you right now.",
+          TR: "Yakında Starlit'in rehberi, Core AI ile telefonunda çalışan güçlü bir dil modeliyle (Qwen) düşünecek. Bilişsel davranışçı terapi tekniklerinden esinlenen sorularla düşünceni farklı açılardan görmene yardım edecek ve o an sana uyabilecek küçük adımlar önerecek.",
+          EN: "Soon, Starlit's guide will think with a capable language model (Qwen) running on your phone through Core AI. With questions inspired by cognitive behavioural therapy techniques, it will help you see a thought from different angles and suggest small steps that might fit you right now.",
         },
         bullets: [
           { TR: "Tamamen cihazda: yazdıkların hiçbir sunucuya gönderilmez", EN: "Fully on-device: nothing you write is sent to a server" },
