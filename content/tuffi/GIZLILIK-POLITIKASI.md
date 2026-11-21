@@ -45,6 +45,8 @@ açtığında ilerlemenin (satın aldığın Yıldızlar ve eşyalar dahil) geri
 - Yedek yalnızca telefonunda oyun kaydı yoksa geri yüklenir; telefonundaki kayıt her zaman esastır.
 - Bu alan Apple'ın iCloud koşullarına tabidir. Ona yalnızca sen erişebilirsin; biz erişemeyiz.
 - iCloud'da oturum açık değilse yedek alınmaz; oyun yine çalışır.
+- Yedeği istediğin zaman Tuffi'deki **Veri ve gizlilik › iCloud yedeği** anahtarından kapatabilirsin.
+  Kapatınca iCloud'daki yedek silinir ve yeni yedek alınmaz.
 
 ### Ana ekran bileşeni, kilit ekranı ve Dynamic Island
 
@@ -92,8 +94,9 @@ yoktur.
 - Oyun kaydın, uygulamayı kaldırana kadar cihazında durur.
 - Uygulamayı sildiğinde cihazındaki Tuffi verileri silinir.
 - iCloud yedeği, uygulamayı sildiğinde silinmez; böylece Tuffi'yi yeniden yüklediğinde ilerlemen geri
-  gelir. Bu yedek yalnızca senin Apple hesabında durur ve bize ulaşmaz. Silinmesini istersen
-  info@woowcode.com adresine yaz; verine erişemediğimiz için sana silme adımlarını anlatırız.
+  gelir. Bu yedek yalnızca senin Apple hesabında durur ve bize ulaşmaz.
+- Yedeği silmek için Tuffi'de **Veri ve gizlilik › iCloud yedeği** anahtarını kapat. Başka bir cihazında
+  da Tuffi varsa orada da kapatmalısın; yoksa o cihaz yeniden yedek alır.
 - Bizde saklanan bir verin olmadığı için senden aldığımız ya da silebileceğimiz bir kayıt yoktur.
 - Kalıcı ürünler (Kurucu Paketi, temalar, Sezon Kutuları) Apple hesabına bağlıdır; uygulamadaki
   "Satın alımları geri yükle" ile yeniden alırsın.
@@ -135,8 +138,8 @@ Telefon: +90 533 053 63 63
 - [x] Politika herkese açık adreste yayımlandı: https://www.woowcode.com/tuffi/gizlilik
 - [ ] Bağlantı App Store Connect'e ve uygulamanın Ayarlar ekranına eklendi.
 - [x] iCloud yedeği eklendi (anahtar-değer deposu, v0.4) ve 2. bölümde anlatıldı.
-- [ ] **Uygulamaya "iCloud yedeğini sil" düğmesi eklenmeli**; eklenince 5. bölümdeki "bize yaz" satırı
-      "Ayarlar'dan sil" olarak güncellenmeli.
+- [x] Uygulamaya "iCloud yedeği" anahtarı eklendi (kapatınca yedek silinir); 2. ve 5. bölüm güncellendi.
+- [x] Gizlilik politikası bağlantısı uygulamaya eklendi (Veri ve gizlilik kartı).
 - [ ] iCloud yedeği gerçek cihazda denendi (sil, yeniden yükle, ilerleme geri geldi mi).
 - [x] Bileşen, kilit ekranı ve Dynamic Island var (v0.3).
 - [ ] Yerel bildirimler eklendiğinde 2. bölüm yeniden kontrol edildi (şu an bildirim yok).

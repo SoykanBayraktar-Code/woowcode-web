@@ -47,6 +47,8 @@ reinstall Tuffi or open it on a new phone signed in with the same Apple Account.
 - The backup is restored only when there is no game save on your phone; the save on your phone always wins.
 - This storage is subject to Apple's iCloud terms. Only you can access it; we can't.
 - If you're not signed in to iCloud, no backup is made; the game still works.
+- You can turn the backup off at any time with the **Data and privacy › iCloud backup** switch in Tuffi.
+  Turning it off deletes the backup from iCloud and stops new backups.
 
 ### Widgets, Lock Screen and Dynamic Island
 
@@ -91,8 +93,9 @@ We don't sell, rent or share your data with third parties, because we have no ac
 - Your game save stays on your device until you remove the app.
 - When you delete the app, the Tuffi data on your device is deleted.
 - The iCloud backup is not deleted when you delete the app, so your progress comes back when you
-  reinstall Tuffi. It stays only in your Apple Account and never reaches us. If you want it deleted,
-  write to info@woowcode.com; since we can't access your data, we'll walk you through the steps.
+  reinstall Tuffi. It stays only in your Apple Account and never reaches us.
+- To delete the backup, turn off the **Data and privacy › iCloud backup** switch in Tuffi. If Tuffi is
+  also on another of your devices, turn it off there too; otherwise that device will back up again.
 - We hold no data about you, so there is no record on our side to hand over or delete.
 - Permanent items (Founder Pack, themes, Season Boxes) are tied to your Apple Account; you get them
   back with "Restore Purchases" in the app.
