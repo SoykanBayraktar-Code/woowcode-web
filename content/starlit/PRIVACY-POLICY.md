@@ -1,10 +1,10 @@
 # Starlit Privacy Policy
 
 > English version of `GIZLILIK-POLITIKASI.md`, written against the app's behavior on
-> November 20, 2026 (including iCloud backup, AI suggestions and the Lock Screen timer). The two files must stay in step: when one changes, change
+> November 21, 2026 (including iCloud backup, AI suggestions, the Rehber check-in and the Lock Screen timer). The two files must stay in step: when one changes, change
 > the other. Complete the checklist at the end of the Turkish file; a lawyer review is recommended.
 
-**Effective date:** November 20, 2026
+**Effective date:** November 21, 2026
 **Data controller:** WOOWCODE YAZILIM ve TİCARET A.Ş., Şirinyalı Mah. 1533. Sokak No:49/2, Muratpaşa/Antalya, Türkiye
 **Contact:** info@woowcode.com
 
@@ -16,6 +16,7 @@
 - We don't use advertising, tracking or analytics tools.
 - Your health data is only read; it is not stored, not written to iCloud and not sent anywhere.
 - AI suggestions are generated on your phone; what you write is not sent to a server.
+- Your Rehber check-in (PHQ-9 and GAD-7) answers stay only on your phone; they are not even written to iCloud.
 - When you delete the app, all Starlit data on your phone is deleted; you can delete the iCloud
   copy from your iPhone's iCloud settings.
 
@@ -102,6 +103,19 @@ You can run some of Starlit's actions (logging your mood, completing a routine, 
 thought, starting focus) with Siri or Shortcuts. In these actions too, Starlit writes your data
 only to your device. What you say to Siri by voice may be processed by Apple under its own
 privacy terms so that it can handle your request.
+
+### Rehber check-in (PHQ-9 and GAD-7)
+
+Every two weeks you can take an optional short check-in in Rehber. It uses the questions of two
+widely used self-assessment scales (PHQ-9 and GAD-7).
+
+- Your answers, your scores and the 14-day routine plan built from them are stored only on your
+  phone. They are not written to iCloud even when iCloud backup is on, and are never sent anywhere.
+- Scores are calculated on your phone. The result is not a diagnosis; it is only used to show your
+  progress and to choose routines that suit you.
+- If you answer the question about thoughts of self-harm with anything other than zero, the app
+  shows you support and the emergency number (112). This is not passed on to anyone.
+- Check-ins are included in your data export, and are all deleted when you delete the app.
 
 ### AI routine suggestions
 

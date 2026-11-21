@@ -1,10 +1,10 @@
 # Starlit Gizlilik Politikası
 
-> 20 Kasım 2026 tarihli uygulama davranışına göre yazıldı (iCloud yedeği, yapay zekâ önerileri ve kilit ekranı sayacı dahil).
+> 21 Kasım 2026 tarihli uygulama davranışına göre yazıldı (iCloud yedeği, yapay zekâ önerileri, Rehber kontrolü ve kilit ekranı sayacı dahil).
 > İngilizcesi `PRIVACY-POLICY.md`; iki dosya birlikte güncellenmeli.
 > Sondaki "Yayın öncesi kontrol listesi" tamamlanmalı; metnin bir hukukçuya gösterilmesi önerilir.
 
-**Yürürlük tarihi:** 20 Kasım 2026
+**Yürürlük tarihi:** 21 Kasım 2026
 **Veri sorumlusu:** WOOWCODE YAZILIM ve TİCARET A.Ş., Şirinyalı Mah. 1533. Sokak No:49/2, Muratpaşa/Antalya, Türkiye
 **İletişim:** info@woowcode.com
 
@@ -16,6 +16,7 @@
 - Reklam, izleme ya da analiz aracı kullanmıyoruz.
 - Sağlık verilerin yalnızca okunur; saklanmaz, iCloud'a yazılmaz ve hiçbir yere gönderilmez.
 - Yapay zekâ önerileri telefonunda üretilir; yazdıkların bir sunucuya gönderilmez.
+- Rehber kontrolünün (PHQ-9 ve GAD-7) cevapları yalnızca telefonunda kalır; iCloud'a bile yazılmaz.
 - Uygulamayı sildiğinde telefonundaki tüm Starlit verileri silinir; iCloud'daki kopyayı iPhone'un
   iCloud ayarlarından silebilirsin.
 
@@ -99,6 +100,19 @@ Starlit'in bazı eylemlerini (ruh halini kaydetme, rutini tamamlama, düşünce 
 başlatma) Siri ya da Kısayollar ile çalıştırabilirsin. Starlit bu eylemlerde de verini yalnızca
 cihazına yazar. Siri'ye sesle söylediklerin, isteğini işleyebilmesi için Apple tarafından kendi
 gizlilik koşullarına göre işlenebilir.
+
+### Rehber kontrolü (PHQ-9 ve GAD-7)
+
+Rehber'de iki haftada bir, isteğe bağlı kısa bir kontrol yapabilirsin. Kontrol, yaygın kullanılan
+iki öz değerlendirme ölçeğinin (PHQ-9 ve GAD-7) sorularından oluşur.
+
+- Cevapların, puanların ve bu puanlara göre hazırlanan 14 günlük rutin planın yalnızca
+  telefonunda saklanır. iCloud yedeği açık olsa bile iCloud'a yazılmaz ve hiçbir yere gönderilmez.
+- Puanlar telefonunda hesaplanır. Sonuç bir tanı değildir; yalnızca gidişatını görmen ve sana
+  uygun rutinleri seçmek için kullanılır.
+- Kendine zarar verme düşüncesiyle ilgili soruya sıfırdan farklı bir cevap verirsen uygulama sana
+  destek ve acil yardım hattını (112) gösterir. Bu bilgi kimseye iletilmez.
+- Kontrolleri dışa aktarılan dosyaya dahil edilir. Uygulamayı sildiğinde hepsi silinir.
 
 ### Yapay zekâ ile rutin önerileri
 
