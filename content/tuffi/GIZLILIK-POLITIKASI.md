@@ -1,7 +1,7 @@
 # Tuffi Gizlilik Politikası
 
-> Tuffi'nin 1.0 sürümü için planlanan davranışa göre yazıldı (21 Kasım 2026; GDD v0.1).
-> İngilizcesi `PRIVACY-POLICY.md`; iki dosya birlikte güncellenmeli.
+> 21 Kasım 2026 tarihli uygulama davranışına göre yazıldı (v0.5: oyun, widget ve Dynamic Island, mağaza ve
+> uygulama içi satın almalar, iCloud yedeği, sesler). İngilizcesi `PRIVACY-POLICY.md`; iki dosya birlikte güncellenmeli.
 > Sondaki "Yayın öncesi kontrol listesi" tamamlanmalı; metnin bir hukukçuya gösterilmesi önerilir.
 
 **Yürürlük tarihi:** 21 Kasım 2026
@@ -11,10 +11,10 @@
 ## Kısaca
 
 - Tuffi'de hesap açmazsın. Bizim bir sunucumuz yok.
-- Sanal bebeğinin durumu telefonunda durur. İstersen kendi iCloud alanında eşitlenir; biz göremeyiz.
+- Oyun kaydın telefonunda durur. iCloud açıksa kendi Apple hesabına bir yedeği alınır; biz göremeyiz.
 - Reklam, izleme ya da analiz aracı kullanmıyoruz.
 - Satın alımları Apple yönetir; ödeme bilgilerin bize ulaşmaz.
-- Uygulamayı sildiğinde telefonundaki tüm Tuffi verileri silinir.
+- Konum, kişiler, fotoğraf, kamera ya da mikrofon kullanmıyoruz.
 
 ## 1. Tuffi nedir
 
@@ -23,37 +23,55 @@ oynatır, uyutur ve temizlersin; nasıl baktığına göre farklı bir karaktere
 
 ## 2. Hangi veriler işlenir ve nerede durur
 
-### Oyun kayıtların
+### Oyun kaydın
 
-Aşağıdakiler cihazında saklanır ve bize ya da üçüncü bir tarafa aktarılmaz:
+Aşağıdakiler cihazında, Tuffi'nin kendi klasöründe saklanır ve bize ya da üçüncü bir tarafa aktarılmaz:
 
-- Sanal bebeğinin adı, evresi, formu ve ihtiyaç barları (tokluk, mutluluk, enerji, temizlik)
-- Bakım geçmişinin özeti (örneğin kaç kez beslendiği); bu yalnızca evrimin hangi yöne gideceğini belirlemek için kullanılır
-- Koleksiyon defteri, kartpostallar, oyun içi para (Yıldız) bakiyen ve sahip olduğun eşyalar
-- Uyku saatlerin, bildirim ve ses tercihlerin
+- Sanal bebeğinin adı, evresi, formu, kişiliği, ihtiyaç barları (tokluk, mutluluk, enerji, temizlik) ve bağ seviyesi
+- Bakım geçmişinin özeti (örneğin kaç kez beslendiği ya da nazlanınca nasıl davranıldığı); bu yalnızca
+  evrimin hangi yöne gideceğini belirlemek için kullanılır
+- Denediğin yemekler, günlük görevler, koleksiyon defteri ve önceki nesiller (Anı Bahçesi)
+- Oyun içi para (Yıldız) bakiyen, sahip olduğun ve yerleştirdiğin eşyalar, seçtiğin tema
+- Satın alma işlem numaraları (aşağıda "Satın alımlar")
 
-### iCloud eşitlemesi
+Ses, müzik ve titreşim tercihlerin de yalnızca bu cihazda saklanır.
 
-Apple hesabınla iCloud açıksa oyun kayıtların, Apple hesabının özel iCloud alanında (CloudKit özel
-veritabanı) saklanır ve aynı Apple hesabıyla oturum açtığın cihazlarında eşitlenir. Bu alan Apple'ın
-iCloud koşullarına tabidir. Ona yalnızca sen erişebilirsin; biz erişemeyiz.
+### iCloud yedeği
 
-### Bildirimler
+iPhone'unda iCloud açıksa oyun kaydının bir kopyası, Apple hesabının iCloud anahtar-değer deposuna
+yedeklenir. Amaç, Tuffi'yi silip yeniden yüklediğinde ya da aynı Apple hesabıyla yeni bir telefonda
+açtığında ilerlemenin (satın aldığın Yıldızlar ve eşyalar dahil) geri gelmesidir.
 
-Tuffi'nin "karnım acıktı" gibi hatırlatmaları yerel bildirimlerdir: telefonunda planlanır ve bir
-sunucudan gönderilmez. Bildirim izni vermezsen oyun yine çalışır.
+- Yedek yalnızca telefonunda oyun kaydı yoksa geri yüklenir; telefonundaki kayıt her zaman esastır.
+- Bu alan Apple'ın iCloud koşullarına tabidir. Ona yalnızca sen erişebilirsin; biz erişemeyiz.
+- iCloud'da oturum açık değilse yedek alınmaz; oyun yine çalışır.
 
 ### Ana ekran bileşeni, kilit ekranı ve Dynamic Island
 
-Bileşenler ve canlı etkinlik, uygulamayla aynı cihaz üzerinde sanal bebeğinin durumunu (adı,
-görünüşü ve ihtiyaç barları) gösterir. Bu bilgiler telefon kilitliyken de görülebilir.
+Bileşenler ve isteğe bağlı canlı etkinlik (Dynamic Island), uygulamayla aynı cihaz üzerinde sanal
+bebeğinin durumunu (adı, görünüşü, ihtiyaç barları ve son tepkisi) gösterir. Bu bilgiler telefon
+kilitliyken de görülebilir. Dynamic Island'ı uygulamanın içinden açıp kapatabilirsin.
+
+### Bildirimler
+
+Tuffi bildirim gönderirse bunlar yerel bildirimlerdir: telefonunda planlanır ve bir sunucudan
+gönderilmez. Bildirim izni vermezsen oyun yine çalışır.
 
 ### Satın alımlar
 
-Yıldız paketleri, tür ve tema paketleri gibi ürünler App Store üzerinden satılan uygulama içi
-satın almalardır. Ödemeyi Apple alır; adın, ödeme bilgilerin ya da Apple Hesabın bize ulaşmaz.
-Uygulama yalnızca, cihazında, App Store'a hangi ürünlere sahip olduğunu sorar. Apple
-geliştiricilerle, seni tanımlamayan satış toplamlarını paylaşır.
+Yıldız paketleri, Kurucu Paketi, temalar ve Sezon Kutuları App Store üzerinden satılan uygulama içi
+satın almalardır.
+
+- Ödemeyi Apple alır; adın, ödeme bilgilerin ya da Apple Hesabın bize ulaşmaz.
+- Uygulama, satın almanın gerçekten yapıldığını cihazında Apple'a doğrulatır ve hangi kalıcı ürünlere
+  sahip olduğunu App Store'a sorar.
+- Aynı satın almayı iki kez saymamak için Apple'ın verdiği işlem numaraları oyun kaydında (ve iCloud
+  yedeğinde) saklanır. Bu numaralar seni tanımlamaz ve bize gönderilmez.
+- Apple, geliştiricilerle seni tanımlamayan satış toplamlarını paylaşır.
+
+### Sesler
+
+Oyundaki sesler ve müzik uygulamanın içinde üretilir. Tuffi mikrofonu kullanmaz ve ses kaydetmez.
 
 ## 3. Toplamadıklarımız
 
@@ -67,18 +85,18 @@ geliştiricilerle, seni tanımlamayan satış toplamlarını paylaşır.
 ## 4. Paylaşım
 
 Verilerini satmayız, kiralamayız ve üçüncü taraflarla paylaşmayız; çünkü verilerine erişimimiz
-yoktur. Kendi isteğinle paylaştıkların (örneğin bir kartpostalı paylaş menüsüyle göndermek) bunun
-dışındadır: seçtiğin uygulama içeriği kendi gizlilik koşullarına göre işler.
+yoktur.
 
 ## 5. Saklama ve silme
 
-- Oyun kayıtların, sen silene ya da uygulamayı kaldırana kadar cihazında durur.
-- Uygulamayı sildiğinde cihazındaki tüm Tuffi verileri silinir.
-- iCloud'daki kopyayı iPhone'da Ayarlar'ın en üstündeki adına dokunup
-  iCloud › Depolamayı Yönet › Tuffi bölümünden silebilirsin.
-- Bizde saklanan bir verin olmadığı için bize silme talebi göndermene gerek yoktur.
-- Satın aldığın ürünler Apple hesabına bağlıdır; uygulamadaki "Satın alımları geri yükle"
-  ile yeniden alırsın.
+- Oyun kaydın, uygulamayı kaldırana kadar cihazında durur.
+- Uygulamayı sildiğinde cihazındaki Tuffi verileri silinir.
+- iCloud yedeği, uygulamayı sildiğinde silinmez; böylece Tuffi'yi yeniden yüklediğinde ilerlemen geri
+  gelir. Bu yedek yalnızca senin Apple hesabında durur ve bize ulaşmaz. Silinmesini istersen
+  info@woowcode.com adresine yaz; verine erişemediğimiz için sana silme adımlarını anlatırız.
+- Bizde saklanan bir verin olmadığı için senden aldığımız ya da silebileceğimiz bir kayıt yoktur.
+- Kalıcı ürünler (Kurucu Paketi, temalar, Sezon Kutuları) Apple hesabına bağlıdır; uygulamadaki
+  "Satın alımları geri yükle" ile yeniden alırsın.
 
 ## 6. Güvenlik
 
@@ -92,9 +110,9 @@ almalar gerçek para gerektirir; çocukların satın alımlarını iPhone'daki E
 
 ## 8. Hakların
 
-Verilerin cihazında ve senin denetiminde olduğu için erişim ve silme haklarını doğrudan
-uygulama ve iPhone ayarları üzerinden kullanabilirsin. Bulunduğun ülkenin veri koruma
-mevzuatı (örneğin KVKK ya da GDPR) kapsamındaki soruların için bizimle iletişime geçebilirsin:
+Verilerin cihazında ve kendi iCloud hesabında, senin denetiminde olduğu için erişim ve silme
+haklarını doğrudan uygulama ve iPhone ayarları üzerinden kullanabilirsin. Bulunduğun ülkenin veri
+koruma mevzuatı (örneğin KVKK ya da GDPR) kapsamındaki soruların için bizimle iletişime geçebilirsin:
 info@woowcode.com
 
 ## 9. Değişiklikler
@@ -114,11 +132,16 @@ Telefon: +90 533 053 63 63
 ## Yayın öncesi kontrol listesi (bu bölüm yayımlanmaz)
 
 - [ ] Metin bir hukukçu tarafından gözden geçirildi. Bu taslak hukuki görüş değildir.
-- [ ] Politika herkese açık adreste yayımlandı: https://www.woowcode.com/tuffi/gizlilik
+- [x] Politika herkese açık adreste yayımlandı: https://www.woowcode.com/tuffi/gizlilik
 - [ ] Bağlantı App Store Connect'e ve uygulamanın Ayarlar ekranına eklendi.
-- [ ] iCloud eşitlemesi gerçekten eklendi mi? Eklenmediyse 2. bölümden "iCloud eşitlemesi" kaldırılmalı.
-- [ ] Bileşen, kilit ekranı ve Dynamic Island 1.0'da var mı? Yoksa ilgili bölüm kaldırılmalı.
-- [ ] Arkadaş kodu / hediye gönderme (v1.1) eklenirse sunucu ya da Game Center kullanımı 2., 3. ve 4. bölümlere yazılmalı.
+- [x] iCloud yedeği eklendi (anahtar-değer deposu, v0.4) ve 2. bölümde anlatıldı.
+- [ ] **Uygulamaya "iCloud yedeğini sil" düğmesi eklenmeli**; eklenince 5. bölümdeki "bize yaz" satırı
+      "Ayarlar'dan sil" olarak güncellenmeli.
+- [ ] iCloud yedeği gerçek cihazda denendi (sil, yeniden yükle, ilerleme geri geldi mi).
+- [x] Bileşen, kilit ekranı ve Dynamic Island var (v0.3).
+- [ ] Yerel bildirimler eklendiğinde 2. bölüm yeniden kontrol edildi (şu an bildirim yok).
+- [ ] Kartpostal paylaşımı ya da arkadaş kodu / hediye (v1.1) eklenirse sunucu, Game Center ve paylaşım
+      kullanımı 2., 3. ve 4. bölümlere yazılmalı.
 - [ ] Sunucu, analiz, çökme raporlama ya da reklam eklendiyse 2., 3. ve 4. bölümler ile
       `PrivacyInfo.xcprivacy` ve App Store Connect gizlilik etiketleri güncellendi.
-- [ ] Uygulamanın o günkü davranışı bu metinle yeniden karşılaştırıldı.
+- [x] Uygulamanın 21 Kasım 2026 tarihli davranışı bu metinle karşılaştırıldı (v0.5).

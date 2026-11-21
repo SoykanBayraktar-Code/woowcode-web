@@ -1,7 +1,8 @@
 # Tuffi Privacy Policy
 
-> English version of `GIZLILIK-POLITIKASI.md`, written against the behavior planned for Tuffi 1.0
-> (November 21, 2026; GDD v0.1). The two files must stay in step: when one changes, change the other.
+> English version of `GIZLILIK-POLITIKASI.md`, written against the app's behavior on November 21, 2026 (v0.5:
+> the game, widgets and Dynamic Island, the shop and in-app purchases, iCloud backup, sounds).
+> The two files must stay in step: when one changes, change the other.
 > Complete the checklist at the end of the Turkish file; a lawyer review is recommended.
 
 **Effective date:** November 21, 2026
@@ -11,10 +12,10 @@
 ## In short
 
 - You don't create an account in Tuffi. We don't run a server.
-- Your virtual pet's state lives on your phone. If you like, it syncs through your own iCloud area; we can't see it.
+- Your game save lives on your phone. If iCloud is on, a backup goes to your own Apple Account; we can't see it.
 - We don't use advertising, tracking or analytics tools.
 - Apple handles purchases; your payment details never reach us.
-- When you delete the app, all Tuffi data on your phone is deleted.
+- We don't use your location, contacts, photos, camera or microphone.
 
 ## 1. What Tuffi is
 
@@ -23,37 +24,54 @@ to sleep and clean up after it; it grows into a different character depending on
 
 ## 2. What data is processed and where it lives
 
-### Your game records
+### Your game save
 
-The following are stored on your device and are not transferred to us or to any third party:
+The following are stored on your device, in Tuffi's own folder, and are not transferred to us or to
+any third party:
 
-- Your pet's name, stage, form and need bars (fullness, happiness, energy, cleanliness)
-- A summary of your care history (for example, how often it was fed); this is used only to decide how it evolves
-- Your collection book, postcards, in-game currency (Stars) balance and the items you own
-- Your sleep schedule, notification and sound preferences
+- Your pet's name, stage, form, personality, need bars (fullness, happiness, energy, cleanliness) and bond level
+- A summary of your care history (for example, how often it was fed or how tantrums were handled); this is
+  used only to decide how it evolves
+- The foods you've tried, daily quests, your collection book and earlier generations (Memory Garden)
+- Your in-game currency (Stars) balance, the items you own and have placed, and your chosen theme
+- Purchase transaction numbers (see "Purchases" below)
 
-### iCloud sync
+Your sound, music and haptics preferences are also stored only on this device.
 
-If iCloud is on for your Apple Account, your game records are stored in the private iCloud area of
-your Apple Account (CloudKit private database) and sync across devices signed in with the same
-Apple Account. This area is subject to Apple's iCloud terms. Only you can access it; we can't.
+### iCloud backup
 
-### Notifications
+If iCloud is on, a copy of your game save is backed up to the iCloud key-value storage of your Apple
+Account. The purpose is to bring your progress back (including the Stars and items you bought) when you
+reinstall Tuffi or open it on a new phone signed in with the same Apple Account.
 
-Tuffi's reminders, such as "my tummy is rumbling", are local notifications: they are scheduled on
-your phone and are not sent from a server. If you don't allow notifications, the game still works.
+- The backup is restored only when there is no game save on your phone; the save on your phone always wins.
+- This storage is subject to Apple's iCloud terms. Only you can access it; we can't.
+- If you're not signed in to iCloud, no backup is made; the game still works.
 
 ### Widgets, Lock Screen and Dynamic Island
 
-Widgets and the Live Activity show your pet's state (its name, look and need bars) on the same
-device as the app. This information may be visible while your phone is locked.
+Widgets and the optional Live Activity (Dynamic Island) show your pet's state (its name, look, need bars
+and latest reaction) on the same device as the app. This information may be visible while your phone is
+locked. You can turn the Dynamic Island on and off inside the app.
+
+### Notifications
+
+If Tuffi sends notifications, they are local notifications: they are scheduled on your phone and are
+not sent from a server. If you don't allow notifications, the game still works.
 
 ### Purchases
 
-Star packs, species packs, theme packs and similar items are in-app purchases sold through the
-App Store. Apple takes the payment; your name, payment details and Apple Account never reach us.
-On your device, the app only asks the App Store which items you own. Apple shares sales totals
-that don't identify you with developers.
+Star packs, the Founder Pack, themes and Season Boxes are in-app purchases sold through the App Store.
+
+- Apple takes the payment; your name, payment details and Apple Account never reach us.
+- On your device, the app asks Apple to verify each purchase and asks the App Store which permanent items you own.
+- To avoid counting the same purchase twice, the transaction numbers Apple provides are stored in your game
+  save (and its iCloud backup). These numbers don't identify you and are never sent to us.
+- Apple shares sales totals that don't identify you with developers.
+
+### Sounds
+
+The game's sounds and music are generated inside the app. Tuffi doesn't use the microphone and doesn't record audio.
 
 ## 3. What we don't collect
 
@@ -67,17 +85,17 @@ that don't identify you with developers.
 ## 4. Sharing
 
 We don't sell, rent or share your data with third parties, because we have no access to it.
-What you choose to share yourself (for example, sending a postcard through the share sheet) is the
-exception: the app you pick handles that content under its own privacy terms.
 
 ## 5. Retention and deletion
 
-- Your game records stay on your device until you delete them or remove the app.
-- When you delete the app, all Tuffi data on your device is deleted.
-- You can delete the iCloud copy on your iPhone by tapping your name at the top of Settings, then
-  iCloud › Manage Storage › Tuffi.
-- Because we hold no data about you, you don't need to send us a deletion request.
-- Items you bought are tied to your Apple Account; you get them back with "Restore Purchases" in the app.
+- Your game save stays on your device until you remove the app.
+- When you delete the app, the Tuffi data on your device is deleted.
+- The iCloud backup is not deleted when you delete the app, so your progress comes back when you
+  reinstall Tuffi. It stays only in your Apple Account and never reaches us. If you want it deleted,
+  write to info@woowcode.com; since we can't access your data, we'll walk you through the steps.
+- We hold no data about you, so there is no record on our side to hand over or delete.
+- Permanent items (Founder Pack, themes, Season Boxes) are tied to your Apple Account; you get them
+  back with "Restore Purchases" in the app.
 
 ## 6. Security
 
@@ -91,9 +109,9 @@ purchases cost real money; you can manage children's purchases with Screen Time 
 
 ## 8. Your rights
 
-Because your data is on your device and under your control, you can use your rights of access and
-deletion directly through the app and your iPhone settings. For questions under the data protection
-law where you live (for example KVKK or GDPR), contact us: info@woowcode.com
+Because your data is on your device and in your own iCloud account, under your control, you can use your
+rights of access and deletion directly through the app and your iPhone settings. For questions under the
+data protection law where you live (for example KVKK or GDPR), contact us: info@woowcode.com
 
 ## 9. Changes
 
