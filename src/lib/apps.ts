@@ -287,7 +287,7 @@ export const apps: AppEntry[] = [
     platforms: ["iPhone"],
     category: { TR: "Oyunlar", EN: "Games" },
     accent: { from: "#5A3A2E", to: "#FFC8A2", glow: "rgba(255, 200, 162, 0.45)" },
-    hasIcon: false, // TODO: uygulama ikonu hazır olunca public/apps/tuffi/icon.webp + icon.png ekle
+    hasIcon: true, // Kodla çizilen bebek sprite'ından (OYUN/Tuffi/Tools/render_icon.py); son çizimle yenilenecek
     screenshots: 2,
     manifesto: {
       lead: {
