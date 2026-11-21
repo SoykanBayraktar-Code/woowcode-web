@@ -89,9 +89,12 @@ security measures.
 
 ## 6. Retention and deletion
 
-You can edit or delete your listings in the app at any time. You can ask for your account and
-all of your data to be deleted by writing to info@woowcode.com; we complete the request within
-30 days. When your account is deleted, your profile, listings and protected records are removed.
+You can edit or delete your listings in the app at any time. You can delete your account in the
+app under the Portföyüm tab, Settings, "Hesabı Sil" (Delete Account). Deleting your account
+permanently removes your profile, all your listings and their photos, and your protected records
+(contact details, exact locations and shared location). If you can't access the app, send a
+deletion request to info@woowcode.com; we complete it within 30 days. Deleting your account does
+not cancel a Pro subscription; cancel it in your App Store account settings.
 
 ## 7. Security
 
@@ -124,4 +127,3 @@ Phone: +90 533 053 63 63
 ## Pre-release checklist (not published)
 
 - Have the text reviewed by a lawyer.
-- Update section 6 once in-app "Delete Account" ships.

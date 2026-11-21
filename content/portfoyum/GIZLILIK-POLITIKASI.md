@@ -89,10 +89,13 @@ verileriniz bu sağlayıcıların güvenlik önlemleriyle korunur.
 
 ## 6. Saklama ve silme
 
-Portföylerinizi uygulamadan istediğiniz an düzenleyebilir ya da silebilirsiniz. Hesabınızın ve
-tüm verilerinizin silinmesini info@woowcode.com adresine yazarak isteyebilirsiniz; talebiniz
-30 gün içinde yerine getirilir. Hesabınız silindiğinde profiliniz, portföyleriniz ve korumalı
-kayıtlarınız kaldırılır.
+Portföylerinizi uygulamadan istediğiniz an düzenleyebilir ya da silebilirsiniz. Hesabınızı
+uygulamada Portföyüm sekmesi, Ayarlar, "Hesabı Sil" adımlarıyla silebilirsiniz. Hesap
+silindiğinde profiliniz, bütün portföyleriniz, fotoğrafları ve korumalı kayıtlarınız (iletişim
+bilgileri, tam konumlar, paylaşılan konum) kalıcı olarak kaldırılır. Uygulamaya erişemiyorsanız
+silme talebinizi info@woowcode.com adresine iletebilirsiniz; talebiniz 30 gün içinde yerine
+getirilir. Hesap silmek Pro aboneliğini iptal etmez; aboneliğinizi App Store hesap ayarlarından
+iptal etmelisiniz.
 
 ## 7. Güvenlik
 
@@ -126,4 +129,3 @@ Telefon: +90 533 053 63 63
 ## Yayın öncesi kontrol listesi (bu bölüm yayımlanmaz)
 
 - Metin bir hukukçu tarafından gözden geçirilmeli.
-- Uygulama içi "Hesabı Sil" eklenince 6. bölüm güncellenmeli.
