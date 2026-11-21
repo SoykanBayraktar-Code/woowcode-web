@@ -268,6 +268,144 @@ export const apps: AppEntry[] = [
     hasPolicy: true,
   },
   {
+    // Metinler Tuffi deposundaki 03-GDD.md, 02-para-modeli.md ve 04-isim-karakter.md ile uyumlu.
+    // Kural: fiyat yazılmaz (App Store'da görünür). Tamagotchi/Bandai adı ve karakterleri geçmez.
+    // Ekranlar geçici kod çizimi karakterle alındı; Aseprite çizimleri gelince yenilenmeli.
+    slug: "tuffi",
+    name: "Tuffi",
+    status: "coming-soon",
+    draft: true,
+    tagline: {
+      TR: "Cebindeki sanal bebek.",
+      EN: "The virtual pet in your pocket.",
+    },
+    description: {
+      TR: "Tuffi, telefonunda yaşayan minik bir sanal bebek. Onu besle, sev, oynat ve uyut; nasıl bakarsan öyle bir karaktere dönüşsün. Ana ekranında, kilit ekranında ve Dynamic Island'da hep yanında.",
+      EN: "Tuffi is a tiny virtual pet that lives on your phone. Feed it, pet it, play with it and tuck it in; it grows into whatever your care makes it. Always with you on your Home Screen, Lock Screen and in the Dynamic Island.",
+    },
+    appStoreId: undefined, // TODO: App Store ID'sini ekle
+    platforms: ["iPhone"],
+    category: { TR: "Oyunlar", EN: "Games" },
+    accent: { from: "#5A3A2E", to: "#FFC8A2", glow: "rgba(255, 200, 162, 0.45)" },
+    hasIcon: false, // TODO: uygulama ikonu hazır olunca public/apps/tuffi/icon.webp + icon.png ekle
+    screenshots: 2,
+    manifesto: {
+      lead: {
+        TR: "Doksanlarda cebimizde bir sanal bebek vardı.",
+        EN: "In the nineties, we kept a virtual pet in our pocket.",
+      },
+      statement: {
+        TR: "Şimdi telefonunda yaşıyor.",
+        EN: "Now it lives on your phone.",
+      },
+      principles: [
+        {
+          title: { TR: "Ölüm yok", EN: "No game over" },
+          body: {
+            TR: "Uzun süre ihmal edilirse Tuffi küsüp evden kaçar. Üç gün iz sürersin ve bir kartpostalla geri döner. Hiçbir şey kaybolmaz.",
+            EN: "Neglect it for too long and Tuffi sulks and runs away. Follow its trail for three days and it comes home with a postcard. Nothing is ever lost.",
+          },
+        },
+        {
+          title: { TR: "Reklam yok, abonelik yok", EN: "No ads, no subscriptions" },
+          body: {
+            TR: "Oyunun tamamı ücretsiz. İstersen yeni türler, temalar ve süsler için tek seferlik satın alma yaparsın.",
+            EN: "The whole game is free. If you like, you can make one-time purchases for new species, themes and decorations.",
+          },
+        },
+        {
+          title: { TR: "Hep yanında", EN: "Always with you" },
+          body: {
+            TR: "Uygulamayı açmadan, ana ekrandaki bileşenden tek dokunuşla besle ve sev.",
+            EN: "Feed it and pet it with one tap from the Home Screen widget, without opening the app.",
+          },
+        },
+      ],
+    },
+    showcases: [
+      {
+        id: "care",
+        eyebrow: { TR: "Bakım", EN: "Care" },
+        title: { TR: "Dört bar, bir küçük kalp.", EN: "Four bars, one tiny heart." },
+        body: {
+          TR: "Tokluk, mutluluk, enerji ve temizlik gerçek zamanla akar; sen yokken de acıkır, sıkılır, uykusu gelir. Uyku saatlerini sen seçersin; gece o da uyur.",
+          EN: "Fullness, happiness, energy and cleanliness flow in real time; it gets hungry, bored and sleepy even while you're away. You pick the bedtime; at night it sleeps too.",
+        },
+        bullets: [
+          { TR: "Yemek, atıştırmalık, sevgi, oyun, uyku ve temizlik", EN: "Meals, snacks, cuddles, play, sleep and bath time" },
+          { TR: "Başının üstündeki perçemden ruh halini okursun", EN: "Read its mood from the little tuft on its head" },
+          { TR: "Nostalji teması: tek dokunuşla iki renkli LCD ekran", EN: "Nostalgia theme: a two-tone LCD screen in one tap" },
+        ],
+        screen: 1,
+      },
+      {
+        id: "evolution",
+        eyebrow: { TR: "Evrim", EN: "Evolution" },
+        title: { TR: "Nasıl bakarsan öyle büyür.", EN: "It grows into how you care." },
+        body: {
+          TR: "Yumurtadan çıkar, bebek, çocuk ve genç olur; sonunda bakım tarzına göre farklı bir yetişkine dönüşür. Hepsini koleksiyon defterinde topla.",
+          EN: "It hatches, then grows from baby to child to teen, and finally into a different adult depending on your care style. Collect them all in your collection book.",
+        },
+        bullets: [
+          { TR: "Neşeli ya da asi: genç evrede yol ayrılır", EN: "Cheerful or rebellious: the path splits in the teen stage" },
+          { TR: "Yıldız, Tombiş, Boynuzlu ve daha fazlası", EN: "Star, Chubby, Horned and more" },
+          { TR: "Yetişkini Anı Bahçesi'ne uğurla, yeni bir yumurtayla başka bir yol dene", EN: "Send your adult to the Memory Garden and try another path with a new egg" },
+        ],
+        screen: 2,
+      },
+    ],
+    milestones: {
+      eyebrow: { TR: "Yaşam evreleri", EN: "Life stages" },
+      title: { TR: "Bir haftada yumurtadan yetişkine.", EN: "From egg to adult in a week." },
+      body: {
+        TR: "Her evre gerçek zamanla ilerler. Ölüm yok; yetişkin Tuffi seninle süresiz yaşar.",
+        EN: "Every stage moves in real time. There is no game over; your adult Tuffi stays with you for good.",
+      },
+      steps: [
+        { name: { TR: "Yumurta", EN: "Egg" }, detail: { TR: "10 dakika", EN: "10 minutes" } },
+        { name: { TR: "Bebek", EN: "Baby" }, detail: { TR: "1 gün", EN: "1 day" } },
+        { name: { TR: "Çocuk", EN: "Child" }, detail: { TR: "3 gün", EN: "3 days" } },
+        { name: { TR: "Genç", EN: "Teen" }, detail: { TR: "4 gün", EN: "4 days" } },
+        { name: { TR: "Yetişkin", EN: "Adult" }, detail: { TR: "Süresiz", EN: "For good" } },
+      ],
+      screen: 1,
+    },
+    plans: {
+      free: {
+        title: { TR: "Her zaman ücretsiz", EN: "Always free" },
+        items: [
+          { TR: "Bütün bakım, evrim ve koleksiyon", EN: "All care, evolution and collecting" },
+          { TR: "Ana ekran ve kilit ekranı bileşenleri", EN: "Home Screen and Lock Screen widgets" },
+          { TR: "Kaçış ve İz Sürme macerası", EN: "The runaway and trail adventure" },
+          { TR: "Nostalji teması", EN: "Nostalgia theme" },
+          { TR: "Oynayarak kazanılan Yıldızlar", EN: "Stars you earn by playing" },
+        ],
+      },
+      plus: {
+        title: { TR: "Tuffi Mağazası", EN: "Tuffi Shop" },
+        items: [
+          { TR: "Yeni tür paketleri", EN: "New species packs" },
+          { TR: "Bileşen ve Dynamic Island temaları", EN: "Widget and Dynamic Island themes" },
+          { TR: "Kurucu Paketi", EN: "Founder Pack" },
+          { TR: "Her ay sınırlı Sezon Kutusu", EN: "A limited Season Box every month" },
+          { TR: "Yıldız paketleri", EN: "Star packs" },
+        ],
+        note: {
+          TR: "Reklam ve abonelik yok; yalnızca tek seferlik satın almalar.",
+          EN: "No ads and no subscriptions; one-time purchases only.",
+        },
+      },
+    },
+    features: [],
+    privacy: [
+      { TR: "Hesap oluşturma yok", EN: "No account needed" },
+      { TR: "Sunucu yok, veri telefonunda", EN: "No server, data stays on your phone" },
+      { TR: "Reklam, izleme ve analitik yok", EN: "No ads, tracking or analytics" },
+      { TR: "Satın alımları Apple yönetir", EN: "Purchases are handled by Apple" },
+    ],
+    hasPolicy: true,
+  },
+  {
     // Metinler Starlit deposundaki docs/APP-STORE-METINLERI.md ve DURUM.md ile uyumlu.
     // Kural (App Store): tedavi/iyileşme vaadi yok; "terapist", "kanıta dayalı", "bilimsel" geçmez.
     slug: "starlit",

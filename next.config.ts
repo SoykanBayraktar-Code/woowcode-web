@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
       { source: "/portfoyum", destination: "/apps/portfoyum", permanent: true },
       { source: "/portfoyum/privacy", destination: "/apps/portfoyum/privacy", permanent: true },
       { source: "/portfoyum/gizlilik", destination: "/apps/portfoyum/gizlilik", permanent: true },
+      // Tuffi: App Store kaydındaki destek, pazarlama ve gizlilik adresleri.
+      { source: "/tuffi", destination: "/apps/tuffi", permanent: true },
+      { source: "/tuffi/privacy", destination: "/apps/tuffi/privacy", permanent: true },
+      { source: "/tuffi/gizlilik", destination: "/apps/tuffi/gizlilik", permanent: true },
     ];
   },
 };
