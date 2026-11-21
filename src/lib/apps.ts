@@ -94,6 +94,180 @@ export const APPLE_EULA_URL = "https://www.apple.com/legal/internet-services/itu
 
 export const apps: AppEntry[] = [
   {
+    // Metinler Portföyüm deposundaki README (Ücretsiz/Pro tablosu) ve App Store metinleriyle uyumlu.
+    // Kural: portföylerde fiyat yok; abonelik fiyatı sitede yazılmaz (App Store'da görünür).
+    slug: "portfoyum",
+    name: "Portföyüm",
+    status: "coming-soon",
+    tagline: {
+      TR: "Emlakçılar için portföy paylaşım ağı.",
+      EN: "The listing-sharing network for real estate agents.",
+    },
+    description: {
+      TR: "Portföyüm, emlak danışmanlarının portföylerini yalnızca meslektaşlarıyla paylaştığı bir ağ. Yeni portföyleri tam ekran akışta kaydırarak keşfedin, sahadayken yakınınızdakileri haritada görün, kendi portföylerinizi ücretsiz paylaşın.",
+      EN: "Portföyüm is a network where real estate agents share their listings only with fellow agents. Swipe through new listings in a full-screen feed, see what's nearby on the map while in the field, and share your own listings for free.",
+    },
+    appStoreId: undefined, // TODO: Yayına çıkınca 6837660427 yazılacak
+    platforms: ["iPhone"],
+    category: { TR: "İş", EN: "Business" },
+    accent: { from: "#1E2A78", to: "#5B8CFF", glow: "rgba(91, 140, 255, 0.45)" },
+    hasIcon: true,
+    screenshots: 6,
+    manifesto: {
+      lead: {
+        TR: "Doğru portföy çoğu zaman bir meslektaşınızda.",
+        EN: "The right listing is often with a colleague.",
+      },
+      statement: {
+        TR: "Portföyüm, onu saniyeler içinde önünüze getirir.",
+        EN: "Portföyüm puts it in front of you in seconds.",
+      },
+      principles: [
+        {
+          title: { TR: "Yalnızca emlakçılar", EN: "Agents only" },
+          body: {
+            TR: "Ağda yalnızca emlak danışmanları var. Portföyler meslektaşlar arasında paylaşılır, müşteri ilanı değildir.",
+            EN: "Only real estate agents are on the network. Listings are shared between colleagues, not published as consumer ads.",
+          },
+        },
+        {
+          title: { TR: "Fiyat yok, konuşma var", EN: "No prices, just conversations" },
+          body: {
+            TR: "Portföylerde fiyat yazmaz. Detayları ve fiyatı portföy sahibiyle doğrudan konuşursunuz.",
+            EN: "Listings carry no price. You discuss the details and the price directly with the listing owner.",
+          },
+        },
+        {
+          title: { TR: "Paylaşmak ücretsiz", EN: "Sharing is free" },
+          body: {
+            TR: "Apple Kimliğinizle bir dokunuşta üye olun; portföylerinizi ücretsiz paylaşın ve düzenleyin.",
+            EN: "Join in one tap with your Apple Account; share and edit your listings for free.",
+          },
+        },
+      ],
+    },
+    showcases: [
+      {
+        id: "feed",
+        eyebrow: { TR: "Akış", EN: "Feed" },
+        title: { TR: "Yeni portföyler, tek kaydırmada.", EN: "New listings, one swipe away." },
+        body: {
+          TR: "Meslektaşlarınızın paylaştığı portföyler tam ekran fotoğraflarla akar. Kaydırın, beğenin, kaydedin; dikkatinizi çekeni tek dokunuşla açın.",
+          EN: "Listings shared by your colleagues flow by in full-screen photos. Swipe, like and save; open the one that catches your eye with a single tap.",
+        },
+        bullets: [
+          { TR: "Yeni, Takip ve Popüler sekmeleri", EN: "New, Following and Popular tabs" },
+          { TR: "m², oda sayısı ve kredi uygunluğu ilk bakışta", EN: "Floor area, rooms and mortgage eligibility at first glance" },
+          { TR: "Emlakçıları takip edin, yeni portföylerini kaçırmayın", EN: "Follow agents and never miss their new listings" },
+        ],
+        screen: 1,
+      },
+      {
+        id: "detail",
+        eyebrow: { TR: "Portföy", EN: "Listing" },
+        title: { TR: "Her bilgi, tek bakışta.", EN: "Every detail, at a glance." },
+        body: {
+          TR: "Metrekare, oda ve bina bilgisi, konum, kredi durumu ve özellikler ayrı cam kartlarda. Portföy sahibinin kartından bir dokunuşla arayın ya da mesaj atın.",
+          EN: "Floor area, room and building details, location, mortgage status and features sit on separate glass cards. Call or message the owner with one tap from their card.",
+        },
+        bullets: [
+          { TR: "Kendi portföyünüzde karta dokunun, o bölümü hemen düzenleyin", EN: "On your own listing, tap a card to edit that section" },
+          { TR: "Adım adım portföy ekleme", EN: "Step-by-step listing creation" },
+          { TR: "Kredi hesaplayıcı", EN: "Mortgage calculator" },
+        ],
+        screen: 2,
+      },
+      {
+        id: "map",
+        eyebrow: { TR: "Saha Haritası", EN: "Field Map" },
+        badge: { TR: "Pro", EN: "Pro" },
+        title: { TR: "Sahada en yakını, anında.", EN: "What's nearby, right in the field." },
+        body: {
+          TR: "Müşterinizle sahadayken yakındaki portföyleri ve konumunu paylaşan meslektaşlarınızı canlı haritada görün. Saha Modu, en yakın portföyü Dynamic Island'da gösterir.",
+          EN: "When you're out with a client, see nearby listings and colleagues sharing their location on a live map. Field Mode shows the nearest listing in the Dynamic Island.",
+        },
+        bullets: [
+          { TR: "Seçtiğiniz yarıçaptaki portföyler", EN: "Listings within the radius you choose" },
+          { TR: "Konumunuzu meslektaşlarınızla paylaşın, istediğiniz an kapatın", EN: "Share your location with colleagues and turn it off any time" },
+          { TR: "Kilit ekranı ve Dynamic Island'da Saha Modu", EN: "Field Mode on the Lock Screen and in the Dynamic Island" },
+        ],
+        screen: 3,
+      },
+      {
+        id: "search",
+        eyebrow: { TR: "Arama", EN: "Search" },
+        title: { TR: "Aradığınızı saniyede bulun.", EN: "Find it in seconds." },
+        body: {
+          TR: "Bölge, mahalle ve oda sayısıyla arayın; satılık, kiralık, emlak tipi ve kredi uygunluğuyla daraltın.",
+          EN: "Search by district, neighbourhood and rooms; narrow down by sale, rent, property type and mortgage eligibility.",
+        },
+        bullets: [
+          { TR: "İlçe önerileri ve hızlı filtreler", EN: "District suggestions and quick filters" },
+          { TR: "Gelişmiş filtre ekranı", EN: "Advanced filter screen" },
+          { TR: "En yeni, metrekare ve popülerliğe göre sıralama", EN: "Sort by newest, floor area and popularity" },
+        ],
+        screen: 4,
+      },
+    ],
+    extra: [
+      {
+        title: { TR: "Tüm portföyler tek yerde", EN: "All listings in one place" },
+        body: {
+          TR: "Genel portföyler ekranında bütün ağı büyük kartlarla gezin; işlem ve emlak tipine göre filtreleyin.",
+          EN: "Browse the whole network on large cards and filter by deal and property type.",
+        },
+      },
+      {
+        title: { TR: "Portföyüm ekranı", EN: "My Portfolio" },
+        body: {
+          TR: "Kendi portföyleriniz, görüntülenme ve beğeni sayılarınız, kaydettikleriniz tek ekranda.",
+          EN: "Your listings, view and like counts, and saved listings on one screen.",
+        },
+      },
+      {
+        title: { TR: "iCloud ile senkron", EN: "Synced with iCloud" },
+        body: {
+          TR: "Yeni bir portföy eklendiğinde akış kendiliğinden yenilenir.",
+          EN: "The feed refreshes on its own when a new listing is added.",
+        },
+      },
+    ],
+    plans: {
+      free: {
+        title: { TR: "Ücretsiz", EN: "Free" },
+        items: [
+          { TR: "Portföy akışı, genel portföyler ve gelişmiş arama", EN: "Listing feed, all listings and advanced search" },
+          { TR: "Portföy paylaşma ve düzenleme", EN: "Sharing and editing your listings" },
+          { TR: "m², oda, kat, kredi uygunluğu, özellikler ve fotoğraflar", EN: "Floor area, rooms, floor, mortgage eligibility, features and photos" },
+          { TR: "İlçe ve yaklaşık konum", EN: "District and approximate location" },
+        ],
+      },
+      plus: {
+        title: { TR: "Portföyüm Pro", EN: "Portföyüm Pro" },
+        items: [
+          { TR: "Tam konum ve yol tarifi", EN: "Exact location and directions" },
+          { TR: "Portföy sahibinin adı, telefonu ve e-postası", EN: "Listing owner's name, phone and email" },
+          { TR: "Beğenme, kaydetme, paylaşma ve emlakçı takibi", EN: "Likes, saves, sharing and following agents" },
+          { TR: "Kredi hesaplayıcı", EN: "Mortgage calculator" },
+          { TR: "Canlı saha haritası, konum paylaşımı ve Saha Modu", EN: "Live field map, location sharing and Field Mode" },
+        ],
+        note: {
+          TR: "Aylık ya da yıllık abonelik; ilk abonelikte 7 gün ücretsiz deneme.",
+          EN: "Monthly or yearly subscription; new subscribers get a 7-day free trial.",
+        },
+      },
+    },
+    features: [],
+    privacy: [
+      { TR: "Apple ile Giriş, ayrı şifre yok", EN: "Sign in with Apple, no extra password" },
+      { TR: "Veriler Apple iCloud'da saklanır", EN: "Data is stored in Apple iCloud" },
+      { TR: "Tam konum ve iletişim bilgisi korumalı kayıtlarda", EN: "Exact location and contact details in protected records" },
+      { TR: "Konum paylaşımı sizin elinizde", EN: "You control location sharing" },
+      { TR: "Reklam, izleme ve veri satışı yok", EN: "No ads, tracking or data selling" },
+    ],
+    hasPolicy: true,
+  },
+  {
     // Metinler Starlit deposundaki docs/APP-STORE-METINLERI.md ve DURUM.md ile uyumlu.
     // Kural (App Store): tedavi/iyileşme vaadi yok; "terapist", "kanıta dayalı", "bilimsel" geçmez.
     slug: "starlit",
