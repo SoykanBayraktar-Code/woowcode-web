@@ -98,7 +98,7 @@ export const apps: AppEntry[] = [
     // Kural: portföylerde fiyat yok; abonelik fiyatı sitede yazılmaz (App Store'da görünür).
     slug: "portfoyum",
     name: "Portföyüm",
-    status: "coming-soon",
+    status: "live",
     tagline: {
       TR: "Emlakçılar için portföy paylaşım ağı.",
       EN: "The listing-sharing network for real estate agents.",
@@ -107,7 +107,7 @@ export const apps: AppEntry[] = [
       TR: "Portföyüm, emlak danışmanlarının portföylerini yalnızca meslektaşlarıyla paylaştığı bir ağ. Yeni portföyleri tam ekran akışta kaydırarak keşfedin, sahadayken yakınınızdakileri haritada görün, kendi portföylerinizi ücretsiz paylaşın.",
       EN: "Portföyüm is a network where real estate agents share their listings only with fellow agents. Swipe through new listings in a full-screen feed, see what's nearby on the map while in the field, and share your own listings for free.",
     },
-    appStoreId: undefined, // TODO: Yayına çıkınca 6837660427 yazılacak
+    appStoreId: "6837660427",
     platforms: ["iPhone"],
     category: { TR: "İş", EN: "Business" },
     accent: { from: "#1E2A78", to: "#5B8CFF", glow: "rgba(91, 140, 255, 0.45)" },
