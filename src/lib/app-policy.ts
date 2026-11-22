@@ -11,7 +11,12 @@ import path from "node:path";
 
 const PLACEHOLDER = /\[[^[\]]+\]/g;
 
-export type PolicyFile = "PRIVACY-POLICY.md" | "GIZLILIK-POLITIKASI.md";
+export type PolicyFile =
+  | "PRIVACY-POLICY.md"
+  | "GIZLILIK-POLITIKASI.md"
+  | "TERMS-OF-USE.md"
+  | "KULLANIM-KOSULLARI.md"
+  | "KVKK-AYDINLATMA-METNI.md";
 
 function escapeHtml(text: string): string {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

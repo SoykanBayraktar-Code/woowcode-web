@@ -36,7 +36,9 @@ export default async function PrivacyPage({ params }: Props) {
       nav={[
         { href: `/apps/${app.slug}#support`, label: "Support" },
         { href: `/apps/${app.slug}/gizlilik`, label: "Türkçe", lang: "tr" },
-        { href: APPLE_EULA_URL, label: "Terms of Use (Apple)", external: true },
+        app.legalPages?.terms
+          ? { href: `/apps/${app.slug}/terms`, label: "Terms of Use" }
+          : { href: APPLE_EULA_URL, label: "Terms of Use (Apple)", external: true },
       ]}
     >
       <article className={policyProse} dangerouslySetInnerHTML={{ __html: html }} />

@@ -240,6 +240,11 @@ export default function AppDetail({ slug }: { slug: string }) {
                   <Link href={`/apps/${app.slug}/privacy`} lang="en" className="text-[var(--azure-soft)] hover:underline underline-offset-4">
                     Privacy Policy
                   </Link>
+                  {app.legalPages?.kvkk && (
+                    <Link href={`/apps/${app.slug}/kvkk`} lang="tr" className="text-[var(--azure-soft)] hover:underline underline-offset-4">
+                      KVKK Aydınlatma Metni
+                    </Link>
+                  )}
                 </div>
               )}
               {!app.hasPolicy && app.links?.privacy && (
@@ -271,7 +276,11 @@ export default function AppDetail({ slug }: { slug: string }) {
               {site.phone.display}
             </p>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              {app.links?.terms ? (
+              {app.legalPages?.terms ? (
+                <Link href={`/apps/${app.slug}/${en ? "terms" : "kosullar"}`} className="text-[var(--azure-soft)] hover:underline underline-offset-4">
+                  {en ? "Terms of Use" : "Kullanım Koşulları"}
+                </Link>
+              ) : app.links?.terms ? (
                 <a href={app.links.terms} target="_blank" rel="noopener noreferrer" className="text-[var(--azure-soft)] hover:underline underline-offset-4">
                   {en ? "Terms of Use" : "Kullanım Koşulları"}
                 </a>
