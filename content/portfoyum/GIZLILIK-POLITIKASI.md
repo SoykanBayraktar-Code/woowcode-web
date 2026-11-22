@@ -1,9 +1,9 @@
 # Portföyüm Gizlilik Politikası
 
-> 21 Kasım 2026 tarihli uygulama davranışına göre yazıldı (CloudKit ayrı gizli kayıtlar, Cloudflare gizlilik sunucusu, Pro abonelik doğrulaması).
+> 22 Kasım 2026 tarihli uygulama davranışına göre yazıldı (CloudKit ayrı gizli kayıtlar, Cloudflare gizlilik sunucusu, Pro abonelik doğrulaması).
 > İngilizcesi `PRIVACY-POLICY.md`; iki dosya birlikte güncellenmeli.
 
-**Yürürlük tarihi:** 21 Kasım 2026
+**Yürürlük tarihi:** 22 Kasım 2026
 **Veri sorumlusu:** WOOWCODE YAZILIM ve TİCARET A.Ş., Şirinyalı Mah. 1533. Sokak No:49/2, Muratpaşa/Antalya, Türkiye
 **İletişim:** info@woowcode.com
 

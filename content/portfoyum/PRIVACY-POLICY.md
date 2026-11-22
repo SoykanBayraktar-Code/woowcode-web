@@ -1,9 +1,9 @@
 # Portföyüm Privacy Policy
 
-> Written for the app's behaviour as of November 21, 2026 (separate protected CloudKit records, Cloudflare privacy server, Pro subscription check).
+> Written for the app's behaviour as of November 22, 2026 (separate protected CloudKit records, Cloudflare privacy server, Pro subscription check).
 > Turkish version: `GIZLILIK-POLITIKASI.md`; update both together.
 
-**Effective date:** November 21, 2026
+**Effective date:** November 22, 2026
 **Data controller:** WOOWCODE YAZILIM ve TİCARET A.Ş., Şirinyalı Mah. 1533. Sokak No:49/2, Muratpaşa/Antalya, Türkiye
 **Contact:** info@woowcode.com
 
