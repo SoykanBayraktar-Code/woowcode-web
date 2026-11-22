@@ -73,6 +73,9 @@ export interface AppEntry {
   /** false → a generated monogram icon is shown until the real icon is added. */
   hasIcon: boolean;
   screenshots: number;
+  /** Görseller değişince yeni bir klasör adı ver (ör. "v2"): public/apps/<slug>/<assetDir>/…
+   *  Adres değiştiği için tarayıcı ve CDN önbelleği eski görseli göstermez. */
+  assetDir?: string;
   features: AppFeature[];
   privacy: L10n[];
   /** Short legal / safety notice shown in the support block. */
@@ -627,6 +630,7 @@ export const apps: AppEntry[] = [
     accent: { from: "#3C4F33", to: "#D39A6A", glow: "rgba(211, 154, 106, 0.42)" },
     hasIcon: true,
     screenshots: 7, // App Store görselleri (2.0, Türkçe)
+    assetDir: "v2",
     links: {
       supportEmail: "info@woowcode.com",
     },
@@ -833,6 +837,8 @@ export const getApp = (slug: string) => apps.find((a) => a.slug === slug);
 
 export const appStoreUrl = (app: AppEntry) =>
   app.appStoreId ? `https://apps.apple.com/app/id${app.appStoreId}` : undefined;
-export const iconSrc = (app: AppEntry) => (app.hasIcon ? `/apps/${app.slug}/icon.webp` : undefined);
+export const appAssetBase = (app: AppEntry) => `/apps/${app.slug}${app.assetDir ? `/${app.assetDir}` : ""}`;
+export const iconSrc = (app: AppEntry) => (app.hasIcon ? `${appAssetBase(app)}/icon.webp` : undefined);
+export const iconPngSrc = (app: AppEntry) => (app.hasIcon ? `${appAssetBase(app)}/icon.png` : undefined);
 export const screenshotSrcs = (app: AppEntry) =>
-  Array.from({ length: app.screenshots }, (_, i) => `/apps/${app.slug}/screen-${i + 1}.webp`);
+  Array.from({ length: app.screenshots }, (_, i) => `${appAssetBase(app)}/screen-${i + 1}.webp`);

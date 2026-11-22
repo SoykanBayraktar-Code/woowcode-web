@@ -6,7 +6,7 @@
 
 import { site, activeSocials } from "@/lib/site";
 import type { AppEntry } from "@/lib/apps";
-import { appStoreUrl } from "@/lib/apps";
+import { appStoreUrl, iconPngSrc } from "@/lib/apps";
 
 const sameAs = activeSocials().map((s) => s.url);
 
@@ -109,7 +109,7 @@ export function softwareApplicationLd(app: AppEntry) {
     operatingSystem: "iOS",
     applicationCategory: app.category.EN,
     url: `${site.url}/apps/${app.slug}`,
-    ...(app.hasIcon ? { image: `${site.url}/apps/${app.slug}/icon.png` } : {}),
+    ...(app.hasIcon ? { image: `${site.url}${iconPngSrc(app)}` } : {}),
     ...(appStoreUrl(app) ? { installUrl: appStoreUrl(app), downloadUrl: appStoreUrl(app) } : {}),
     publisher: { "@type": "Organization", name: site.legalName, url: site.url },
   };
