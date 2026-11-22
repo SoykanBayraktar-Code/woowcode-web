@@ -78,6 +78,8 @@ export interface AppEntry {
   /** Short legal / safety notice shown in the support block. */
   notice?: L10n;
   hasPolicy: boolean;
+  /** Own terms of use (content/<slug>/KULLANIM-KOSULLARI.md + TERMS-OF-USE.md) and KVKK notice (KVKK-AYDINLATMA-METNI.md) */
+  legalPages?: { terms?: boolean; kvkk?: boolean };
   /** Set while copy has not been confirmed by the team — rendered normally, flagged in code only. */
   draft?: boolean;
   /** External pages owned by the app itself (its own website, legal pages). */
@@ -605,61 +607,58 @@ export const apps: AppEntry[] = [
     hasPolicy: true,
   },
   {
-    // Metinler DocuVault deposundaki App Store açıklaması (docs/marketing) ve 1.4.0 yenilik notlarıyla uyumlu.
-    // Not: Yapay zekâ işlemleri BULUTTA (Supabase + Google Gemini) yapılır; analitik (PostHog) var.
-    // Bu yüzden "cihazda" ya da "izleme yok" denmez.
+    // DocuVault 2.0 (Kasım 2026): yerel SwiftUI, sunucusuz. Belgeler kullanıcının iCloud'unda,
+    // yapay zekâ ve çeviri cihazda (Apple Intelligence / Apple Translation). Analitik ve reklam yok.
+    // Fiyat yazılmaz (App Store'da görünür). Yasal metinler content/docuvault/*.md.
     slug: "docuvault",
     name: "DocuVault",
     status: "live",
     tagline: {
-      TR: "Belgeleriniz güvende, saniyeler içinde bulun.",
-      EN: "Your documents, safe and found in seconds.",
+      TR: "Belgelerin tek kasada: tara, özetle, hatırlat.",
+      EN: "All your documents in one vault: scan, summarize, remind.",
     },
     description: {
-      TR: "DocuVault, kişisel ve iş belgelerinizi tek bir akıllı kasada toplar: fatura, sözleşme, poliçe, kimlik, reçete ve daha fazlası. Yapay zekâ destekli arama ile saniyede bulun, Face ID ile yalnızca size açılan bir alanda saklayın.",
-      EN: "DocuVault gathers your personal and work documents in one smart vault: invoices, contracts, policies, IDs, prescriptions and more. Find them in seconds with AI search and keep them in a space only Face ID can open.",
+      TR: "Faturaların, kimliklerin, sözleşmelerin ve poliçelerin tek bir güvenli kasada. DocuVault belgeyi tarar, okur, özetler ve son tarihi gelmeden seni uyarır. Hesap yok, sunucu yok: belgelerin cihazında işlenir ve yalnızca senin iCloud hesabında saklanır.",
+      EN: "Your bills, IDs, contracts and insurance policies in one secure vault. DocuVault scans, reads and summarizes your documents and reminds you before anything is due. No account, no servers: documents are processed on your device and stored only in your own iCloud.",
     },
     appStoreId: "6762083376",
-    platforms: ["iPhone"],
+    platforms: ["iPhone", "iPad", "Apple Watch"],
     category: { TR: "Verimlilik", EN: "Productivity" },
     accent: { from: "#3C4F33", to: "#D39A6A", glow: "rgba(211, 154, 106, 0.42)" },
     hasIcon: true,
-    screenshots: 5, // DocuVault sitesindeki gerçek ekranlar (Haziran 2026); dosya adları bulanıklaştırıldı
+    screenshots: 7, // App Store görselleri (2.0, Türkçe)
     links: {
-      website: "https://www.appdocuvault.com",
-      privacy: "https://www.appdocuvault.com/privacy",
-      terms: "https://www.appdocuvault.com/terms",
-      supportEmail: "destek@appdocuvault.com",
+      supportEmail: "info@woowcode.com",
     },
     manifesto: {
       lead: {
-        TR: "Belgeleriniz mailde, WhatsApp'ta, çekmecede.",
+        TR: "Belgelerin mailde, WhatsApp'ta, çekmecede.",
         EN: "Your documents live in mail, WhatsApp and a drawer.",
       },
       statement: {
-        TR: "DocuVault'ta hepsi aranır, bulunur ve korunur.",
-        EN: "In DocuVault they are searched, found and protected.",
+        TR: "DocuVault'ta hepsi tek kasada: okunur, özetlenir, zamanında hatırlatılır.",
+        EN: "In DocuVault they're all in one vault: read, summarized and remembered on time.",
       },
       principles: [
         {
-          title: { TR: "Tek kasa", EN: "One vault" },
+          title: { TR: "Hesap yok, sunucu yok", EN: "No account, no servers" },
           body: {
-            TR: "Tarayın, fotoğraflayın ya da paylaş menüsünden gönderin; her belge aynı kasaya düşer ve kendi kategorisini bulur.",
-            EN: "Scan it, snap it or send it from the share sheet; every document lands in the same vault and finds its own category.",
+            TR: "Kayıt olmazsın, şifre belirlemezsin. Belgelerin yalnızca senin iCloud hesabında durur; biz bile göremeyiz.",
+            EN: "No sign-up, no password. Your documents live only in your iCloud account; not even we can see them.",
           },
         },
         {
-          title: { TR: "Saniyede bulun", EN: "Found in seconds" },
+          title: { TR: "Yapay zekâ cihazında", EN: "AI on your device" },
           body: {
-            TR: "Dosya adını hatırlamanız gerekmez. \"Mart ayındaki elektrik faturası\" yazın; içerik, tarih ve kategori birlikte aranır.",
-            EN: "No need to remember file names. Type \"March electricity bill\"; content, date and category are searched together.",
+            TR: "Özetler, öne çıkanlar, Belgeye Sor ve çeviri Apple'ın cihazdaki modelleriyle çalışır; belgelerin internete gönderilmez.",
+            EN: "Summaries, highlights, Ask Document and translation run on Apple's on-device models; your documents never go to the internet.",
           },
         },
         {
-          title: { TR: "Kontrol sizde", EN: "You stay in control" },
+          title: { TR: "Hiçbir tarihi kaçırma", EN: "Never miss a date" },
           body: {
-            TR: "Face ID kilidi, şifreli depolama, süreli ve iptal edilebilir paylaşım linkleri. Reklam yok, veri satışı yok.",
-            EN: "Face ID lock, encrypted storage, expiring and revocable share links. No ads, no data selling.",
+            TR: "Son ödeme, poliçe bitişi, garanti: tutar ve tarih belgeden okunur, zamanı gelince bildirim gelir.",
+            EN: "Due dates, policy renewals, warranties: the amount and date are read from the document and you're notified in time.",
           },
         },
       ],
@@ -668,110 +667,125 @@ export const apps: AppEntry[] = [
       {
         id: "vault",
         eyebrow: { TR: "Kasa", EN: "Vault" },
-        title: { TR: "Bütün belgeleriniz, tek bir yerde.", EN: "All your documents, in one place." },
+        title: { TR: "Bütün belgelerin, tek bir yerde.", EN: "All your documents, in one place." },
         body: {
-          TR: "Fatura, kimlik, sözleşme, reçete, sigorta, banka: belgeler hazır kategorilere ayrılır. Üstüne kendi koleksiyonlarınızı kurun; \"Kira Evrakları\", \"Vergi Beyannameleri\" gibi.",
-          EN: "Invoices, IDs, contracts, prescriptions, insurance, bank: documents are sorted into ready-made categories. Build your own collections on top, like \"Rental papers\" or \"Tax returns\".",
+          TR: "Kamerayla tara ya da Dosyalar, Fotoğraflar ve Paylaş menüsünden ekle. Belgedeki yazı cihazında okunur; ad, kategori, tutar ve son tarih kendiliğinden dolar.",
+          EN: "Scan with the camera or add from Files, Photos and the Share menu. The text is read on your device; name, category, amount and due date fill in automatically.",
         },
         bullets: [
-          { TR: "8 hazır kategori ve sınırsız özel koleksiyon", EN: "8 ready-made categories and unlimited custom collections" },
-          { TR: "Yapay zekâ anlamlı bir ad önerir: \"IMG_4519\" dönemi biter", EN: "AI suggests a meaningful name: no more \"IMG_4519\"" },
-          { TR: "Belgeye uzun basın, hızlı önizleme ve işlemler açılsın", EN: "Long-press a document for a quick preview and actions" },
+          { TR: "Kenarları otomatik bulan çok sayfalı tarayıcı", EN: "Multi-page scanner with automatic edge detection" },
+          { TR: "Yaklaşan ödemeler ve aylık harcama özeti", EN: "Upcoming payments and a monthly spending summary" },
+          { TR: "Belge içeriğinde bile arama; Siri ve Spotlight", EN: "Search even inside documents; Siri and Spotlight" },
         ],
         screen: 1,
       },
       {
-        id: "capture",
-        eyebrow: { TR: "İçe aktarma", EN: "Capture" },
-        title: { TR: "Her yerden, tek dokunuşla.", EN: "From anywhere, in one tap." },
+        id: "idcard",
+        eyebrow: { TR: "Kimlik, pasaport, kitap", EN: "ID card, passport, book" },
+        badge: { TR: "Yeni", EN: "New" },
+        title: { TR: "Kimlik fotokopisi, cebinde.", EN: "An ID photocopy in your pocket." },
         body: {
-          TR: "Belgeyi kamerayla tarayın; kenarları otomatik bulunur ve çok sayfalı PDF olur. Mail, WhatsApp ya da Safari'den paylaştığınız dosyalar doğrudan kasanıza düşer.",
-          EN: "Scan a document with the camera; edges are found automatically and it becomes a multi-page PDF. Files you share from Mail, WhatsApp or Safari land straight in your vault.",
+          TR: "Kimlik kartının ön ve arka yüzünü tara; ikisi gerçek boyutunda tek bir A4 sayfaya yerleşir, fotokopi gibi yazdırırsın. Pasaport sayfaları da gerçek boyutunda; kitapta iki sayfalık açılış otomatik ayrılır.",
+          EN: "Scan the front and back of your ID card; both are placed at real size on a single A4 page, ready to print like a photocopy. Passport pages keep their real size too; book spreads are split automatically.",
         },
         bullets: [
-          { TR: "Belge tarayıcı, kamera, galeri ve dosya", EN: "Document scanner, camera, photos and files" },
-          { TR: "Paylaş menüsünden ve uygulama ikonu kısayollarından içe aktarma", EN: "Import from the share sheet and app icon quick actions" },
-          { TR: "OCR ile fotoğraftaki yazı aranabilir metne dönüşür", EN: "OCR turns the text in a photo into searchable text" },
+          { TR: "Kimlik kartı modu (Plus)", EN: "ID card mode (Plus)" },
+          { TR: "Pasaport ve kitap tarama modları", EN: "Passport and book scanning modes" },
+          { TR: "Taramadan önce adım adım yönlendirme", EN: "Step-by-step guide before you scan" },
         ],
         screen: 2,
       },
       {
         id: "ai",
         variant: "ai",
-        eyebrow: { TR: "Yapay zekâ", EN: "AI" },
-        badge: { TR: "Doğal dilde arama", EN: "Natural-language search" },
-        title: { TR: "Yazın, bulsun. Okumadan anlayın.", EN: "Type it, find it. Understand without reading." },
+        eyebrow: { TR: "Apple Intelligence", EN: "Apple Intelligence" },
+        badge: { TR: "Cihazda", EN: "On device" },
+        title: { TR: "Okumadan anla, sorup öğren.", EN: "Understand without reading. Ask and learn." },
         body: {
-          TR: "Aradığınızı kendi cümlenizle yazın ya da söyleyin; DocuVault içeriği, tarihi ve kategoriyi birlikte değerlendirip doğru belgeyi getirir. Uzun bir sözleşmenin ne dediğini AI özetiyle saniyeler içinde görün.",
-          EN: "Type or say what you're looking for in your own words; DocuVault weighs content, date and category together and brings the right document. See what a long contract says in seconds with an AI summary.",
+          TR: "Her belge için kısa bir özet ve öne çıkan maddeler. \"Muafiyet ne kadar?\" diye sor, cevap belgenin kendisinden gelsin. Yabancı dildeki belgeyi cihazında çevir.",
+          EN: "A short summary and key highlights for every document. Ask \"What's the deductible?\" and get the answer from the document itself. Translate foreign-language documents on your device.",
         },
         bullets: [
-          { TR: "\"Geçen ayki faturalar\", \"kimlik belgelerim\" gibi doğal sorgular", EN: "Natural queries like \"last month's bills\" or \"my ID documents\"" },
-          { TR: "Sesli arama", EN: "Voice search" },
-          { TR: "Belge özeti, önemli tarihler ve tutarlar", EN: "Document summary, key dates and amounts" },
-          { TR: "Yapay zekâ işlemleri şifreli bağlantıyla bulutta yapılır", EN: "AI processing runs in the cloud over an encrypted connection" },
+          { TR: "Özet ve öne çıkanlar", EN: "Summary and highlights" },
+          { TR: "Belgeye Sor", EN: "Ask Document" },
+          { TR: "Belge çevirisi (Plus)", EN: "Document translation (Plus)" },
+          { TR: "Hepsi cihazda; belgelerin internete gitmez", EN: "All on device; your documents never leave it" },
         ],
         screen: 3,
       },
       {
-        id: "collections",
-        eyebrow: { TR: "Koleksiyonlar", EN: "Collections" },
-        title: { TR: "Kendi düzeninizi kurun.", EN: "Build your own order." },
+        id: "watermark",
+        eyebrow: { TR: "Güvenle paylaş", EN: "Share safely" },
+        title: { TR: "Kopyan, yalnızca verdiğin iş için.", EN: "Your copy, only for its purpose." },
         body: {
-          TR: "Hazır kategorilerin üstüne kendi koleksiyonlarınızı ekleyin: \"Faturalar\", \"Şirket Evrakları\", \"Kira\"... Her birine kendi ikonunu ve rengini verin; ilgili belgeler tek dokunuşla bir arada.",
-          EN: "Add your own collections on top of the ready-made categories: \"Bills\", \"Company papers\", \"Rental\"... Give each its own icon and colour; related documents together in one tap.",
+          TR: "\"Yalnızca banka başvurusu içindir\" gibi bir filigranı sayfalara kalıcı işle; kimlik numarası, IBAN ve kart bilgilerini otomatik bulup karart. Parolalı PDF ya da süreli, uçtan uca şifreli link olarak paylaş.",
+          EN: "Burn a watermark like \"For bank application only\" into the pages; find and redact ID numbers, IBANs and card details automatically. Share as a password-protected PDF or an expiring, end-to-end encrypted link.",
         },
         bullets: [
-          { TR: "Sınırsız koleksiyon, özel ikon ve renk", EN: "Unlimited collections with custom icon and colour" },
-          { TR: "Belgeyi uzun basarak koleksiyona ekleyin", EN: "Long-press a document to add it to a collection" },
-          { TR: "Koleksiyonlar ücretsiz planda da sınırsız", EN: "Collections are unlimited on the free plan too" },
+          { TR: "Filigran ve otomatik karartma", EN: "Watermarks and automatic redaction" },
+          { TR: "Parolalı PDF", EN: "Password-protected PDF" },
+          { TR: "Süreli, iptal edilebilir şifreli linkler (Plus)", EN: "Expiring, revocable encrypted links (Plus)" },
+          { TR: "İmzala; imzan yalnızca bu cihazda", EN: "Sign; your signature stays on this device" },
         ],
         screen: 4,
       },
       {
-        id: "share",
-        eyebrow: { TR: "Güvenlik", EN: "Security" },
-        title: { TR: "Kasanız, yalnızca size açılır.", EN: "Your vault opens only for you." },
+        id: "sets",
+        eyebrow: { TR: "Belge setleri", EN: "Document sets" },
+        title: { TR: "Gişeye gitmeden eksikleri gör.", EN: "See what's missing before the counter." },
         body: {
-          TR: "Face ID, Touch ID ya da PIN ile kilitli bir kasa. Bir belgeyi paylaşmanız gerektiğinde süreli, filigranlı ve istediğiniz an iptal edebileceğiniz bir link gönderin; alıcı uygulama kurmadan tarayıcıda açar.",
-          EN: "A vault locked with Face ID, Touch ID or PIN. When you need to share a document, send an expiring, watermarked link you can revoke anytime; the recipient opens it in a browser, no app needed.",
+          TR: "Vize, ev kiralama, işe giriş, araç satışı: her süreç için hazır listeler. Hangi belgenin hazır, hangisinin eksik olduğunu tek bakışta gör.",
+          EN: "Visa, renting a home, a new job, selling a car: ready-made lists for each process. See at a glance what's ready and what's missing.",
         },
         bullets: [
-          { TR: "Teslim makbuzu: linkin ne zaman açıldığını görün", EN: "Delivery receipt: see when the link was opened" },
-          { TR: "WhatsApp'a tek dokunuşla gönderim", EN: "Send to WhatsApp in one tap" },
-          { TR: "Otomatik karartma: AI önerir, siz onaylarsınız", EN: "Auto-redaction: AI suggests, you approve" },
-          { TR: "Face ID / Touch ID ve PIN ile kilit", EN: "Locked with Face ID / Touch ID and PIN" },
+          { TR: "Hazır şablonlar ve kendi listelerin", EN: "Ready-made templates and your own lists" },
+          { TR: "Apple Intelligence ile belge seti oluştur", EN: "Create a document set with Apple Intelligence" },
+          { TR: "Koleksiyonlar: \"Ev\", \"Araba\" gibi", EN: "Collections like \"Home\" or \"Car\"" },
         ],
         screen: 5,
+      },
+      {
+        id: "emergency",
+        eyebrow: { TR: "Acil Durum Kartı", EN: "Emergency Card" },
+        title: { TR: "Acil durumda, bir dokunuş uzakta.", EN: "In an emergency, one tap away." },
+        body: {
+          TR: "Kan grubu, alerjiler, ilaçlar ve acil kişiler tek kartta. Telefon kilitliyken kilit ekranı widget'ından ve Siri'den, ayrıca Apple Watch'tan açılır.",
+          EN: "Blood type, allergies, medications and emergency contacts on one card. Open it from the Lock Screen widget and Siri while the phone is locked, and on Apple Watch.",
+        },
+        bullets: [
+          { TR: "Kilit ekranı, Siri ve Apple Watch", EN: "Lock Screen, Siri and Apple Watch" },
+          { TR: "Her zaman ücretsiz", EN: "Always free" },
+        ],
+        screen: 7,
       },
     ],
     extra: [
       {
-        title: { TR: "Kapsüller (yeni)", EN: "Capsules (new)" },
-        body: {
-          TR: "Vize, kira, işe giriş, vergi... Her süreç için hazır evrak listesi; eksikleri gişeye gitmeden görün, hepsini tek bir sıralı PDF olarak paylaşın.",
-          EN: "Visa, rental, onboarding, tax... A ready-made document list for each process; see what's missing before the counter and share it all as one ordered PDF.",
-        },
-      },
-      {
-        title: { TR: "Son-kullanma muhafızı", EN: "Expiry guardian" },
-        body: {
-          TR: "Kimlik, vize ve poliçelerin bitiş tarihlerini takip edin; \"Yaklaşanlar\" ile vadesi geleni kaçırmayın.",
-          EN: "Track expiry dates for IDs, visas and policies; never miss a renewal with \"Upcoming\".",
-        },
-      },
-      {
-        title: { TR: "AI belge üretici", EN: "AI document writer" },
-        body: {
-          TR: "Dilekçe, beyan ve başvuru metinlerini yapay zekâ ile oluşturun; düzenleyip PDF olarak kaydedin.",
-          EN: "Generate petitions, declarations and applications with AI; edit and save as PDF.",
-        },
-      },
-      {
         title: { TR: "PDF araçları", EN: "PDF tools" },
         body: {
-          TR: "Sayfaları döndürün, sıralayın, silin; filigran ve sayfa numarası ekleyin. Orijinaliniz hep korunur.",
-          EN: "Rotate, reorder and delete pages; add watermarks and page numbers. Your original is always kept.",
+          TR: "Belgeleri tek PDF'te birleştir, istediğin sayfaları ayır, dosyayı e-posta ve e-Devlet sınırları için küçült. Asıl belgen hep korunur.",
+          EN: "Merge documents into one PDF, split out the pages you need and compress files for email and upload limits. Your original is always kept.",
+        },
+      },
+      {
+        title: { TR: "Aile Kasası", EN: "Family Vault" },
+        body: {
+          TR: "Seçtiğin belgeleri eşin ve ailenle iCloud üzerinden paylaş; tek Plus aboneliği Aile Paylaşımı ile bütün aileye yeter.",
+          EN: "Share the documents you choose with your partner and family through iCloud; one Plus subscription covers the whole family with Family Sharing.",
+        },
+      },
+      {
+        title: { TR: "Şifreli yedek", EN: "Encrypted backup" },
+        body: {
+          TR: "Kasanın parolayla şifrelenmiş bir kopyasını Dosyalar'a, bilgisayarına ya da USB belleğe kaydet.",
+          EN: "Save a password-encrypted copy of your vault to Files, your computer or a USB drive.",
+        },
+      },
+      {
+        title: { TR: "Harcamalar", EN: "Spending" },
+        body: {
+          TR: "Faturalardaki tutarlardan aylık harcama özeti, kategori dökümü ve yaklaşan ödemeler.",
+          EN: "Monthly spending, a category breakdown and upcoming payments from the amounts on your bills.",
         },
       },
     ],
@@ -779,36 +793,38 @@ export const apps: AppEntry[] = [
       free: {
         title: { TR: "Ücretsiz", EN: "Free" },
         items: [
-          { TR: "Belge tarayıcı, kamera, galeri ve dosyadan ekleme", EN: "Scanner, camera, photos and file import" },
-          { TR: "Ayda 3 belge için OCR metin tanıma", EN: "OCR text recognition for 3 documents a month" },
-          { TR: "50 MB şifreli bulut depolama", EN: "50 MB encrypted cloud storage" },
-          { TR: "Kategoriler, koleksiyonlar ve anahtar kelime arama", EN: "Categories, collections and keyword search" },
-          { TR: "Hatırlatmalar ve Face ID kilidi", EN: "Reminders and Face ID lock" },
+          { TR: "5 belgeye kadar kasa", EN: "A vault of up to 5 documents" },
+          { TR: "Tarama, metin tanıma, özet ve hatırlatma", EN: "Scanning, text recognition, summaries and reminders" },
+          { TR: "Pasaport ve kitap tarama, filigran, parolalı PDF", EN: "Passport and book scanning, watermarks, password-protected PDFs" },
+          { TR: "Face ID, iCloud eşitlemesi, karartma ve şifreli yedek", EN: "Face ID, iCloud sync, redaction and encrypted backup" },
+          { TR: "Acil Durum Kartı ve Apple Watch", EN: "Emergency Card and Apple Watch" },
         ],
       },
       plus: {
-        title: { TR: "DocuVault Gold", EN: "DocuVault Gold" },
+        title: { TR: "DocuVault Plus", EN: "DocuVault Plus" },
         items: [
-          { TR: "Sınırsız OCR", EN: "Unlimited OCR" },
-          { TR: "Yapay zekâ ile akıllı arama ve sesli arama", EN: "AI smart search and voice search" },
-          { TR: "2 GB şifreli bulut depolama", EN: "2 GB encrypted cloud storage" },
-          { TR: "PDF araçları", EN: "PDF tools" },
+          { TR: "Sınırsız belge", EN: "Unlimited documents" },
+          { TR: "Kimlik kartı taraması, PDF araçları ve belge çevirisi", EN: "ID card scanning, PDF tools and document translation" },
+          { TR: "Sınırsız Belgeye Sor ve sınırsız imza", EN: "Unlimited Ask Document and unlimited signatures" },
+          { TR: "Aile Kasası ve şifreli paylaşım linkleri", EN: "Family Vault and encrypted share links" },
+          { TR: "Birden çok hatırlatma ve harcama grafikleri", EN: "Multiple reminders and spending charts" },
         ],
         note: {
-          TR: "Aylık ve yıllık planlar uygulama içinde.",
-          EN: "Monthly and yearly plans are available in the app.",
+          TR: "Aylık ve yıllık planlar uygulama içinde; yıllık planda 1 hafta ücretsiz deneme. Plus biterse belgelerin kilitlenmez.",
+          EN: "Monthly and yearly plans are in the app; the yearly plan includes a 1-week free trial. If Plus ends, your documents never get locked.",
         },
       },
     },
     features: [],
     privacy: [
-      { TR: "Reklam yok, veri satışı yok", EN: "No ads, no data selling" },
-      { TR: "Face ID / Touch ID ve PIN kilidi", EN: "Face ID / Touch ID and PIN lock" },
-      { TR: "Şifreli bulut depolama", EN: "Encrypted cloud storage" },
-      { TR: "Apple ile Giriş desteği", EN: "Sign in with Apple" },
-      { TR: "KVKK uyumu", EN: "KVKK (Turkish data protection law) compliant" },
+      { TR: "Hesap yok; belgeler yalnızca senin iCloud'unda", EN: "No account; documents only in your iCloud" },
+      { TR: "Yapay zekâ ve çeviri cihazda", EN: "AI and translation on device" },
+      { TR: "Reklam, izleme ve analitik yok", EN: "No ads, no tracking, no analytics" },
+      { TR: "Face ID / Touch ID kilidi", EN: "Face ID / Touch ID lock" },
+      { TR: "KVKK uyumlu", EN: "KVKK (Turkish data protection law) compliant" },
     ],
-    hasPolicy: false,
+    hasPolicy: true,
+    legalPages: { terms: true, kvkk: true },
   },
 ];
 

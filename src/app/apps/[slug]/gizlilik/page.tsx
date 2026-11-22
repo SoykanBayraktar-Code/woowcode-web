@@ -36,7 +36,10 @@ export default async function GizlilikPage({ params }: Props) {
       nav={[
         { href: `/apps/${app.slug}#support`, label: "Destek" },
         { href: `/apps/${app.slug}/privacy`, label: "English", lang: "en" },
-        { href: APPLE_EULA_URL, label: "Kullanım Koşulları (Apple)", external: true },
+        app.legalPages?.terms
+          ? { href: `/apps/${app.slug}/kosullar`, label: "Kullanım Koşulları" }
+          : { href: APPLE_EULA_URL, label: "Kullanım Koşulları (Apple)", external: true },
+        ...(app.legalPages?.kvkk ? [{ href: `/apps/${app.slug}/kvkk`, label: "KVKK Aydınlatma Metni" }] : []),
       ]}
     >
       <article className={policyProse} dangerouslySetInnerHTML={{ __html: html }} />

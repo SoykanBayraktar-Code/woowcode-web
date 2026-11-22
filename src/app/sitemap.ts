@@ -25,6 +25,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
           { url: `${base}/apps/${app.slug}/gizlilik`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.4 },
         ]
       : []),
+    ...(app.legalPages?.terms
+      ? [
+          { url: `${base}/apps/${app.slug}/terms`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
+          { url: `${base}/apps/${app.slug}/kosullar`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
+        ]
+      : []),
+    ...(app.legalPages?.kvkk
+      ? [{ url: `${base}/apps/${app.slug}/kvkk`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 }]
+      : []),
   ]);
 
   const blogPages: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
