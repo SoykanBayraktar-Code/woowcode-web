@@ -62,12 +62,18 @@ Apple processes subscription payments; we have no access to your card or payment
 confirm your Pro membership, the transaction signed by Apple is sent to our privacy server. The
 server uses it only for that check and does not store it.
 
-### Likes, saves and follows
+### Likes, saves, follows and views
 
-The listings you like and save, and the agents you follow, are stored in CloudKit together with
-your in-app ID. This keeps them when you switch devices and lets the app show like, save and
-follower counts. These records don't include your name or contact details, can be read only by
-signed-in users of the app, and only you can delete them.
+The listings you like, save and view, and the agents you follow, are stored in CloudKit together
+with your in-app ID. This keeps them when you switch devices and lets the app show like, save,
+view and follower counts. A view is counted once per person. These records don't include your
+name or contact details, can be read only by signed-in users of the app, and only you can delete
+them.
+
+### Blocks
+
+The agents you block are stored in CloudKit so the block stays in place when you switch devices.
+Only you can see this list; the person you block isn't told.
 
 ## 3. Privacy server
 
@@ -95,7 +101,8 @@ security measures.
 You can edit or delete your listings in the app at any time. You can delete your account in the
 app under the Portföyüm tab, Settings, "Hesabı Sil" (Delete Account). Deleting your account
 permanently removes your profile, all your listings and their photos, your protected records
-(contact details, exact locations and shared location), and your likes, saves and follows. If you can't access the app, send a
+(contact details, exact locations and shared location), and your likes, saves, follows, views
+and blocks. If you can't access the app, send a
 deletion request to info@woowcode.com; we complete it within 30 days. Deleting your account does
 not cancel a Pro subscription; cancel it in your App Store account settings.
 

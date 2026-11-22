@@ -62,13 +62,18 @@ Abonelik ödemelerini Apple alır; kart ya da ödeme bilgilerinize erişimimiz y
 üyeliğinizi doğrulamak için Apple'ın imzaladığı işlem bilgisi gizlilik sunucumuza gönderilir.
 Sunucu bu bilgiyi yalnızca doğrulama için kullanır ve saklamaz.
 
-### Beğeni, kaydetme ve takip
+### Beğeni, kaydetme, takip ve görüntülenme
 
-Beğendiğiniz ve kaydettiğiniz portföyler ile takip ettiğiniz emlakçılar, uygulama içi
-kimliğinizle birlikte CloudKit'te saklanır. Böylece cihaz değiştirdiğinizde kaybolmaz ve
-portföylerin beğeni, kaydetme ve takipçi sayıları gösterilebilir. Bu kayıtlar adınızı ya da
-iletişim bilgilerinizi içermez, yalnızca uygulamaya giriş yapmış kullanıcılar okuyabilir ve
-yalnızca siz silebilirsiniz.
+Beğendiğiniz, kaydettiğiniz ve görüntülediğiniz portföyler ile takip ettiğiniz emlakçılar,
+uygulama içi kimliğinizle birlikte CloudKit'te saklanır. Böylece cihaz değiştirdiğinizde
+kaybolmaz ve portföylerin beğeni, kaydetme, görüntülenme ve takipçi sayıları gösterilebilir.
+Görüntülenme kişi başına bir kez sayılır. Bu kayıtlar adınızı ya da iletişim bilgilerinizi
+içermez, yalnızca uygulamaya giriş yapmış kullanıcılar okuyabilir ve yalnızca siz silebilirsiniz.
+
+### Engellemeler
+
+Engellediğiniz emlakçılar, cihaz değiştirdiğinizde de geçerli kalması için CloudKit'te saklanır.
+Bu listeyi yalnızca siz görebilirsiniz; engellediğiniz kişi engellendiğini görmez.
 
 ## 3. Gizlilik sunucusu
 
@@ -96,8 +101,8 @@ verileriniz bu sağlayıcıların güvenlik önlemleriyle korunur.
 Portföylerinizi uygulamadan istediğiniz an düzenleyebilir ya da silebilirsiniz. Hesabınızı
 uygulamada Portföyüm sekmesi, Ayarlar, "Hesabı Sil" adımlarıyla silebilirsiniz. Hesap
 silindiğinde profiliniz, bütün portföyleriniz, fotoğrafları, korumalı kayıtlarınız (iletişim
-bilgileri, tam konumlar, paylaşılan konum) ve beğeni, kaydetme ve takip kayıtlarınız kalıcı olarak
-kaldırılır. Uygulamaya erişemiyorsanız
+bilgileri, tam konumlar, paylaşılan konum) beğeni, kaydetme, takip, görüntülenme ve engelleme
+kayıtlarınız kalıcı olarak kaldırılır. Uygulamaya erişemiyorsanız
 silme talebinizi info@woowcode.com adresine iletebilirsiniz; talebiniz 30 gün içinde yerine
 getirilir. Hesap silmek Pro aboneliğini iptal etmez; aboneliğinizi App Store hesap ayarlarından
 iptal etmelisiniz.
