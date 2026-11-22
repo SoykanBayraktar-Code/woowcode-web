@@ -62,9 +62,13 @@ Abonelik ödemelerini Apple alır; kart ya da ödeme bilgilerinize erişimimiz y
 üyeliğinizi doğrulamak için Apple'ın imzaladığı işlem bilgisi gizlilik sunucumuza gönderilir.
 Sunucu bu bilgiyi yalnızca doğrulama için kullanır ve saklamaz.
 
-### Cihazda kalanlar
+### Beğeni, kaydetme ve takip
 
-Beğeni, kaydetme ve takip bilgileriniz şimdilik yalnızca cihazınızda tutulur.
+Beğendiğiniz ve kaydettiğiniz portföyler ile takip ettiğiniz emlakçılar, uygulama içi
+kimliğinizle birlikte CloudKit'te saklanır. Böylece cihaz değiştirdiğinizde kaybolmaz ve
+portföylerin beğeni, kaydetme ve takipçi sayıları gösterilebilir. Bu kayıtlar adınızı ya da
+iletişim bilgilerinizi içermez, yalnızca uygulamaya giriş yapmış kullanıcılar okuyabilir ve
+yalnızca siz silebilirsiniz.
 
 ## 3. Gizlilik sunucusu
 
@@ -91,8 +95,9 @@ verileriniz bu sağlayıcıların güvenlik önlemleriyle korunur.
 
 Portföylerinizi uygulamadan istediğiniz an düzenleyebilir ya da silebilirsiniz. Hesabınızı
 uygulamada Portföyüm sekmesi, Ayarlar, "Hesabı Sil" adımlarıyla silebilirsiniz. Hesap
-silindiğinde profiliniz, bütün portföyleriniz, fotoğrafları ve korumalı kayıtlarınız (iletişim
-bilgileri, tam konumlar, paylaşılan konum) kalıcı olarak kaldırılır. Uygulamaya erişemiyorsanız
+silindiğinde profiliniz, bütün portföyleriniz, fotoğrafları, korumalı kayıtlarınız (iletişim
+bilgileri, tam konumlar, paylaşılan konum) ve beğeni, kaydetme ve takip kayıtlarınız kalıcı olarak
+kaldırılır. Uygulamaya erişemiyorsanız
 silme talebinizi info@woowcode.com adresine iletebilirsiniz; talebiniz 30 gün içinde yerine
 getirilir. Hesap silmek Pro aboneliğini iptal etmez; aboneliğinizi App Store hesap ayarlarından
 iptal etmelisiniz.
