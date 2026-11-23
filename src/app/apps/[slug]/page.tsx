@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { apps, getApp, iconPngSrc } from "@/lib/apps";
+import { apps, getApp, iconPngSrc, liveAppStoreId } from "@/lib/apps";
 import { ldJson, softwareApplicationLd } from "@/lib/jsonld";
 import AppDetail from "./AppDetail";
 
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ...(app.hasIcon ? { images: [{ url: iconPngSrc(app)!, width: 256, height: 256 }] } : {}),
     },
     // iPhone Safari'de sayfanın üstünde "Aç / İndir" bandı (Smart App Banner)
-    ...(app.appStoreId ? { itunes: { appId: app.appStoreId } } : {}),
+    ...(liveAppStoreId(app) ? { itunes: { appId: liveAppStoreId(app)! } } : {}),
   };
 }
 

@@ -424,7 +424,7 @@ export const apps: AppEntry[] = [
       TR: "Starlit, başlamanın zor geldiği günler için yapılmış bir kendine yardım uygulaması. Rutinlerin bir yıldızın çevresinde dönen gezegenler; o yıldız sensin. Kendine yardım ettikçe parlarsın.",
       EN: "Starlit is a self-help app made for the days when starting feels hard. Your routines are planets orbiting a star, and that star is you. You shine as you help yourself.",
     },
-    appStoreId: undefined, // TODO: App Store ID'sini ekle
+    appStoreId: "6836707753", // 1.0 incelemede; durum "live" olunca indirme butonu ve Smart App Banner açılır
     platforms: ["iPhone"],
     category: { TR: "Sağlık ve Fitness", EN: "Health & Fitness" },
     accent: { from: "#2E2668", to: "#FFD38A", glow: "rgba(255, 196, 120, 0.45)" },
@@ -835,8 +835,12 @@ export const apps: AppEntry[] = [
 export const liveApps = () => apps.filter((a) => a.status === "live");
 export const getApp = (slug: string) => apps.find((a) => a.slug === slug);
 
-export const appStoreUrl = (app: AppEntry) =>
-  app.appStoreId ? `https://apps.apple.com/app/id${app.appStoreId}` : undefined;
+/** App Store ID only takes effect once the app is live, so an unreleased app never links to an Apple 404. */
+export const liveAppStoreId = (app: AppEntry) => (app.status === "live" ? app.appStoreId : undefined);
+export const appStoreUrl = (app: AppEntry) => {
+  const id = liveAppStoreId(app);
+  return id ? `https://apps.apple.com/app/id${id}` : undefined;
+};
 export const appAssetBase = (app: AppEntry) => `/apps/${app.slug}${app.assetDir ? `/${app.assetDir}` : ""}`;
 export const iconSrc = (app: AppEntry) => (app.hasIcon ? `${appAssetBase(app)}/icon.webp` : undefined);
 export const iconPngSrc = (app: AppEntry) => (app.hasIcon ? `${appAssetBase(app)}/icon.png` : undefined);
