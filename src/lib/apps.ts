@@ -99,6 +99,128 @@ export const APPLE_EULA_URL = "https://www.apple.com/legal/internet-services/itu
 
 export const apps: AppEntry[] = [
   {
+    // Metinler Ninni deposundaki AppStore/metadata-tr.md ile uyumlu.
+    // Kural: abonelik fiyatı sitede yazılmaz (App Store'da görünür). Tıbbi vaat yok.
+    slug: "ninni",
+    name: "Ninni",
+    status: "coming-soon",
+    tagline: {
+      TR: "Bebeğin uyusun, sen de dinlen.",
+      EN: "Your baby sleeps, you get to rest.",
+    },
+    description: {
+      TR: "Ninni, yenidoğan ve bebekler için bir uyku sesleri uygulaması. Gerçek anne sesiyle pış pış, beyaz gürültü ve 13 sakinleştirici ses; bebek ağlarsa sesi kendiliğinden yeniden başlatır, yaşına göre bir sonraki uyku saatini hesaplar. Reklam yok, internet gerekmez.",
+      EN: "Ninni is a sleep-sound app for newborns and babies. A real mother's shushing, white noise and 13 soothing sounds; it restarts the sound when your baby cries and works out the next nap from your baby's age. No ads, no internet needed.",
+    },
+    appStoreId: undefined, // TODO: App Store ID'sini ekle
+    platforms: ["iPhone", "Apple Watch"],
+    category: { TR: "Sağlık ve Fitness", EN: "Health & Fitness" },
+    accent: { from: "#331C5C", to: "#B8A3FF", glow: "rgba(184, 163, 255, 0.45)" },
+    hasIcon: true,
+    screenshots: 2,
+    manifesto: {
+      lead: {
+        TR: "Gece üçte, kucağında ağlayan bir bebek.",
+        EN: "Three in the morning, a crying baby in your arms.",
+      },
+      statement: {
+        TR: "Ninni bir anne gibi pış pışlar.",
+        EN: "Ninni shushes like a mother would.",
+      },
+      principles: [
+        {
+          title: { TR: "Gerçek anne sesi", EN: "A real mother's voice" },
+          body: {
+            TR: "Pış pış, bir Türk annesinin gerçek kaydından hazırlandı; yapay bir taklit değil. Gece boyu kesintisiz döner.",
+            EN: "The shushing comes from a real Turkish mother's recording, not a synthetic imitation. It loops seamlessly all night.",
+          },
+        },
+        {
+          title: { TR: "Önce güvenlik", EN: "Safety first" },
+          body: {
+            TR: "Güvenli ses sınırı, bebek uyuyunca sesi kısma ve yüksek ses uyarısı herkes için ücretsiz.",
+            EN: "A safe volume limit, automatic dimming once your baby sleeps and a loud-volume warning are free for everyone.",
+          },
+        },
+        {
+          title: { TR: "Telefonunda kalır", EN: "Stays on your phone" },
+          body: {
+            TR: "Hesap yok, sunucu yok, reklam yok. Bebeğinle ilgili hiçbir bilgi telefonundan çıkmaz.",
+            EN: "No account, no server, no ads. Nothing about your baby ever leaves your phone.",
+          },
+        },
+      ],
+    },
+    showcases: [
+      {
+        id: "sounds",
+        eyebrow: { TR: "Sesler", EN: "Sounds" },
+        title: { TR: "Tek dokunuşla sakinlik.", EN: "Calm in one tap." },
+        body: {
+          TR: "Bir sese dokun, çalmaya başlasın; başka bir sese geçince önceki yumuşakça kısılır. Ekran kilitliyken de sabaha kadar çalar.",
+          EN: "Tap a sound and it starts; switch to another and the previous one fades out. It keeps playing until morning, even with the screen locked.",
+        },
+        bullets: [
+          { TR: "Pış pış, beyaz, pembe ve kahverengi gürültü", EN: "Shushing, white, pink and brown noise" },
+          { TR: "Anne karnı, kalp atışı, yağmur, dalgalar, fön, süpürge, araba", EN: "Womb, heartbeat, rain, waves, hair dryer, vacuum, car" },
+          { TR: "Sesleri üst üste karıştır, kendi sesini kaydet", EN: "Layer sounds and record your own voice" },
+        ],
+        screen: 1,
+      },
+      {
+        id: "sleep",
+        eyebrow: { TR: "Uyku saati", EN: "Sleep schedule" },
+        title: { TR: "Bir sonraki uykuyu bil.", EN: "Know the next nap." },
+        body: {
+          TR: "Bebekler yaşlarına göre belirli bir süre uyanık kalabilir; bu süre aşılınca fazla yorulur ve uykuya direnir. Ninni bir sonraki uyku saatini hesaplar ve vakti gelmeden haber verir.",
+          EN: "Babies can only stay awake so long for their age; past that they get overtired and fight sleep. Ninni works out the next nap and lets you know before it's time.",
+        },
+        bullets: [
+          { TR: "Uyudu ve Uyandı'yı tek dokunuşla kaydet", EN: "Log asleep and awake in one tap" },
+          { TR: "Uyku vaktinden 10 dakika önce hatırlatma", EN: "A reminder 10 minutes before sleep time" },
+          { TR: "Günlük ve haftalık uyku özeti", EN: "Daily and weekly sleep summary" },
+        ],
+        screen: 2,
+      },
+    ],
+    plans: {
+      free: {
+        title: { TR: "Ücretsiz", EN: "Free" },
+        items: [
+          { TR: "Pış pış ve beyaz gürültü, gece boyu kesintisiz", EN: "Shushing and white noise, all night long" },
+          { TR: "Güvenli ses sınırı ve otomatik kısma", EN: "Safe volume limit and automatic dimming" },
+          { TR: "Reklam yok", EN: "No ads" },
+        ],
+      },
+      plus: {
+        title: { TR: "Ninni Premium", EN: "Ninni Premium" },
+        items: [
+          { TR: "13 sesin tamamı ve ses karıştırma", EN: "All 13 sounds and layering" },
+          { TR: "Ağlama algılama ve otomatik yeniden başlatma", EN: "Cry detection and automatic restart" },
+          { TR: "Uyku saati ve hatırlatıcı", EN: "Sleep schedule and reminders" },
+          { TR: "Gece raporu ve uyku zamanlayıcısı", EN: "Night report and sleep timer" },
+          { TR: "Kendi sesinle pış pış ve ninni", EN: "Shushing and lullabies in your own voice" },
+        ],
+        note: {
+          TR: "Aylık ya da yıllık abonelik, ücretsiz deneme ile. Dilediğin zaman App Store'dan iptal edebilirsin.",
+          EN: "Monthly or yearly subscription with a free trial. Cancel anytime in the App Store.",
+        },
+      },
+    },
+    features: [],
+    privacy: [
+      { TR: "Hesap oluşturma yok", EN: "No account needed" },
+      { TR: "Sunucu yok, veri telefonunda", EN: "No server, data stays on your phone" },
+      { TR: "Ağlama algılamada ses kaydedilmez", EN: "Cry detection never records audio" },
+      { TR: "Reklam, izleme ve analitik yok", EN: "No ads, tracking or analytics" },
+    ],
+    notice: {
+      TR: "Ninni tıbbi bir cihaz değildir. Telefonu beşikten en az 2 metre uzağa koy ve sesi kısık tut. Pış Pış sesi: \"Gerçek Anne sesi piş piş\", candy baby (YouTube), CC BY.",
+      EN: "Ninni is not a medical device. Keep the phone at least 2 metres from the crib and the volume low. Shushing sound: \"Gerçek Anne sesi piş piş\" by candy baby (YouTube), CC BY.",
+    },
+    hasPolicy: true,
+  },
+  {
     // Metinler Portföyüm deposundaki README (Ücretsiz/Pro tablosu) ve App Store metinleriyle uyumlu.
     // Kural: portföylerde fiyat yok; abonelik fiyatı sitede yazılmaz (App Store'da görünür).
     slug: "portfoyum",

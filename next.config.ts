@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
       { source: "/tuffi", destination: "/apps/tuffi", permanent: true },
       { source: "/tuffi/privacy", destination: "/apps/tuffi/privacy", permanent: true },
       { source: "/tuffi/gizlilik", destination: "/apps/tuffi/gizlilik", permanent: true },
+      // Ninni: App Store kaydındaki destek ve gizlilik adresleri.
+      { source: "/ninni", destination: "/apps/ninni", permanent: true },
+      { source: "/ninni/privacy", destination: "/apps/ninni/privacy", permanent: true },
+      { source: "/ninni/gizlilik", destination: "/apps/ninni/gizlilik", permanent: true },
     ];
   },
 };
