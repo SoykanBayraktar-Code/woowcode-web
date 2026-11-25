@@ -37,8 +37,8 @@ function WireframeScreen() {
   );
 }
 
-function DesignScreen({ app }: { app?: AppEntry }) {
-  const src = app ? screenshotSrcs(app)[0] : undefined;
+function DesignScreen({ app, en }: { app?: AppEntry; en: boolean }) {
+  const src = app ? screenshotSrcs(app, en ? "EN" : "TR")[0] : undefined;
   if (src) return <Image src={src} alt="" fill sizes="280px" className="object-cover" />;
   return <div className="h-full bg-gradient-to-b from-[#0A84FF] to-[#5E5CE6]" />;
 }
@@ -80,7 +80,7 @@ function CodeScreen() {
 
 function LiveScreen({ app, en }: { app?: AppEntry; en: boolean }) {
   if (!app) return null;
-  const shots = screenshotSrcs(app).slice(0, 2);
+  const shots = screenshotSrcs(app, en ? "EN" : "TR").slice(0, 2);
   return (
     <div className="flex h-full flex-col bg-[#000] px-[7%] pt-[18%] text-white">
       <div className="flex gap-3">
@@ -145,7 +145,7 @@ export default function ProcessScene() {
       case "wireframe":
         return <WireframeScreen />;
       case "design":
-        return <DesignScreen app={app} />;
+        return <DesignScreen app={app} en={en} />;
       case "code":
         return <CodeScreen />;
       case "live":

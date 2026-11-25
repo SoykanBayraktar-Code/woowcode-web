@@ -22,9 +22,9 @@ const fadeUp = (delay = 0) => ({
 type Slide = { app: AppEntry; src?: string };
 
 /** Every screenshot of every live app; apps without screenshots get one branded placeholder slide. */
-function buildSlides(): Slide[] {
+function buildSlides(language: "TR" | "EN"): Slide[] {
   return liveApps().flatMap((app) => {
-    const shots = screenshotSrcs(app);
+    const shots = screenshotSrcs(app, language);
     return shots.length ? shots.map((src) => ({ app, src })) : [{ app }];
   });
 }
@@ -63,7 +63,7 @@ export default function HeroSection() {
   const en = language === "EN";
   const sectionRef = useRef<HTMLElement>(null);
 
-  const slides = buildSlides();
+  const slides = buildSlides(language);
   const apps = liveApps();
   const [index, setIndex] = useState(0);
   const current = slides[index % slides.length];
