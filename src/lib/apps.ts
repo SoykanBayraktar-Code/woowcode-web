@@ -400,7 +400,7 @@ export const apps: AppEntry[] = [
     // Ekranlar geçici kod çizimi karakterle alındı; Aseprite çizimleri gelince yenilenmeli.
     slug: "tuffi",
     name: "Tuffi",
-    status: "coming-soon",
+    status: "live",
     draft: true,
     tagline: {
       TR: "Cebindeki sanal bebek.",
@@ -410,7 +410,7 @@ export const apps: AppEntry[] = [
       TR: "Tuffi, telefonunda yaşayan minik bir sanal bebek. Onu besle, sev, oynat ve uyut; nasıl bakarsan öyle bir karaktere dönüşsün. Ana ekranında, kilit ekranında ve Dynamic Island'da hep yanında.",
       EN: "Tuffi is a tiny virtual pet that lives on your phone. Feed it, pet it, play with it and tuck it in; it grows into whatever your care makes it. Always with you on your Home Screen, Lock Screen and in the Dynamic Island.",
     },
-    appStoreId: undefined, // TODO: App Store ID'sini ekle
+    appStoreId: "6837797845",
     platforms: ["iPhone"],
     category: { TR: "Oyunlar", EN: "Games" },
     accent: { from: "#5A3A2E", to: "#FFC8A2", glow: "rgba(255, 200, 162, 0.45)" },
