@@ -1,7 +1,7 @@
 "use client";
 
 import type { AppEntry } from "@/lib/apps";
-import { appStoreUrl } from "@/lib/apps";
+import { appStoreButtonUrl } from "@/lib/apps";
 import { useLanguage } from "@/context/LanguageContext";
 
 /**
@@ -11,7 +11,7 @@ import { useLanguage } from "@/context/LanguageContext";
  */
 export default function AppStoreButton({ app, size = "md" }: { app: AppEntry; size?: "md" | "lg" }) {
   const { language } = useLanguage();
-  const href = appStoreUrl(app);
+  const href = appStoreButtonUrl(app);
   const en = language === "EN";
 
   if (!href && process.env.NODE_ENV === "production") return null;

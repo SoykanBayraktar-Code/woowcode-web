@@ -66,6 +66,9 @@ export interface AppEntry {
   description: L10n;
   /** Numeric App Store ID (from the App Store URL: …/id1234567890). Enables the download button + Smart App Banner. */
   appStoreId?: string;
+  /** App Store Connect campaign link (Analytics → Acquisition → Campaigns). When set, the site's download
+   *  button uses it so downloads coming through the website are reported as campaign `ct`. */
+  appStoreCampaign?: { pt: string; ct: string };
   platforms: string[];
   category: L10n;
   /** Brand colours of the app — drive its spotlight card and page atmosphere. */
@@ -413,6 +416,7 @@ export const apps: AppEntry[] = [
       EN: "Tuffi is a tiny virtual pet that lives on your phone. Feed it, pet it, play with it and tuck it in; it grows into whatever your care makes it. Always with you on your Home Screen, Lock Screen and in the Dynamic Island.",
     },
     appStoreId: "6837797845",
+    appStoreCampaign: { pt: "128268626", ct: "web" },
     platforms: ["iPhone"],
     category: { TR: "Oyunlar", EN: "Games" },
     accent: { from: "#5A3A2E", to: "#FFC8A2", glow: "rgba(255, 200, 162, 0.45)" },
@@ -965,6 +969,13 @@ export const liveAppStoreId = (app: AppEntry) => (app.status === "live" ? app.ap
 export const appStoreUrl = (app: AppEntry) => {
   const id = liveAppStoreId(app);
   return id ? `https://apps.apple.com/app/id${id}` : undefined;
+};
+/** Link for the visible download button: the campaign link when the app has one, the plain store link otherwise. */
+export const appStoreButtonUrl = (app: AppEntry) => {
+  const id = liveAppStoreId(app);
+  if (!id) return undefined;
+  const c = app.appStoreCampaign;
+  return c ? `https://apps.apple.com/app/apple-store/id${id}?pt=${c.pt}&ct=${c.ct}&mt=8` : appStoreUrl(app);
 };
 export const appAssetBase = (app: AppEntry) => `/apps/${app.slug}${app.assetDir ? `/${app.assetDir}` : ""}`;
 export const iconSrc = (app: AppEntry) => (app.hasIcon ? `${appAssetBase(app)}/icon.webp` : undefined);
