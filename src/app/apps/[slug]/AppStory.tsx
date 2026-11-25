@@ -82,7 +82,7 @@ function AiAurora() {
 function ShowcaseBand({ app, item, index }: { app: AppEntry; item: AppShowcase; index: number }) {
   const { language } = useLanguage();
   const reduce = useReducedMotion();
-  const src = screenshotSrcs(app)[item.screen - 1];
+  const src = screenshotSrcs(app, language)[item.screen - 1];
   const flip = index % 2 === 1;
   const ai = item.variant === "ai";
 
@@ -187,7 +187,7 @@ export function Milestones({ app }: { app: AppEntry }) {
   const { language } = useLanguage();
   const m = app.milestones;
   if (!m) return null;
-  const src = m.screen ? screenshotSrcs(app)[m.screen - 1] : undefined;
+  const src = m.screen ? screenshotSrcs(app, language)[m.screen - 1] : undefined;
 
   return (
     <section className="relative overflow-hidden border-t border-[var(--border-color)] py-24 lg:py-32">

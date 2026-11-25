@@ -19,7 +19,7 @@ export default function AppDetail({ slug }: { slug: string }) {
   const { language } = useLanguage();
   const reduce = useReducedMotion();
   const en = language === "EN";
-  const shots = screenshotSrcs(app);
+  const shots = screenshotSrcs(app, language);
   const others = apps.filter((a) => a.slug !== app.slug);
 
   return (

@@ -76,6 +76,8 @@ export interface AppEntry {
   /** Görseller değişince yeni bir klasör adı ver (ör. "v2"): public/apps/<slug>/<assetDir>/…
    *  Adres değiştiği için tarayıcı ve CDN önbelleği eski görseli göstermez. */
   assetDir?: string;
+  /** true → an English set lives in public/apps/<slug>[/<assetDir>]/en/ and is shown when the site language is EN. */
+  screenshotsEN?: boolean;
   features: AppFeature[];
   privacy: L10n[];
   /** Short legal / safety notice shown in the support block. */
@@ -416,6 +418,7 @@ export const apps: AppEntry[] = [
     accent: { from: "#5A3A2E", to: "#FFC8A2", glow: "rgba(255, 200, 162, 0.45)" },
     hasIcon: true, // Kodla çizilen bebek sprite'ından (OYUN/Tuffi/Tools/render_icon.py); son çizimle yenilenecek
     screenshots: 6,
+    screenshotsEN: true,
     manifesto: {
       lead: {
         TR: "Doksanlarda cebimizde bir sanal bebek vardı.",
@@ -966,5 +969,7 @@ export const appStoreUrl = (app: AppEntry) => {
 export const appAssetBase = (app: AppEntry) => `/apps/${app.slug}${app.assetDir ? `/${app.assetDir}` : ""}`;
 export const iconSrc = (app: AppEntry) => (app.hasIcon ? `${appAssetBase(app)}/icon.webp` : undefined);
 export const iconPngSrc = (app: AppEntry) => (app.hasIcon ? `${appAssetBase(app)}/icon.png` : undefined);
-export const screenshotSrcs = (app: AppEntry) =>
-  Array.from({ length: app.screenshots }, (_, i) => `${appAssetBase(app)}/screen-${i + 1}.webp`);
+export const screenshotSrcs = (app: AppEntry, language?: "TR" | "EN") => {
+  const dir = language === "EN" && app.screenshotsEN ? `${appAssetBase(app)}/en` : appAssetBase(app);
+  return Array.from({ length: app.screenshots }, (_, i) => `${dir}/screen-${i + 1}.webp`);
+};

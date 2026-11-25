@@ -15,7 +15,7 @@ import DeviceFrame from "@/components/apps/DeviceFrame";
 export default function AppSpotlightCard({ app, large = false }: { app: AppEntry; large?: boolean }) {
   const { language } = useLanguage();
   const ref = useRef<HTMLAnchorElement>(null);
-  const shot = screenshotSrcs(app)[0];
+  const shot = screenshotSrcs(app, language)[0];
 
   const onMove = (e: React.PointerEvent) => {
     const el = ref.current;
