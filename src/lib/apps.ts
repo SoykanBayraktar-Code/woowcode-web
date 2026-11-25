@@ -397,7 +397,7 @@ export const apps: AppEntry[] = [
   {
     // Metinler Tuffi deposundaki 03-GDD.md, 02-para-modeli.md ve 04-isim-karakter.md ile uyumlu.
     // Kural: fiyat yazılmaz (App Store'da görünür). Tamagotchi/Bandai adı ve karakterleri geçmez.
-    // Ekranlar geçici kod çizimi karakterle alındı; Aseprite çizimleri gelince yenilenmeli.
+    // Ekranlar App Store görselleriyle aynı kaynaktan (OYUN/store-screenshots/raw/m-tr-1..6.png, 600×1303).
     slug: "tuffi",
     name: "Tuffi",
     status: "live",
@@ -415,7 +415,7 @@ export const apps: AppEntry[] = [
     category: { TR: "Oyunlar", EN: "Games" },
     accent: { from: "#5A3A2E", to: "#FFC8A2", glow: "rgba(255, 200, 162, 0.45)" },
     hasIcon: true, // Kodla çizilen bebek sprite'ından (OYUN/Tuffi/Tools/render_icon.py); son çizimle yenilenecek
-    screenshots: 2,
+    screenshots: 6,
     manifesto: {
       lead: {
         TR: "Doksanlarda cebimizde bir sanal bebek vardı.",
