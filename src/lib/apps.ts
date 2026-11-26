@@ -959,6 +959,173 @@ export const apps: AppEntry[] = [
     hasPolicy: true,
     legalPages: { terms: true, kvkk: true },
   },
+  {
+    // Metinler PTCoach deposundaki docs/APP_STORE.md ile uyumlu. Abonelik fiyatı sitede yazılmaz.
+    slug: "ptcoach",
+    name: "PT Coach",
+    status: "coming-soon",
+    tagline: {
+      TR: "Kişisel antrenörler ve üyeleri için.",
+      EN: "For personal trainers and their clients.",
+    },
+    description: {
+      TR: "PT Coach, kişisel antrenörlerin üyelerini, derslerini ve ödemelerini tek yerden yönettiği bir uygulama. Üyeler QR kod ile katılır; programını, ölçümlerini ve gelişimini kendi telefonundan takip eder. Sunucu yok: veriler eğitmenin kendi iCloud hesabında durur.",
+      EN: "PT Coach lets personal trainers manage their clients, sessions and payments in one place. Clients join with a QR code and follow their program, measurements and progress on their own phone. No servers: data lives in the trainer's own iCloud account.",
+    },
+    appStoreId: undefined, // TODO: App Store ID'sini ekle
+    platforms: ["iPhone"],
+    category: { TR: "Sağlık ve Fitness", EN: "Health & Fitness" },
+    accent: { from: "#10261A", to: "#C6FF3D", glow: "rgba(198, 255, 61, 0.40)" },
+    hasIcon: true,
+    screenshots: 3,
+    links: {
+      supportEmail: "info@woowcode.com",
+    },
+    manifesto: {
+      lead: {
+        TR: "Defter, WhatsApp ve hafızada kalan ödemeler.",
+        EN: "A notebook, WhatsApp and payments you try to remember.",
+      },
+      statement: {
+        TR: "PT Coach'ta üyelerin, derslerin ve alacakların tek ekranda.",
+        EN: "In PT Coach your clients, sessions and receivables are on one screen.",
+      },
+      principles: [
+        {
+          title: { TR: "Eğitmen girer, üye görür", EN: "Trainer edits, client views" },
+          body: {
+            TR: "Bütün bilgileri eğitmen girer. Üye kendi programını, kalan dersini ve ödemesini görür; eğitmenin notları yalnızca eğitmende kalır.",
+            EN: "The trainer enters everything. Clients see their own program, remaining sessions and payments; the trainer's notes stay with the trainer.",
+          },
+        },
+        {
+          title: { TR: "QR ile saniyeler içinde", EN: "Join in seconds with a QR code" },
+          body: {
+            TR: "Üye Ekle'ye dokun, QR kodu göster; üye okutur ve kendi telefonunda bilgilerini görmeye başlar.",
+            EN: "Tap Add Client and show the QR code; the client scans it and sees their information on their own phone.",
+          },
+        },
+        {
+          title: { TR: "Sunucu yok", EN: "No servers" },
+          body: {
+            TR: "Veriler eğitmenin iCloud hesabında saklanır. Sağlık bilgileri ve fotoğraflar yalnızca eğitmen ve üye tarafından görülür; biz bile göremeyiz.",
+            EN: "Data is stored in the trainer's iCloud account. Health details and photos are seen only by the trainer and the client; not even we can see them.",
+          },
+        },
+      ],
+    },
+    showcases: [
+      {
+        id: "today",
+        eyebrow: { TR: "Bugün", EN: "Today" },
+        title: { TR: "Günün tek bakışta.", EN: "Your day at a glance." },
+        body: {
+          TR: "Bugünkü dersler, karar bekleyen iptal talepleri, geciken ödemeler ve paketi bitmek üzere olan üyeler tek ekranda.",
+          EN: "Today's sessions, cancellation requests waiting for a decision, late payments and clients whose package is about to run out, on one screen.",
+        },
+        bullets: [
+          { TR: "Üye \"Derse gelemeyeceğim\" der, sen anında karar verirsin", EN: "Clients say \"I can't make it\"; you decide right away" },
+          { TR: "Sıradaki ders her zaman ekranın altında", EN: "The next session always at the bottom of the screen" },
+        ],
+        screen: 1,
+      },
+      {
+        id: "calendar",
+        eyebrow: { TR: "Takvim", EN: "Calendar" },
+        title: { TR: "Dolu ve boş saatlerin net.", EN: "Busy and free hours, clearly." },
+        body: {
+          TR: "Haftalık takvimde tekrarlayan dersler, çalışma saatlerin ve boş zamanların. Boş bir saate dokunup ders planla.",
+          EN: "Recurring sessions, your working hours and free time in a weekly calendar. Tap a free slot to plan a session.",
+        },
+        bullets: [
+          { TR: "Tekrarlayan dersler ve çalışma saatleri", EN: "Recurring sessions and working hours" },
+          { TR: "Ders yandı, iptal veya telafi kararları", EN: "No-show, cancel or make-up decisions" },
+        ],
+        screen: 2,
+      },
+      {
+        id: "finance",
+        eyebrow: { TR: "Finans", EN: "Finance" },
+        title: { TR: "Kimin ne kadar ödediğini bil.", EN: "Know who paid what." },
+        body: {
+          TR: "Paket, taksit ve ödeme takibi; bu ay tahsil edilen, bekleyen ve vadesi geçen alacaklar. CSV olarak dışa aktar.",
+          EN: "Packages, installments and payments; collected, pending and overdue amounts for the month. Export as CSV.",
+        },
+        bullets: [
+          { TR: "Gelecek ve geçmiş alacaklar", EN: "Upcoming and past receivables" },
+          { TR: "Son 6 ayın kazanç grafiği", EN: "Earnings chart for the last 6 months" },
+        ],
+        screen: 3,
+      },
+    ],
+    extra: [
+      {
+        title: { TR: "Program ve beslenme", EN: "Programs and nutrition" },
+        body: {
+          TR: "Şablonlarla antrenman programı hazırla, beslenme önerisi ekle; üye kendi telefonunda görsün.",
+          EN: "Build training programs from templates and add nutrition suggestions; clients see them on their phone.",
+        },
+      },
+      {
+        title: { TR: "Ölçüm ve gelişim fotoğrafı", EN: "Measurements and progress photos" },
+        body: {
+          TR: "Vücut ölçümlerini grafiklerle izle, öncesi ve sonrası fotoğraflarını yan yana karşılaştır (üyenin onayıyla).",
+          EN: "Track body measurements with charts and compare before-and-after photos side by side (with the client's consent).",
+        },
+      },
+      {
+        title: { TR: "Mesajlar", EN: "Messages" },
+        body: {
+          TR: "Üyelerinle birebir mesajlaş ya da hepsine birden duyuru gönder.",
+          EN: "Message clients one to one or send an announcement to all of them.",
+        },
+      },
+      {
+        title: { TR: "Doğrulanmış eğitmen", EN: "Verified trainers" },
+        body: {
+          TR: "Eğitmen, antrenörlük belgesini yükler; belge cihazda okunur ve belgedeki isim eğitmenin adıyla karşılaştırılır.",
+          EN: "Trainers upload their coaching certificate; it is read on the device and the name on it is matched with the trainer's name.",
+        },
+      },
+    ],
+    plans: {
+      free: {
+        title: { TR: "Üye", EN: "Client" },
+        items: [
+          { TR: "Üyeler için her zaman ücretsiz", EN: "Always free for clients" },
+          { TR: "Program, ölçümler, dersler ve ödemeler", EN: "Program, measurements, sessions and payments" },
+          { TR: "\"Derse gelemeyeceğim\" ve mesajlaşma", EN: "\"I can't make it\" and messaging" },
+        ],
+      },
+      plus: {
+        title: { TR: "PT Coach Pro (eğitmen)", EN: "PT Coach Pro (trainer)" },
+        items: [
+          { TR: "Sınırsız üye", EN: "Unlimited clients" },
+          { TR: "Takvim, paket ve ödeme takibi", EN: "Calendar, package and payment tracking" },
+          { TR: "Program, beslenme, ölçüm ve fotoğraflar", EN: "Programs, nutrition, measurements and photos" },
+          { TR: "Kazanç ve alacak raporları", EN: "Earnings and receivables reports" },
+        ],
+        note: {
+          TR: "Aylık ya da yıllık abonelik, 7 gün ücretsiz deneme ile. Abonelik biterse verilerin silinmez, salt okunur kalır.",
+          EN: "Monthly or yearly subscription with a 7-day free trial. If it ends, your data is not deleted; it stays read-only.",
+        },
+      },
+    },
+    features: [],
+    privacy: [
+      { TR: "Sunucu yok; veriler eğitmenin iCloud'unda", EN: "No servers; data in the trainer's iCloud" },
+      { TR: "Sağlık verileri yalnızca açık rızayla", EN: "Health data only with explicit consent" },
+      { TR: "Reklam, izleme ve analitik yok", EN: "No ads, no tracking, no analytics" },
+      { TR: "Uygulama içinden hesap ve veri silme", EN: "Account and data deletion inside the app" },
+      { TR: "KVKK uyumlu", EN: "KVKK (Turkish data protection law) compliant" },
+    ],
+    notice: {
+      TR: "PT Coach tıbbi bir cihaz değildir; uygulamadaki sağlık bilgileri ve beslenme önerileri tıbbi tavsiye yerine geçmez.",
+      EN: "PT Coach is not a medical device; health details and nutrition suggestions in the app are not medical advice.",
+    },
+    hasPolicy: true,
+    legalPages: { kvkk: true },
+  },
 ];
 
 export const liveApps = () => apps.filter((a) => a.status === "live");

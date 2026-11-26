@@ -20,6 +20,15 @@ const nextConfig: NextConfig = {
       { source: "/ninni", destination: "/apps/ninni", permanent: true },
       { source: "/ninni/privacy", destination: "/apps/ninni/privacy", permanent: true },
       { source: "/ninni/gizlilik", destination: "/apps/ninni/gizlilik", permanent: true },
+      // PT Coach: App Store kaydındaki destek ve gizlilik adresleri (woowcode.com/PT).
+      { source: "/pt", destination: "/apps/ptcoach", permanent: true },
+      { source: "/PT", destination: "/apps/ptcoach", permanent: true },
+      { source: "/pt/gizlilik", destination: "/apps/ptcoach/gizlilik", permanent: true },
+      { source: "/PT/gizlilik", destination: "/apps/ptcoach/gizlilik", permanent: true },
+      { source: "/pt/privacy", destination: "/apps/ptcoach/privacy", permanent: true },
+      { source: "/PT/privacy", destination: "/apps/ptcoach/privacy", permanent: true },
+      { source: "/pt/kvkk", destination: "/apps/ptcoach/kvkk", permanent: true },
+      { source: "/PT/kvkk", destination: "/apps/ptcoach/kvkk", permanent: true },
     ];
   },
 };
