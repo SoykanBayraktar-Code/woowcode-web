@@ -33,8 +33,8 @@ export const appsShelf = {
   title: { TR: "Önce kendi uygulamalarımızı", EN: "We ship our own apps" } as L10n,
   highlight: { TR: "yayınladık.", EN: "first." } as L10n,
   description: {
-    TR: "DocuVault'u ilk eskizden App Store'a kadar biz götürdük; Starlit de aynı yolda, yakında App Store'da. Sizin uygulamanızda da aynı ekip, aynı süreç.",
-    EN: "We took DocuVault from the first sketch to the App Store, and Starlit is on the same path, coming soon. Your app gets the same team and the same process.",
+    TR: "DocuVault'u ilk eskizden App Store'a kadar biz götürdük. Sizin uygulamanızda da aynı ekip, aynı süreç.",
+    EN: "We took DocuVault from the first sketch to the App Store. Your app gets the same team and the same process.",
   } as L10n,
   all: { TR: "Tüm uygulamalar", EN: "All apps" } as L10n,
 };

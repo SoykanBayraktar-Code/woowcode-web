@@ -1,7 +1,7 @@
 // ============================================================================
 // Uygulama gizlilik politikaları — derleme anında Markdown → HTML
-// Kaynak: content/<slug>/*.md (Starlit için Starlit deposundaki docs/ dosyalarının kopyası).
-// Starlit'in scripts/build-policy-site.py dönüştürücüsünün TypeScript karşılığı:
+// Kaynak: content/<slug>/*.md.
+// Markdown → HTML dönüştürücü:
 // yayımlanmayan kısımlar (baştaki ">" taslak notu, HTML yorumları ve "---"
 // sonrasındaki "Yayın öncesi kontrol listesi") atılır; metin yeniden yazılmaz.
 // ============================================================================

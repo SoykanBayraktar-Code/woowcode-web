@@ -53,8 +53,8 @@ export const aboutCopy = {
         EN: "The best way to learn what shipping an app really takes is to ship your own: design decisions, App Review, privacy labels, the first user feedback.",
       },
       {
-        TR: "Starlit ve DocuVault bu yolun ürünleri. Bugün aynı deneyimi, uygulama fikri olan girişimlere ve işletmelere sunuyoruz.",
-        EN: "Starlit and DocuVault came out of that path. Today we bring the same experience to startups and businesses with an app idea.",
+        TR: "DocuVault ve diğer uygulamalarımız bu yolun ürünleri. Bugün aynı deneyimi, uygulama fikri olan girişimlere ve işletmelere sunuyoruz.",
+        EN: "DocuVault and our other apps came out of that path. Today we bring the same experience to startups and businesses with an app idea.",
       },
     ] as L10n[],
   },
