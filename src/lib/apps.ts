@@ -969,15 +969,15 @@ export const apps: AppEntry[] = [
       EN: "For personal trainers and their clients.",
     },
     description: {
-      TR: "PT Coach, kişisel antrenörlerin üyelerini, derslerini ve ödemelerini tek yerden yönettiği bir uygulama. Üyeler QR kod ile katılır; programını, ölçümlerini ve gelişimini kendi telefonundan takip eder. Sunucu yok: veriler eğitmenin kendi iCloud hesabında durur.",
-      EN: "PT Coach lets personal trainers manage their clients, sessions and payments in one place. Clients join with a QR code and follow their program, measurements and progress on their own phone. No servers: data lives in the trainer's own iCloud account.",
+      TR: "PT Coach, kişisel antrenörlerin üyelerini, bireysel ve grup derslerini ve ödemelerini tek yerden yönettiği bir uygulama. Üyeler QR kod ile katılır, derse geldiğinde giriş QR'ını okutur; programını, ölçümlerini ve gelişimini kendi telefonundan takip eder. Sunucu yok: veriler eğitmenin kendi iCloud hesabında durur.",
+      EN: "PT Coach lets personal trainers manage their clients, one-to-one and group sessions, and payments in one place. Clients join with a QR code, check in to a session by scanning their QR, and follow their program, measurements and progress on their own phone. No servers: data lives in the trainer's own iCloud account.",
     },
-    appStoreId: undefined, // TODO: App Store ID'sini ekle
+    appStoreId: "6839493915", // Takes effect when status is "live"
     platforms: ["iPhone"],
     category: { TR: "Sağlık ve Fitness", EN: "Health & Fitness" },
     accent: { from: "#10261A", to: "#C6FF3D", glow: "rgba(198, 255, 61, 0.40)" },
     hasIcon: true,
-    screenshots: 3,
+    screenshots: 5,
     links: {
       supportEmail: "info@woowcode.com",
     },
@@ -1044,6 +1044,34 @@ export const apps: AppEntry[] = [
         screen: 2,
       },
       {
+        id: "group",
+        eyebrow: { TR: "Grup dersi", EN: "Group sessions" },
+        title: { TR: "Grup dersinde tek dokunuşla yoklama.", EN: "Group attendance in one tap." },
+        body: {
+          TR: "Düzenli gruplarını kaydet, grup dersini tek seferde planla. Ders bitince herkesi tek ekrandan işaretle; her üyenin kendi paketinden bir ders düşer.",
+          EN: "Save your regular groups and plan a group session in one go. Mark everyone on one screen when it ends; each client's own package goes down by one.",
+        },
+        bullets: [
+          { TR: "Bireysel ve grup paketleri", EN: "One-to-one and group packages" },
+          { TR: "Üyeler yalnızca grubun adını ve kişi sayısını görür", EN: "Clients only see the group's name and size" },
+        ],
+        screen: 3,
+      },
+      {
+        id: "checkin",
+        eyebrow: { TR: "QR ile yoklama", EN: "QR check-in" },
+        title: { TR: "QR'ı okut, ders kendiliğinden düşsün.", EN: "Scan the QR, the session is counted." },
+        body: {
+          TR: "Üye derse geldiğinde uygulamasındaki giriş QR'ını gösterir, sen okutursun; o saatteki dersi tamamlanır ve paketinden düşer. Yanlışlıkla olursa tek dokunuşla geri al.",
+          EN: "When a client arrives they show the check-in QR in their app and you scan it; the session at that time is completed and taken off their package. Undo it in one tap if needed.",
+        },
+        bullets: [
+          { TR: "Uygulamasız üyeler için yazdırılabilir QR kartı", EN: "Printable QR card for clients without the app" },
+          { TR: "İstersen düşmeden önce onay sorar", EN: "Can ask before counting, if you prefer" },
+        ],
+        screen: 5,
+      },
+      {
         id: "finance",
         eyebrow: { TR: "Finans", EN: "Finance" },
         title: { TR: "Kimin ne kadar ödediğini bil.", EN: "Know who paid what." },
@@ -1055,7 +1083,7 @@ export const apps: AppEntry[] = [
           { TR: "Gelecek ve geçmiş alacaklar", EN: "Upcoming and past receivables" },
           { TR: "Son 6 ayın kazanç grafiği", EN: "Earnings chart for the last 6 months" },
         ],
-        screen: 3,
+        screen: 4,
       },
     ],
     extra: [
@@ -1095,6 +1123,7 @@ export const apps: AppEntry[] = [
           { TR: "Üyeler için her zaman ücretsiz", EN: "Always free for clients" },
           { TR: "Program, ölçümler, dersler ve ödemeler", EN: "Program, measurements, sessions and payments" },
           { TR: "\"Derse gelemeyeceğim\" ve mesajlaşma", EN: "\"I can't make it\" and messaging" },
+          { TR: "Giriş QR'ı ile derse hızlı giriş", EN: "Quick check-in with your QR" },
         ],
       },
       plus: {
@@ -1102,6 +1131,7 @@ export const apps: AppEntry[] = [
         items: [
           { TR: "Sınırsız üye", EN: "Unlimited clients" },
           { TR: "Takvim, paket ve ödeme takibi", EN: "Calendar, package and payment tracking" },
+          { TR: "Grup dersleri ve QR ile yoklama", EN: "Group sessions and QR check-in" },
           { TR: "Program, beslenme, ölçüm ve fotoğraflar", EN: "Programs, nutrition, measurements and photos" },
           { TR: "Kazanç ve alacak raporları", EN: "Earnings and receivables reports" },
         ],

@@ -43,6 +43,8 @@ onaylar. Rızanın sürümü ve tarihi eğitmenin kaydında tutulur.
 
 - Bir üyeye ait bilgileri yalnızca o üyenin **eğitmeni** ve **üyenin kendisi** görebilir.
 - "Eğitmen Notları" yalnızca eğitmen tarafından görülür.
+- Grup derslerinde üye yalnızca grubun adını ve kişi sayısını görür; diğer katılımcıların adlarını ve bilgilerini göremez.
+- Derse giriş için kullanılan "Giriş QR'ı" üyeye özel bir kod içerir ve yalnızca eğitmenin uygulamasında okutulduğunda işe yarar; sağlık veya kişisel bilgi içermez.
 - Bildirimlerde sağlık verisi gösterilmez.
 - WOOWCODE bu verilere erişemez, görüntüleyemez ve işlemez.
 

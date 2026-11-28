@@ -43,6 +43,8 @@ The version and date of each consent are kept in the trainer's records.
 
 - A client's information can be seen only by **their trainer** and **the client**.
 - "Trainer Notes" are visible to the trainer only.
+- In group sessions a client only sees the group's name and the number of participants; they cannot see the other participants' names or details.
+- The check-in QR contains a code unique to the client and only works when scanned in their trainer's app; it contains no health or personal details.
 - Notifications never show health data.
 - WOOWCODE cannot access, view or process this data.
 
